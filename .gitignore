@@ -1,0 +1,25 @@
+# osx metadata or something.
+.DS_Store
+# resource forks. these shouldn't ever be seen but just in case
+._*
+
+# backup files
+*~
+
+# binary stuff
+*.dSYM
+*.exe
+*.app
+*.o
+
+osx/build
+*.build
+
+*-log.txt
+
+# xcode user files
+*.mode1v3
+*.pbxuser
+
+*.svn
+*.CVS*
