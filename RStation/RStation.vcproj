@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include"
+				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include;.\win32\"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include"
+				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include;.\win32\"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -193,11 +193,59 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MathUtils.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\MathUtils.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Primitives.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Primitives.h"
+				>
+			</File>
+			<File
 				RelativePath=".\RStation.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\RStation.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Screen.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Screen.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Timer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Timer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tween.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Tween.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Type.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Type.h"
 				>
 			</File>
 		</Filter>
@@ -207,11 +255,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\win32\inttypes.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
 				>
 			</File>
 			<File
 				RelativePath=".\win32\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\win32\stdint.h"
 				>
 			</File>
 			<File
@@ -290,6 +346,34 @@
 			</File>
 			<File
 				RelativePath=".\MouseHandler.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Image Formats"
+			>
+			<File
+				RelativePath=".\ImageLoader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ImageLoader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PNGLoader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PNGLoader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TGALoader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TGALoader.h"
 				>
 			</File>
 		</Filter>

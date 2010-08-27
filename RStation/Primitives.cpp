@@ -54,8 +54,8 @@ struct Vertex {
 
 void Primitive::Quad(vec2 size)
 {
-	float cx = size.x * 0.5;
-	float cy = size.y * 0.5;
+	float cx = size.x * 0.5f;
+	float cy = size.y * 0.5f;
 	std::vector<Vertex> verts;
 	Vertex back;
 	// x, y, z, u, v
