@@ -10,11 +10,17 @@ void PNGLoader::Load(std::string _path)
 	png_bytep *row_pointers = NULL;
 	int bitDepth, format;
 	
+	Log::Print("[PNGLoader::Load] Loading \"" + _path + "\"");
 	_path = FileManager::GetFile(_path);
 	FILE *pngFile = fopen(_path.c_str(), "rb");
 	
+	Log::DebugPrint(_path);
+	
 	if(!pngFile)
+	{
+		Log::Print("[PNGLoader::Load] File not found.");
 		return;
+	}
 	
 	png_byte sig[8];
 	
@@ -84,6 +90,7 @@ void PNGLoader::Load(std::string _path)
 	{
 		if(png_ptr)
 			png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+		Log::Print("[PNGLoader::Load] File not found.");
 		return;
 	}
 	
