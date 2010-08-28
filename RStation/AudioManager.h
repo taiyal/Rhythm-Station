@@ -1,13 +1,10 @@
 #ifndef _AUDIO_H_
 #define _AUDIO_H_
 
-namespace Scene
+namespace Audio
 {
-	namespace Audio
-	{
-		void Open();
-		void Close();
-	}
+	void Open();
+	void Close();
 }
 
 #endif
