@@ -1,3 +1,4 @@
+#include "RStation.h"
 #include <GL/glfw.h>
 #include "MouseHandler.h"
 
@@ -23,4 +24,5 @@ void RegisterMouseCallbacks()
 {
 	glfwSetMouseButtonCallback(MouseButtonCallback);
 	glfwSetMousePosCallback(MousePosCallback);
+	Log::Print("Registered MouseHandler.");
 }

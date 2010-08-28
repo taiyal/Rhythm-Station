@@ -5,38 +5,20 @@
 #include "Log.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
-
-void GLFWCALL ResizeViewport(int w, int h)
-{
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	
-	glViewport(0, 0, w, h);
-	glOrtho(int(-(w/2)), int((w/2)), int((h/2)), int(-(h/2)), -10, 10);
-	
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	// the frame buffer is usually full of junk after resize. clear it.
-	glClear(GL_COLOR_BUFFER_BIT);
-}
+#include "Callbacks.h" // not shared.
 
 void InitWindow(int ScrX, int ScrY)
 {
-	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 2);
-	glfwOpenWindow(
-		ScrX,ScrY,	// res
-		0,0,0,8,	// RGBA
-		32,1,		// depth, stencil
-		GLFW_WINDOW
-	);	
+	glfwInit();
+	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 4);
+	glfwOpenWindow(ScrX,ScrY, /* rgba */ 0,0,0,8, /* depth, stencil, mode */ 32,1, GLFW_WINDOW);
+	
+	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
-	glfwSetWindowSizeCallback(ResizeViewport);
-	glfwSwapInterval(1); // vsync
-	
+	glfwSwapInterval(1);
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
-//	glfwEnable(GLFW_KEY_REPEAT);
 	
+	RegisterResizeCallback();
 	RegisterKeyboardCallbacks();
 	RegisterMouseCallbacks();
 }
@@ -51,29 +33,25 @@ int main(int argc, char** argv)
 	// Init everything needed
 	Log::Open();
 	
-	glfwInit();
+	InitWindow(854, 480); // TODO: read prefs.
 	
-	// This needs to read prefs.
-	InitWindow(854, 480);
+	/*
+	 * Shader support is required as I would like this to be fairly modern.
+	 * As my laptop doesn't support OpenGL 3.x and far more hardware is around
+	 * which supports 2.x anyways, 2.x will be the base.
+	 *
+	 * Most hardware which supports it should have enough power to handle this app.
+	 * (Excluding some bottom end cards - I don't have high hopes for, say, a GF 6150)
+	 */
 	glewInit();
-
 	if (!GLEW_VERSION_2_0)
 	{
 		Log::Print("OpenGL 2.0 is not supported. You may need to update your drivers.");
-		return 1; // shaders support is required for RStation.
+		return 1;
 	}
-	// todo: reduce logging in release builds
-	// don't forget to define _DEBUG_!
-	Log::DebugPrint("[main] Setting initial states.");
-	glClearColor(0,0,0,1);
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDepthFunc(GL_LEQUAL);
-	glDisable(GL_LIGHTING);
 	
-	Log::DebugPrint("[main] Passing control to Game::Run.");
+	// Set up our defaults and pass control.
+	SetInitialStates();
 	Game::Run();
 	
 	// Clean up
