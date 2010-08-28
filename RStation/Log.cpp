@@ -24,7 +24,7 @@ void Log::Close()
 void Log::DebugPrint(std::string input)
 {
 #if _DEBUG_
-	Print(input);
+	Print(input+std::string(" (debug)"));
 #endif
 }
 
