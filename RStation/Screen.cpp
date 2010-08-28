@@ -4,11 +4,14 @@
 Screen::Screen()
 {
 	Log::DebugPrint("[Screen::Screen] Creating screen.");
+	img = new PNGLoader();
+	img->Load("image-png.png");
 }
 
 Screen::~Screen()
 {
 	Log::DebugPrint("[Screen::~Screen] Deleting.");
+	img->Unload();
 }
 
 void Screen::Input(const IEvent &e)
@@ -27,5 +30,6 @@ void Screen::Draw()
 	for(unsigned i = 0; i<vpActors.size(); i++)
 		vpActors[i]->Draw();
 	
+	glBindTexture(GL_TEXTURE_2D, img->GetTexture());
 	Primitive::Quad(vec2(50,50));
 }

@@ -13,15 +13,15 @@ public:
 	ImageLoader();
 	virtual ~ImageLoader();
 	
-	virtual GLuint GetTexture();
-	virtual void Unload();
+	GLuint GetTexture();
+	void Unload();
 	
-	virtual unsigned GetWidth();
-	virtual unsigned GetHeight();
+	unsigned GetWidth();
+	unsigned GetHeight();
 	
-	virtual void SetTexture(GLuint texture); // texture pointer
-	virtual void SetWidth(unsigned width);
-	virtual void SetHeight(unsigned height);
+	void SetTexture(GLuint texture); // texture pointer
+	void SetWidth(unsigned width);
+	void SetHeight(unsigned height);
 	
 private:
 	GLuint im_texture;

@@ -4,6 +4,7 @@
 #include "RStation.h"
 #include "InputManager.h"
 #include "Actor.h"
+#include "PNGLoader.h"
 
 class Screen
 {
@@ -16,6 +17,7 @@ public:
 	virtual void Draw();
 private:
 	std::vector<Actor*> vpActors;
+	PNGLoader* img;
 };
 
 #endif

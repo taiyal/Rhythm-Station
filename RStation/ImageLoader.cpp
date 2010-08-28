@@ -3,6 +3,9 @@
 // temporary macro
 #define _MIN(x) ((x > 0) ? x : 1)
 
+ImageLoader::ImageLoader() {}
+ImageLoader::~ImageLoader() {}
+
 GLuint ImageLoader::GetTexture()
 {
 	return im_texture;

@@ -128,7 +128,6 @@ void PNGLoader::Load(std::string _path)
 			break;
 	}
 	glTexImage2D(GL_TEXTURE_2D, 0, ret, width, height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
-	glBindTexture(GL_TEXTURE_2D, 0); // we're done here, reset.
 	SetTexture(texture);
 	
 	// cleanup
