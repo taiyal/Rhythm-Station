@@ -52,6 +52,7 @@ struct Vertex {
 	float v;
 };
 
+// TODO: vertex array
 void Primitive::Quad(vec2 size)
 {
 	float cx = size.x * 0.5f;
