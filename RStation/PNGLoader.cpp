@@ -2,38 +2,37 @@
 #include <png.h>
 #include <GL/glfw.h>
 
-unsigned png(const char *filename)
+void PNGLoader::Load(std::string _path)
 {
-	unsigned texture;
 	png_structp png_ptr = NULL;
 	png_infop info_ptr = NULL;
 	png_bytep *row_pointers = NULL;
 	int bitDepth, format;
 	
-	FILE *pngFile = fopen(filename, "rb");
+	FILE *pngFile = fopen(_path.c_str(), "rb");
 	
 	if(!pngFile)
-		return 0;
+		return;
 	
 	png_byte sig[8];
 	
 	fread(&sig, 8, sizeof(png_byte), pngFile);
 	rewind(pngFile); //so when we init io it won't bitch
 	if(!png_check_sig(sig, 8))
-		return 0;
+		return;
 	
 	png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL,NULL,NULL);
 	
 	if(!png_ptr)
-		return 0;
+		return;
 	
 	if(setjmp(png_jmpbuf(png_ptr)))
-		return 0;
+		return;
 	
 	info_ptr = png_create_info_struct(png_ptr);
 	
 	if(!info_ptr)
-		return 0;
+		return;
 	
 	png_init_io(png_ptr, pngFile);
 	png_read_info(png_ptr, info_ptr);
@@ -83,7 +82,7 @@ unsigned png(const char *filename)
 	{
 		if(png_ptr)
 			png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
-		return 0;
+		return;
 	}
 	
 	GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (width * height * ret));
@@ -97,31 +96,42 @@ unsigned png(const char *filename)
 	png_read_image(png_ptr, row_pointers);
 	png_read_end(png_ptr, NULL);
 	
+	SetWidth(width);
+	SetHeight(height);
 	
-	
-	// make it
-	glGenTextures(1, &texture);
-	// bind it
-	glBindTexture(GL_TEXTURE_2D, texture);
-	// stretch it
+	// upload texture to GPU
+	GLuint texture;
+	glGenTextures(1, &texture); // make it
+	glBindTexture(GL_TEXTURE_2D, texture); // bind it
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-	// technologic - I MEAN
 	
-	// here we have problems
 	GLuint glformat;
-	(ret == 4) ? ( glformat = GL_RGBA ) : 0;
-	(ret == 3) ? ( glformat = GL_RGB ) : 0;
-	(ret == 2) ? ( glformat = GL_LUMINANCE_ALPHA ) : 0;
-	(ret == 1) ? ( glformat = GL_LUMINANCE ) : 0;
-	
+	switch(ret)
+	{
+		case 1:
+			glformat = GL_LUMINANCE;
+			break;
+		case 2:
+			glformat = GL_LUMINANCE_ALPHA;
+			break;
+		case 3:
+			glformat = GL_RGB;
+			break;
+		case 4:
+			glformat = GL_RGBA;
+			break;
+		default:
+			glformat = 0; // this shouldn't happen.
+			break;
+	}
 	glTexImage2D(GL_TEXTURE_2D, 0, ret, width, height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
+	glBindTexture(GL_TEXTURE_2D, 0); // we're done here, reset.
+	im_texture = texture;
 	
-	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
-	
+	// cleanup
+	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);	
 	fclose(pngFile);
 	free(row_pointers);
 	free(pixels);
-	
-	return texture;
 }

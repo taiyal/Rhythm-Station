@@ -6,7 +6,8 @@
 
 class PNGLoader : public ImageLoader
 {
-
+	void Load(std::string path);
+	void Free();
 };
 
 #endif
