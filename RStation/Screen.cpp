@@ -26,6 +26,6 @@ void Screen::Draw()
 {
 	for(unsigned i = 0; i<vpActors.size(); i++)
 		vpActors[i]->Draw();
-		
+	
 	Primitive::Quad(vec2(50,50));
 }

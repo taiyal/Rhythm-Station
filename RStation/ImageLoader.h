@@ -8,21 +8,21 @@
 class ImageLoader
 {
 public:
-	void Free();
+	ImageLoader();
+	virtual ~ImageLoader();
+	virtual unsigned char Pixels();
+	virtual unsigned Width();
+	virtual unsigned Height();
 	
-	unsigned char Pixels();
-	unsigned Width();
-	unsigned Height();
-	
-	void SetPixels(unsigned char* pixels[]);
-	void SetWidth(unsigned width);
-	void SetHeight(unsigned height);
+	virtual void SetPixels(unsigned char* pixels[]);
+	virtual void SetFormat(char fmt);
+	virtual void SetWidth(unsigned width);
+	virtual void SetHeight(unsigned height);
 	
 private:
-	char** pixels;
-	
-	unsigned width;
-	unsigned height;
+	char _fmt;
+	unsigned im_width;
+	unsigned im_height;
 };
 
 #endif

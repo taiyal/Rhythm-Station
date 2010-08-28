@@ -5,12 +5,12 @@
 
 void ImageLoader::SetWidth(unsigned _width)
 {
-	width = _MIN(_width);
+	im_width = _MIN(_width);
 }
 
 void ImageLoader::SetHeight(unsigned _height)
 {
-	height = _MIN(_height);
+	im_height = _MIN(_height);
 }
 
 #undef _MIN
