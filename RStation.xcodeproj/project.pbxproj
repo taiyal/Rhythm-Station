@@ -346,7 +346,7 @@
 				EEF40F281220B3DD009F8F49 /* glew */,
 				EEF40B9C121D3D95009F8F49 /* glfw */,
 			);
-			name = extern;
+			path = extern;
 			sourceTree = "<group>";
 		};
 		EEF40B52121D2580009F8F49 /* Source */ = {
@@ -824,9 +824,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/libpng-1.2.44",
-					"$(PROJECT_DIR)/glew/include",
-					"$(PROJECT_DIR)/glfw/include",
+					"$(PROJECT_DIR)/extern/libpng-1.2.44",
+					"$(PROJECT_DIR)/extern/glew/include",
+					"$(PROJECT_DIR)/extern/glfw/include",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -842,9 +842,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/libpng-1.2.44",
-					"$(PROJECT_DIR)/glew/include",
-					"$(PROJECT_DIR)/glfw/include",
+					"$(PROJECT_DIR)/extern/libpng-1.2.44",
+					"$(PROJECT_DIR)/extern/glew/include",
+					"$(PROJECT_DIR)/extern/glfw/include",
 				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
