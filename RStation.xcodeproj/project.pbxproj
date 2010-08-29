@@ -71,7 +71,6 @@
 		EEF770DF12265B4E00C6B4E7 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF770BF12265B4E00C6B4E7 /* print.c */; };
 		EEF770F81227ACEA00C6B4E7 /* PNGLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF770F71227ACEA00C6B4E7 /* PNGLoader.cpp */; };
 		EEF770FB1227B12200C6B4E7 /* ImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */; };
-		EEF771091227B7DF00C6B4E7 /* TGALoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF771081227B7DF00C6B4E7 /* TGALoader.cpp */; };
 		EEF7711512282B7400C6B4E7 /* Primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7710D12282B7400C6B4E7 /* Primitives.cpp */; };
 		EEF7711612282B7400C6B4E7 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7710F12282B7400C6B4E7 /* Timer.cpp */; };
 		EEF7711712282B7400C6B4E7 /* Tween.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7711112282B7400C6B4E7 /* Tween.cpp */; };
@@ -222,8 +221,6 @@
 		EEF770F71227ACEA00C6B4E7 /* PNGLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PNGLoader.cpp; sourceTree = "<group>"; };
 		EEF770F91227B12200C6B4E7 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
 		EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageLoader.cpp; sourceTree = "<group>"; };
-		EEF771071227B7DF00C6B4E7 /* TGALoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGALoader.h; sourceTree = "<group>"; };
-		EEF771081227B7DF00C6B4E7 /* TGALoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TGALoader.cpp; sourceTree = "<group>"; };
 		EEF7710D12282B7400C6B4E7 /* Primitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitives.cpp; sourceTree = "<group>"; };
 		EEF7710E12282B7400C6B4E7 /* Primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitives.h; sourceTree = "<group>"; };
 		EEF7710F12282B7400C6B4E7 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
@@ -541,8 +538,6 @@
 				EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */,
 				EEF770F61227ACEA00C6B4E7 /* PNGLoader.h */,
 				EEF770F71227ACEA00C6B4E7 /* PNGLoader.cpp */,
-				EEF771071227B7DF00C6B4E7 /* TGALoader.h */,
-				EEF771081227B7DF00C6B4E7 /* TGALoader.cpp */,
 			);
 			name = "Image Formats";
 			path = RStation;
@@ -727,7 +722,6 @@
 				EEF770DF12265B4E00C6B4E7 /* print.c in Sources */,
 				EEF770F81227ACEA00C6B4E7 /* PNGLoader.cpp in Sources */,
 				EEF770FB1227B12200C6B4E7 /* ImageLoader.cpp in Sources */,
-				EEF771091227B7DF00C6B4E7 /* TGALoader.cpp in Sources */,
 				EEF7711512282B7400C6B4E7 /* Primitives.cpp in Sources */,
 				EEF7711612282B7400C6B4E7 /* Timer.cpp in Sources */,
 				EEF7711712282B7400C6B4E7 /* Tween.cpp in Sources */,
