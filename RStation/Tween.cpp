@@ -7,6 +7,7 @@ float sleep( float change, float time, float elapsed )
 {
 	if ( elapsed == 1 )
 		return change;
+	return 0.0f;
 }
 
 float linear( float change, float time, float elapsed )
