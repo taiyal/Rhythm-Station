@@ -1,41 +1,30 @@
 #include "Tween.h"
 #include <math.h>
 
-/*
-vyhd help:
-ypedef float (*TweenFn)(float,float,float);
-(...)
-TweenFn Tween = NULL;
-switch( tweentype )
-{
-    case TWEEN_LINEAR:    Tween = &tweens::linear; break;
-    case TWEEN_EASE_IN: Tween = &tweens::easeIn; break;
-(...)
-}
-    if( Tween )
-    {
-        temp.x -= Tween( change.x, time, elapsed );
-        temp.y -= Tween( change.y, time, elapsed );
-        temp.z -= Tween( change.z, time, elapsed );
-    }
-*/
+typedef float (*TweenFn) (float,float,float);
 
-float tweens::linear( float change, float elapsed )
+float sleep( float change, float time, float elapsed )
+{
+	if ( elapsed == 1 )
+		return change;
+}
+
+float linear( float change, float time, float elapsed )
 {
 	return change * elapsed;
 }
 
-float tweens::easeIn( float change, float time, float elapsed )
+float ease_in( float change, float time, float elapsed )
 {
 	return change * elapsed * time;
 }
 
-float tweens::easeOut( float change, float time, float elapsed )
+float ease_out( float change, float time, float elapsed )
 {
 	return change * ((1-elapsed)+1) * time;
 }
 
-float tweens::easeSmooth( float change, float time, float elapsed )
+float smooth( float change, float time, float elapsed )
 {
 	// this might be wrong?
 	if ((elapsed/2) < 1)
@@ -43,68 +32,153 @@ float tweens::easeSmooth( float change, float time, float elapsed )
 	return change * (powf(elapsed-2, 2) + 2);
 }
 
-float tweens::easeInCubic( float change, float time, float elapsed )
+float ease_in_cubic( float change, float time, float elapsed )
 {
 	return change * powf(elapsed, 3);
 }
 
-float tweens::easeOutCubic( float change, float time, float elapsed )
+float ease_out_cubic( float change, float time, float elapsed )
 {
 	return change * (powf(elapsed-1, 3)+1);
 }
 
-float tweens::easeSmoothCubic( float change, float time, float elapsed )
+float smooth_cubic( float change, float time, float elapsed )
 {
 	if ((elapsed/2) < 1)
 		return change * powf(elapsed, 3);
 	return change * (powf(elapsed-1, 3) + 1);
 }
 
+TweenFn SetTweenType( int type )
+{
+	TweenFn Tween = NULL;
+	switch ( type )
+	{
+		case TWEEN_SLEEP:
+			Tween = &sleep;
+			break;
+		case TWEEN_LINEAR:
+			Tween = &linear;
+			break;
+		case TWEEN_EASE_IN: // 2
+			Tween = &ease_in;
+			break;
+		case TWEEN_EASE_OUT: // 3
+			Tween = &ease_out;
+			break;
+		case TWEEN_SMOOTH: // 4
+			Tween = &smooth;
+			break;
+		case TWEEN_EASE_IN_CUBIC: // 5
+			Tween = &ease_in_cubic;
+			break;
+		case TWEEN_EASE_OUT_CUBIC: // 6
+			Tween = &ease_out_cubic;
+			break;
+		case TWEEN_SMOOTH_CUBIC: // 7
+			Tween = &smooth_cubic;
+			break;
+		default:
+			Tween = &linear;
+			break;
+	}
+	return Tween;
+}
 
-// linear interpolation
 float interpolate( int tweentype, float _old, float _new, float duration, float time )
 {
-	float temp = _old;
 	if ( duration == 0 )
-		return _new; // prevent a divide by zero and save some effort.
+		return _new; // don't divide by zero and don't bother with doing any math.
+
+	float temp = _old;
+	float elapsed = time / duration;
+	float change = _old - _new; // old - new = difference.
 	
+	TweenFn Tween = SetTweenType(tweentype);
+	
+	if( Tween )
+	{
+		temp -= Tween( change, time, elapsed );
+	}
+	return temp;
+}
+
+/*
+ * Overloads for vec2, vec3 and rgba.
+ * This is messy, but it's hard to do any better here. I may end up just phasing out these
+ * completely and just call interpolate (float) more times in the code that needs this.
+ */
+vec2 interpolate( int tweentype, vec2 _old, vec2 _new, float duration, float time )
+{
+	if ( duration == 0 )
+		return _new; // don't divide by zero and don't bother with doing any math.
+
+	vec2 temp = _old;
 	float elapsed = time / duration;
 	
-	// get the difference between the old position and the new one. (old - new)
-	float change = _old;
-	change -= _new;
+	// note: vec2 needs some operators
+	vec2 change;
+	change.x = _old.x - _new.x;
+	change.y = _old.y - _new.y;
 	
-	// warning: big ugly switch
-	switch ( tweentype )
+	TweenFn Tween = SetTweenType(tweentype);
+	
+	if( Tween )
 	{
-	case TWEEN_SLEEP: // 0
-		if ( elapsed == 1 )
-			temp = _new;
-		break;
-	case TWEEN_LINEAR: // 1
-		temp -= tweens::linear( change, elapsed );
-		break;
-	case TWEEN_EASE_IN: // 2
-		temp -= tweens::easeIn( change, time, elapsed );
-		break;
-	case TWEEN_EASE_OUT: // 3
-		temp -= tweens::easeOut( change, time, elapsed );
-		break;
-	case TWEEN_SMOOTH: // 4
-		temp -= tweens::easeSmooth( change, time, elapsed );
-		break;
-	case TWEEN_EASE_IN_CUBIC: // 5
-		temp -= tweens::easeInCubic( change, time, elapsed );
-		break;
-	case TWEEN_EASE_OUT_CUBIC: // 6
-		temp -= tweens::easeOutCubic( change, time, elapsed );
-		break;
-	case TWEEN_SMOOTH_CUBIC: // 7
-		temp -= tweens::easeSmoothCubic( change, time, elapsed );
-		break;
-	default:
-		temp -=tweens::linear( change, elapsed );
-		break;
+		temp.x -= Tween( change.x, time, elapsed );
+		temp.y -= Tween( change.y, time, elapsed );
+	}
+	return temp;
+}
+
+vec3 interpolate( int tweentype, vec3 _old, vec3 _new, float duration, float time )
+{
+	if ( duration == 0 )
+		return _new; // don't divide by zero and don't bother with doing any math.
+
+	vec3 temp = _old;
+	float elapsed = time / duration;
+	
+	// note: vec2 needs some operators
+	vec3 change;
+	change.x = _old.x - _new.x;
+	change.y = _old.y - _new.y;
+	change.z = _old.z - _new.z;
+	
+	TweenFn Tween = SetTweenType(tweentype);
+	
+	if( Tween )
+	{
+		temp.x -= Tween( change.x, time, elapsed );
+		temp.y -= Tween( change.x, time, elapsed );
+		temp.z -= Tween( change.y, time, elapsed );
+	}
+	return temp;
+}
+
+rgba interpolate( int tweentype, rgba _old, rgba _new, float duration, float time )
+{
+	if ( duration == 0 )
+		return _new; // don't divide by zero and don't bother with doing any math.
+
+	rgba temp = _old;
+	float elapsed = time / duration;
+	
+	// note: vec2 needs some operators
+	rgba change;
+	change.r = _old.r - _new.r;
+	change.g = _old.g - _new.g;
+	change.b = _old.b - _new.b;
+	change.a = _old.a - _new.a;
+	
+	TweenFn Tween = SetTweenType(tweentype);
+	
+	if( Tween )
+	{
+		temp.r -= Tween( change.r, time, elapsed );
+		temp.g -= Tween( change.g, time, elapsed );
+		temp.b -= Tween( change.b, time, elapsed );
+		temp.a -= Tween( change.a, time, elapsed );
 	}
 	return temp;
 }
