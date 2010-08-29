@@ -112,12 +112,12 @@ float interpolate( int tweentype, float _old, float _new, float duration, float 
 vec2 interpolate( int tweentype, vec2 _old, vec2 _new, float duration, float time )
 {
 	if ( duration == 0 )
-		return _new; // don't divide by zero and don't bother with doing any math.
+		return _new;
 
 	vec2 temp = _old;
 	float elapsed = time / duration;
 	
-	// note: vec2 needs some operators
+	// note: vec2 etc need some operators
 	vec2 change;
 	change.x = _old.x - _new.x;
 	change.y = _old.y - _new.y;
@@ -135,12 +135,11 @@ vec2 interpolate( int tweentype, vec2 _old, vec2 _new, float duration, float tim
 vec3 interpolate( int tweentype, vec3 _old, vec3 _new, float duration, float time )
 {
 	if ( duration == 0 )
-		return _new; // don't divide by zero and don't bother with doing any math.
+		return _new;
 
 	vec3 temp = _old;
 	float elapsed = time / duration;
 	
-	// note: vec2 needs some operators
 	vec3 change;
 	change.x = _old.x - _new.x;
 	change.y = _old.y - _new.y;
@@ -160,12 +159,11 @@ vec3 interpolate( int tweentype, vec3 _old, vec3 _new, float duration, float tim
 rgba interpolate( int tweentype, rgba _old, rgba _new, float duration, float time )
 {
 	if ( duration == 0 )
-		return _new; // don't divide by zero and don't bother with doing any math.
+		return _new;
 
 	rgba temp = _old;
 	float elapsed = time / duration;
 	
-	// note: vec2 needs some operators
 	rgba change;
 	change.r = _old.r - _new.r;
 	change.g = _old.g - _new.g;
