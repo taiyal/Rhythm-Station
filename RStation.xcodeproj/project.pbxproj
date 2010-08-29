@@ -309,11 +309,7 @@
 		29B97314FDCFA39411CA2CEA /* RStation */ = {
 			isa = PBXGroup;
 			children = (
-				EEF775ED1229A3A800C6B4E7 /* libpng-1.2.44 */,
-				EEF775E41229A37200C6B4E7 /* zlib-1.2.5 */,
-				EEF77084122659F800C6B4E7 /* lua-5.1.4-2 */,
-				EEF40F281220B3DD009F8F49 /* glew */,
-				EEF40B9C121D3D95009F8F49 /* glfw */,
+				EEE2DC4B122A5692002C5898 /* extern */,
 				EEF40B52121D2580009F8F49 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -339,6 +335,18 @@
 				EEF7728912282C8800C6B4E7 /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEE2DC4B122A5692002C5898 /* extern */ = {
+			isa = PBXGroup;
+			children = (
+				EEF775ED1229A3A800C6B4E7 /* libpng-1.2.44 */,
+				EEF775E41229A37200C6B4E7 /* zlib-1.2.5 */,
+				EEF77084122659F800C6B4E7 /* lua-5.1.4-2 */,
+				EEF40F281220B3DD009F8F49 /* glew */,
+				EEF40B9C121D3D95009F8F49 /* glfw */,
+			);
+			name = extern;
 			sourceTree = "<group>";
 		};
 		EEF40B52121D2580009F8F49 /* Source */ = {
