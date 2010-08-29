@@ -81,7 +81,6 @@
 		EEF7728A12282C8800C6B4E7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF7728912282C8800C6B4E7 /* OpenGL.framework */; };
 		EEF7729C12282CD100C6B4E7 /* AudioManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7729A12282CD100C6B4E7 /* AudioManager.cpp */; };
 		EEF772A012282D4100C6B4E7 /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7729E12282D4100C6B4E7 /* MathUtils.cpp */; };
-		EEF7731812291EDE00C6B4E7 /* Callbacks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF7731712291EDE00C6B4E7 /* Callbacks.cpp */; };
 		EEF775D31229A36E00C6B4E7 /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF775B71229A36E00C6B4E7 /* adler32.c */; };
 		EEF775D41229A36E00C6B4E7 /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF775B81229A36E00C6B4E7 /* compress.c */; };
 		EEF775D51229A36E00C6B4E7 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = EEF775B91229A36E00C6B4E7 /* crc32.c */; };
@@ -237,8 +236,6 @@
 		EEF7729B12282CD100C6B4E7 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		EEF7729E12282D4100C6B4E7 /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
 		EEF7729F12282D4100C6B4E7 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
-		EEF7731712291EDE00C6B4E7 /* Callbacks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Callbacks.cpp; sourceTree = "<group>"; };
-		EEF7732912291FBF00C6B4E7 /* Callbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Callbacks.h; sourceTree = "<group>"; };
 		EEF775B71229A36E00C6B4E7 /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = adler32.c; path = "zlib-1.2.5/adler32.c"; sourceTree = "<group>"; };
 		EEF775B81229A36E00C6B4E7 /* compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = compress.c; path = "zlib-1.2.5/compress.c"; sourceTree = "<group>"; };
 		EEF775B91229A36E00C6B4E7 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = "zlib-1.2.5/crc32.c"; sourceTree = "<group>"; };
@@ -399,8 +396,6 @@
 			children = (
 				EEF40DC9121FC5AE009F8F49 /* Actor.h */,
 				EEF40DCA121FC5AE009F8F49 /* Actor.cpp */,
-				EEF7732912291FBF00C6B4E7 /* Callbacks.h */,
-				EEF7731712291EDE00C6B4E7 /* Callbacks.cpp */,
 				EEF40B49121D257D009F8F49 /* GameLoop.cpp */,
 				EEF40B4A121D257D009F8F49 /* GameLoop.h */,
 				EEF40EDF121FD490009F8F49 /* Log.cpp */,
@@ -728,7 +723,6 @@
 				EEF7711812282B7400C6B4E7 /* Type.cpp in Sources */,
 				EEF7729C12282CD100C6B4E7 /* AudioManager.cpp in Sources */,
 				EEF772A012282D4100C6B4E7 /* MathUtils.cpp in Sources */,
-				EEF7731812291EDE00C6B4E7 /* Callbacks.cpp in Sources */,
 				EEF775D31229A36E00C6B4E7 /* adler32.c in Sources */,
 				EEF775D41229A36E00C6B4E7 /* compress.c in Sources */,
 				EEF775D51229A36E00C6B4E7 /* crc32.c in Sources */,
