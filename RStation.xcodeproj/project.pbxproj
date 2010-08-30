@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
+		EEBD1F67122BBEFF003DB675 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1F66122BBEFF003DB675 /* Shader.cpp */; };
 		EEF40B4F121D257D009F8F49 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B49121D257D009F8F49 /* GameLoop.cpp */; };
 		EEF40B50121D257D009F8F49 /* RStation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4B121D257D009F8F49 /* RStation.cpp */; };
 		EEF40B51121D257D009F8F49 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4D121D257D009F8F49 /* SceneManager.cpp */; };
@@ -120,6 +121,8 @@
 		8D1107310486CEB800E47090 /* RStation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RStation-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* RStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
+		EEBD1F65122BBEFF003DB675 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		EEBD1F66122BBEFF003DB675 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		EEF40B49121D257D009F8F49 /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		EEF40B4A121D257D009F8F49 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		EEF40B4B121D257D009F8F49 /* RStation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RStation.cpp; sourceTree = "<group>"; };
@@ -418,8 +421,10 @@
 				EEF7729F12282D4100C6B4E7 /* MathUtils.h */,
 				EEF40B4B121D257D009F8F49 /* RStation.cpp */,
 				EEF40B4C121D257D009F8F49 /* RStation.h */,
-				EEF40FCB1223C79D009F8F49 /* Screen.h */,
 				EEF40FCC1223C79D009F8F49 /* Screen.cpp */,
+				EEF40FCB1223C79D009F8F49 /* Screen.h */,
+				EEBD1F66122BBEFF003DB675 /* Shader.cpp */,
+				EEBD1F65122BBEFF003DB675 /* Shader.h */,
 				EEF7710F12282B7400C6B4E7 /* Timer.cpp */,
 				EEF7711012282B7400C6B4E7 /* Timer.h */,
 				EEF7711112282B7400C6B4E7 /* Tween.cpp */,
@@ -768,6 +773,7 @@
 				EEF776131229A3E000C6B4E7 /* pngwrite.c in Sources */,
 				EEF776141229A3E000C6B4E7 /* pngwtran.c in Sources */,
 				EEF776151229A3E000C6B4E7 /* pngwutil.c in Sources */,
+				EEBD1F67122BBEFF003DB675 /* Shader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
