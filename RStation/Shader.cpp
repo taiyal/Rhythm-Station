@@ -86,8 +86,8 @@ void Shader::Load(std::string _vs, std::string _fs)
 	Log::Print("Program log:");
 	printProgramInfoLog(program);
 	
-//	Log::DebugPrint(_vs);
-//	Log::DebugPrint(_fs);
+	Log::DebugPrint(_vs);
+	Log::DebugPrint(_fs);
 	
 	Log::DebugPrint("[Shader::Load] Loaded.");
 }
