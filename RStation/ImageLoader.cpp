@@ -1,7 +1,7 @@
 #include "ImageLoader.h"
 
 // temporary macro
-#define _MIN(x) ((x > 0) ? x : 1)
+#define _MIN(x) (x ? x : 1)
 
 ImageLoader::ImageLoader() {}
 ImageLoader::~ImageLoader() {}
