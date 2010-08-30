@@ -5,6 +5,7 @@
 #include "InputManager.h"
 #include "Actor.h"
 #include "PNGLoader.h"
+#include "Shader.h"
 
 class Screen
 {
@@ -18,6 +19,7 @@ public:
 private:
 	std::vector<Actor*> vpActors;
 	PNGLoader* img;
+	Shader* shader;
 };
 
 #endif

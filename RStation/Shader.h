@@ -17,6 +17,9 @@ struct Uniform
 class Shader
 {
 public:
+	Shader();
+	virtual ~Shader();
+	
 	/*
 	 * Load up the vs and fs in one go, overload so we can use another program.
 	 * This is useful so that we can use another program and just store different
@@ -46,6 +49,7 @@ private:
 	std::string vertSource;
 	std::string fragSource;
 	
+	GLuint vs, fs;
 	GLuint program;
 };
 
