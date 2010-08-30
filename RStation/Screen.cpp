@@ -1,5 +1,6 @@
 #include "Screen.h"
 #include "Primitives.h"
+#include "GameLoop.h"
 
 Screen::Screen()
 {
@@ -8,8 +9,16 @@ Screen::Screen()
 	img->Load("image-png.png");
 	
 	std::string vs, fs;
-	vs = "void main() { gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex; }";
-	fs = "void main() { gl_FragColor = vec4(0.4,0.4,0.8,1.0); }";
+	vs = "void main() {\
+		gl_TexCoord[0]  = gl_MultiTexCoord0;\
+		gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;\
+	}";
+	fs = "uniform sampler2D tex;\
+	void main()\
+	{\
+		vec4 texture = texture2D(tex, gl_TexCoord[0].st);\
+		gl_FragColor = texture * vec4(0.4,0.4,0.8,1.0);\
+	}";
 	
 	shader = new Shader();
 	shader->Load(vs,fs);
@@ -23,7 +32,17 @@ Screen::~Screen()
 
 void Screen::Input(const IEvent &e)
 {
-
+	Log::Print("Input recieved.");
+	if ( e.Key == KEY_F1 && e.State == RS_FIRST_PRESS )
+	{
+		Log::Print("Unloading");
+		shader->Unbind();
+		shader->Unload();
+	}
+	if ( e.Key == KEY_ESC )
+	{
+		Game::Terminate();
+	}
 }
 
 void Screen::Update(float deltaTime)
@@ -38,8 +57,7 @@ void Screen::Draw()
 		vpActors[i]->Draw();
 
 	shader->Bind();
-	glBindTexture(GL_TEXTURE_2D, img->GetTexture());
+	img->Bind();
+	
 	Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
-	shader->Unbind();
-//	Primitive::Ngon(40, 32);
 }

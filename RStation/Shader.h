@@ -26,7 +26,7 @@ public:
 	 * uniforms for it, without having to worry about it making all our code elsewhere
 	 * a big mess of swapping junk.
 	 */
-	void Load(std::string _vs, std::string _fs);
+	void Load(std::string _vs, std::string _fs, bool reload = false);
 	void Load(GLuint _program);
 	void Unload();
 	

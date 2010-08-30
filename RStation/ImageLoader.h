@@ -16,6 +16,9 @@ public:
 	GLuint GetTexture();
 	void Unload();
 	
+	void Bind();
+	void Unbind();
+	
 	unsigned GetWidth();
 	unsigned GetHeight();
 	

@@ -48,16 +48,25 @@ Shader::Shader()
 Shader::~Shader()
 {
 	Log::DebugPrint("[Shader::~Shader] Cleaning up shader.");
+	this->Unbind();
 	this->Unload();
 }
 
-void Shader::Load(std::string _vs, std::string _fs)
+void Shader::Load(std::string _vs, std::string _fs, bool reload)
 {
 	Log::DebugPrint("[Shader::Load] Loading shader...");
-	if ( program )
+	if ( program && !reload)
 	{
-		Log::DebugPrint("[Shader::Load] Shader already loaded.");
-		return; // return if this has already been done.
+		if ( !reload )
+		{
+			Log::DebugPrint("[Shader::Load] Shader already loaded.");
+			return; // return if this has already been done.
+		}
+		else
+		{
+			this->Unload(); // unload everything if reloading.
+			Log::DebugPrint("[Shader::Load] Reloading shader.");
+		}
 	}
 	
 	// create pointers for our vertex and frag shaders
@@ -116,6 +125,9 @@ void Shader::Unload()
 	
 	// finally, delete the program.
 	glDeleteProgram(program);
+	
+	// ready to reload
+	program = NULL;
 }
 
 void Shader::Bind()
