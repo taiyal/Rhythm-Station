@@ -9,6 +9,11 @@
 #include <direct.h>
 #endif
 
+// prevent visual studio warning
+#ifdef _MSC_VER
+	#define getcwd _getcwd
+#endif
+
 #include <stdio.h>
 #include <fstream>
 
@@ -47,12 +52,7 @@ namespace FileManager
 	{
 		SetWorkingDirectory();
 		char path[1024];
-#ifdef __WINDOWS__
-		// prevent warning
-		_getcwd(path, 1024);
-#else
 		getcwd(path, 1024);
-#endif
 		return std::string(path) + "/";
 	}
 	std::string GetFile( std::string _path )
