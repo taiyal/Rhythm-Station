@@ -36,3 +36,8 @@ name what it would be anyways. Example: vpActors for a vector of pointers to
 Actors. However one would assume that deltaTime is always a float, so no "f"
 prefix is needed. For multi-word variables use underscores for space, for'
 vars passed in as arguments prefix names with underscores, and CamelCase funcs.
+
+[Contact]
+I can usually be found in #shakesoda on irc.freenode.net, or you can email me
+at shakesoda+rstation at gmail dot com. #shakesoda is, at this point, the
+official channel for Rhythm-Station.
