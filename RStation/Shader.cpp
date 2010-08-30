@@ -1,38 +1,42 @@
 #include <GL/glew.h> // must be before glfw.h!
 #include "Shader.h"
 
-void printShaderInfoLog(GLuint obj)
+std::string getShaderLog(GLuint obj)
 {
 	int infologLength = 0;
 	int charsWritten  = 0;
 	char *infoLog;
-
+	std::string log;
+	
 	glGetShaderiv(obj, GL_INFO_LOG_LENGTH,&infologLength);
 
 	if (infologLength > 0)
 	{
 		infoLog = (char *)malloc(infologLength);
 		glGetShaderInfoLog(obj, infologLength, &charsWritten, infoLog);
-		printf("%s\n",infoLog);
+		log = infoLog;
 		free(infoLog);
 	}
+	return log;
 }
 
-void printProgramInfoLog(GLuint obj)
+std::string getProgramLog(GLuint obj)
 {
 	int infologLength = 0;
 	int charsWritten  = 0;
 	char *infoLog;
-
+	std::string log;
+	
 	glGetProgramiv(obj, GL_INFO_LOG_LENGTH,&infologLength);
 
 	if (infologLength > 0)
 	{
 		infoLog = (char *)malloc(infologLength);
 		glGetProgramInfoLog(obj, infologLength, &charsWritten, infoLog);
-		printf("%s\n",infoLog);
+		log = infoLog;
 		free(infoLog);
 	}
+	return log;
 }
 
 Shader::Shader()
@@ -79,15 +83,16 @@ void Shader::Load(std::string _vs, std::string _fs)
 	
 	glLinkProgram(program);
 	
-	Log::Print("Vertex shader log:");
-	printShaderInfoLog(vs);
-	Log::Print("Fragment shader log:");
-	printShaderInfoLog(fs);
-	Log::Print("Program log:");
-	printProgramInfoLog(program);
-	
-	Log::DebugPrint(_vs);
-	Log::DebugPrint(_fs);
+	// print out shader logs.
+	std::string log = getShaderLog(vs);
+	if ( log.size() > 0 )
+		Log::Print("Vertex shader log: " + log);
+	log = getShaderLog(fs);
+	if ( log.size() > 0 )
+		Log::Print("Fragment shader log: " + log);
+	log = getProgramLog(program);
+	if ( log.size() > 0 )
+		Log::Print("Shader program log: " + log);
 	
 	Log::DebugPrint("[Shader::Load] Loaded.");
 }
