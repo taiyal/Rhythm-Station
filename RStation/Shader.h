@@ -13,13 +13,6 @@ struct Uniform
 };
 */
 
-enum ShaderTypes
-{
-	RS_FRAG,
-	RS_VERT,
-	RS_INVALID
-};
-
 // TODO: support uniforms, more functions, etc.
 class Shader
 {
