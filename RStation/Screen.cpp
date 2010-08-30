@@ -31,6 +31,6 @@ void Screen::Draw()
 		vpActors[i]->Draw();
 
 	glBindTexture(GL_TEXTURE_2D, img->GetTexture());
-	Primitive::Quad(vec2(img->GetWidth(),img->GetHeight()));
+	Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
 //	Primitive::Ngon(40, 32);
 }

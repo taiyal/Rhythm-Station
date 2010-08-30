@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
 		EEF40B4F121D257D009F8F49 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B49121D257D009F8F49 /* GameLoop.cpp */; };
 		EEF40B50121D257D009F8F49 /* RStation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4B121D257D009F8F49 /* RStation.cpp */; };
 		EEF40B51121D257D009F8F49 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4D121D257D009F8F49 /* SceneManager.cpp */; };
@@ -116,8 +117,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D1107310486CEB800E47090 /* RStation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RStation-Info.plist"; path = "RStation/osx/RStation-Info.plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* RStation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RStation-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* RStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
 		EEF40B49121D257D009F8F49 /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		EEF40B4A121D257D009F8F49 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		EEF40B4B121D257D009F8F49 /* RStation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RStation.cpp; sourceTree = "<group>"; };
@@ -321,9 +323,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EE992BB8122B5F1F00884C21 /* bio.icns */,
 				8D1107310486CEB800E47090 /* RStation-Info.plist */,
 			);
 			name = Resources;
+			path = RStation/osx;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -651,6 +655,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE992BB9122B5F1F00884C21 /* bio.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG_;
@@ -838,6 +844,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
