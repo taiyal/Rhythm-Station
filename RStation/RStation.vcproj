@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44&quot;;&quot;..\extern\zlib-1.2.5&quot;"
-				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
+				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC;_DEBUG_"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
