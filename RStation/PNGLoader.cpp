@@ -14,8 +14,6 @@ void PNGLoader::Load(std::string _path)
 	_path = FileManager::GetFile(_path);
 	FILE *pngFile = fopen(_path.c_str(), "rb");
 
-	Log::DebugPrint(_path);
-
 	if(!pngFile)
 	{
 		Log::Print("[PNGLoader::Load] File not found.");
@@ -83,19 +81,18 @@ void PNGLoader::Load(std::string _path)
 			ret = 4;
 			break;
 		default:
-			ret = -1; // fucked
+			ret = -1;
 	};
 
 	if(ret == -1)
 	{
 		if(png_ptr)
 			png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
-		Log::Print("[PNGLoader::Load] File not found.");
+		Log::Print("[PNGLoader::Load] File invalid. Is this really a PNG file?");
 		return;
 	}
-
-	GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (width * height * ret));
-	row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * height);
+	GLubyte *pixels = new GLubyte[width * height * ret];
+	row_pointers = new png_bytep[height];
 	
 	for(int i = 0; i < height; ++i)
 	{
@@ -141,6 +138,6 @@ void PNGLoader::Load(std::string _path)
 	// cleanup
 	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);	
 	fclose(pngFile);
-	free(row_pointers);
-	free(pixels);
+	delete[] row_pointers;
+	delete[] pixels;
 }
