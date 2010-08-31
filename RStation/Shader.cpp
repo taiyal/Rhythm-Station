@@ -12,10 +12,10 @@ std::string getShaderLog(GLuint obj)
 
 	if (infologLength > 0)
 	{
-		infoLog = (char *)malloc(infologLength);
+		infoLog = new char[infologLength];
 		glGetShaderInfoLog(obj, infologLength, &charsWritten, infoLog);
 		log = infoLog;
-		free(infoLog);
+		delete[] infoLog;
 	}
 	return log;
 }
@@ -31,10 +31,10 @@ std::string getProgramLog(GLuint obj)
 
 	if (infologLength > 0)
 	{
-		infoLog = (char *)malloc(infologLength);
+		infoLog = new char[infologLength];
 		glGetProgramInfoLog(obj, infologLength, &charsWritten, infoLog);
 		log = infoLog;
-		free(infoLog);
+		delete[] infoLog;
 	}
 	return log;
 }
