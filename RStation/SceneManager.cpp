@@ -16,7 +16,7 @@ void Scene::PopScreen()
 {
 	delete vpScreens.back();
 	vpScreens.pop_back();
-	
+
 	Log::Print("[Scene::PopScreen] Deleted top screen.");
 }
 
@@ -45,10 +45,10 @@ void Scene::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
-	
+
 	// recursively draw everything
 	for(unsigned i = 0; i<vpScreens.size(); i++)
 		vpScreens[i]->Draw();
-	
+
 	glfwSwapBuffers();
 }

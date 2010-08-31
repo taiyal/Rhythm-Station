@@ -94,9 +94,9 @@ float interpolate( int tweentype, float _old, float _new, float duration, float 
 	float temp = _old;
 	float elapsed = time / duration;
 	float change = _old - _new; // old - new = difference.
-	
+
 	TweenFn Tween = SetTweenType(tweentype);
-	
+
 	if( Tween )
 	{
 		temp -= Tween( change, time, elapsed );
@@ -116,14 +116,14 @@ vec2 interpolate( int tweentype, vec2 _old, vec2 _new, float duration, float tim
 
 	vec2 temp = _old;
 	float elapsed = time / duration;
-	
+
 	// note: vec2 etc need some operators
 	vec2 change;
 	change.x = _old.x - _new.x;
 	change.y = _old.y - _new.y;
-	
+
 	TweenFn Tween = SetTweenType(tweentype);
-	
+
 	if( Tween )
 	{
 		temp.x -= Tween( change.x, time, elapsed );
@@ -139,14 +139,14 @@ vec3 interpolate( int tweentype, vec3 _old, vec3 _new, float duration, float tim
 
 	vec3 temp = _old;
 	float elapsed = time / duration;
-	
+
 	vec3 change;
 	change.x = _old.x - _new.x;
 	change.y = _old.y - _new.y;
 	change.z = _old.z - _new.z;
-	
+
 	TweenFn Tween = SetTweenType(tweentype);
-	
+
 	if( Tween )
 	{
 		temp.x -= Tween( change.x, time, elapsed );
@@ -163,15 +163,15 @@ rgba interpolate( int tweentype, rgba _old, rgba _new, float duration, float tim
 
 	rgba temp = _old;
 	float elapsed = time / duration;
-	
+
 	rgba change;
 	change.r = _old.r - _new.r;
 	change.g = _old.g - _new.g;
 	change.b = _old.b - _new.b;
 	change.a = _old.a - _new.a;
-	
+
 	TweenFn Tween = SetTweenType(tweentype);
-	
+
 	if( Tween )
 	{
 		temp.r -= Tween( change.r, time, elapsed );

@@ -9,44 +9,44 @@ void PNGLoader::Load(std::string _path)
 	png_infop info_ptr = NULL;
 	png_bytep *row_pointers = NULL;
 	int bitDepth, format;
-	
+
 	Log::Print("[PNGLoader::Load] Loading \"" + _path + "\"");
 	_path = FileManager::GetFile(_path);
 	FILE *pngFile = fopen(_path.c_str(), "rb");
-	
+
 	Log::DebugPrint(_path);
-	
+
 	if(!pngFile)
 	{
 		Log::Print("[PNGLoader::Load] File not found.");
 		return;
 	}
-	
+
 	png_byte sig[8];
-	
+
 	fread(&sig, 8, sizeof(png_byte), pngFile);
 	rewind(pngFile); //so when we init io it won't bitch
 	if(!png_check_sig(sig, 8))
 		return;
-	
+
 	png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL,NULL,NULL);
-	
+
 	if(!png_ptr)
 		return;
-	
+
 	if(setjmp(png_jmpbuf(png_ptr)))
 		return;
-	
+
 	info_ptr = png_create_info_struct(png_ptr);
-	
+
 	if(!info_ptr)
 		return;
-	
+
 	png_init_io(png_ptr, pngFile);
 	png_read_info(png_ptr, info_ptr);
 	bitDepth = png_get_bit_depth(png_ptr, info_ptr);
 	format = png_get_color_type(png_ptr, info_ptr);
-	
+
 	if(format == PNG_COLOR_TYPE_PALETTE)
 		png_set_palette_to_rgb(png_ptr);
 
@@ -66,8 +66,8 @@ void PNGLoader::Load(std::string _path)
 	png_uint_32 width, height;
 	png_get_IHDR(png_ptr, info_ptr, &width, &height,
 			 &bitDepth, &format, NULL, NULL, NULL);
-	
-	int ret;	
+
+	int ret;
 	switch(format)
 	{
 		case PNG_COLOR_TYPE_GRAY:
@@ -85,7 +85,7 @@ void PNGLoader::Load(std::string _path)
 		default:
 			ret = -1; // fucked
 	};
-	
+
 	if(ret == -1)
 	{
 		if(png_ptr)
@@ -93,7 +93,7 @@ void PNGLoader::Load(std::string _path)
 		Log::Print("[PNGLoader::Load] File not found.");
 		return;
 	}
-	
+
 	GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (width * height * ret));
 	row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * height);
 	
@@ -101,20 +101,20 @@ void PNGLoader::Load(std::string _path)
 	{
 		row_pointers[i] = (png_bytep)(pixels + (i * width * ret));
 	}
-	
+
 	png_read_image(png_ptr, row_pointers);
 	png_read_end(png_ptr, NULL);
-	
+
 	this->SetWidth(width);
 	this->SetHeight(height);
-	
+
 	// upload texture to GPU
 	GLuint texture;
 	glGenTextures(1, &texture); // make it
 	glBindTexture(GL_TEXTURE_2D, texture); // bind it
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-	
+
 	GLuint glformat;
 	switch(ret)
 	{
@@ -137,7 +137,7 @@ void PNGLoader::Load(std::string _path)
 	glTexImage2D(GL_TEXTURE_2D, 0, ret, width, height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	this->SetTexture(texture);	
-	
+
 	// cleanup
 	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);	
 	fclose(pngFile);

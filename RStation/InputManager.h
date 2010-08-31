@@ -43,7 +43,7 @@ enum KeyAliases {
 	KEY_X		= 88,
 	KEY_Y		= 89,
 	KEY_Z		= 90,
-	
+
 	// some special chars
 	KEY_SLASH	= 47,
 	KEY_PERIOD	= 46,
@@ -62,7 +62,7 @@ enum KeyAliases {
 	KEY_BACKSLASH = 96,
 	KEY_SEMICOLON = 61,
 	KEY_QUOTE	= 45,
-	
+
 	// 0-9
 	KEY_ZERO	= 48,
 	KEY_ONE		= 49,
@@ -74,7 +74,7 @@ enum KeyAliases {
 	KEY_SEVEN	= 55,
 	KEY_EIGHT	= 56,
 	KEY_NINE		= 57,
-	
+
 	// f1-12
 	KEY_F1		= GLFW_KEY_F1,
 	KEY_F2		= GLFW_KEY_F2,

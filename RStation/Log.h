@@ -8,7 +8,7 @@ namespace Log
 {
 	void Open();
 	void Close();
-	
+
 	void DebugPrint(std::string input);
 	void Print(std::string input);
 };

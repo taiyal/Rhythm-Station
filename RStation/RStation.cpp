@@ -10,10 +10,10 @@ void GLFWCALL ResizeViewport(int w, int h)
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	
+
 	glViewport(0, 0, w, h);
 	glOrtho(int(-(w/2)), int((w/2)), int((h/2)), int(-(h/2)), -10, 10);
-	
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -38,12 +38,12 @@ void InitWindow(int ScrX, int ScrY)
 	glfwInit();
 	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 4);
 	glfwOpenWindow(ScrX,ScrY, /* rgba */ 0,0,0,8, /* depth, stencil, mode */ 32,1, GLFW_WINDOW);
-	
+
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
 	glfwSwapInterval(1);
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
-	
+
 	glfwSetWindowSizeCallback(ResizeViewport);
 	RegisterKeyboardCallbacks();
 	RegisterMouseCallbacks();
@@ -58,9 +58,9 @@ int main(int argc, char** argv)
 {
 	// Init everything needed
 	Log::Open();
-	
+
 	InitWindow(854, 480); // TODO: read prefs.
-	
+
 	/*
 	 * Shader support is required as I would like this to be fairly modern.
 	 * As my laptop doesn't support OpenGL 3.x and far more hardware is around
@@ -75,11 +75,11 @@ int main(int argc, char** argv)
 		Log::Print("OpenGL 2.0 is not supported. You may need to update your drivers.");
 		return 1;
 	}
-	
+
 	// Set up our defaults and pass control.
 	SetInitialStates();
 	Game::Run();
-	
+
 	// Clean up
 	glfwTerminate();
 	Log::Close();

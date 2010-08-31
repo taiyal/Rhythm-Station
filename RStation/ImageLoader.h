@@ -12,20 +12,20 @@ class ImageLoader
 public:
 	ImageLoader();
 	virtual ~ImageLoader();
-	
+
 	GLuint GetTexture();
 	void Unload();
-	
+
 	void Bind();
 	void Unbind();
-	
+
 	unsigned GetWidth();
 	unsigned GetHeight();
-	
+
 	void SetTexture(GLuint texture); // texture pointer
 	void SetWidth(unsigned width);
 	void SetHeight(unsigned height);
-	
+
 private:
 	GLuint im_texture;
 	char _fmt;

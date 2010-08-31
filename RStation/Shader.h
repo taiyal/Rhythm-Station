@@ -19,7 +19,7 @@ class Shader
 public:
 	Shader();
 	virtual ~Shader();
-	
+
 	/*
 	 * Load up the vs and fs in one go, overload so we can use another program.
 	 * This is useful so that we can use another program and just store different
@@ -29,10 +29,10 @@ public:
 	void Load(std::string _vs, std::string _fs, bool reload = false);
 	void Load(GLuint _program);
 	void Unload();
-	
+
 	void Bind();
 	void Unbind();
-	
+
 	// if we would like to store this elsewhere.
 	GLuint GetProgram();
 
@@ -42,13 +42,13 @@ public:
 //	void AddUniform(std::string name, rgba value);
 //	void AddUniform(std::string name, mat4 value);
 //	void RemoveUniform(std::string name);
-	
+
 private:
 //	std::vector<Uniform> uniforms;
 
 	std::string vertSource;
 	std::string fragSource;
-	
+
 	GLuint vs, fs;
 	GLuint program;
 };

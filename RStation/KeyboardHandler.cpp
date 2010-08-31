@@ -20,11 +20,11 @@ void KeyCallback(int key, int action)
 			Keys[key] = RS_NONE;
 		break;
 	}
-		
+
 	IEvent event;
 	event.Key = key;
 	event.State = Keys[key];
-	
+
 	Scene::SendInput(event);
 }
 

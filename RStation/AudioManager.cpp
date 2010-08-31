@@ -18,13 +18,13 @@ namespace Audio
 		device = alcOpenDevice(NULL); // open default device.
 		if( !device )
 			return;
-		
+
 		context = alcCreateContext(device, NULL);
 		alcMakeContextCurrent(context);
-		
+
 		alGetError();
 	}
-	
+
 	void Close()
 	{
 		alcMakeContextCurrent(NULL);
