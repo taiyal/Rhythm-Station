@@ -7,7 +7,7 @@
 class Actor : public MessageSubscriber
 {
 public:
-	Actor() {}
+	Actor();
 	virtual ~Actor() {}
 	virtual void Update(float fDeltaTime) {}
 	virtual void Draw() {}

@@ -3,6 +3,11 @@
 //void Actor::Update(float deltaTime) { }
 //void Actor::Draw() { }
 
+Actor::Actor()
+{
+	ob_scale = vec3(1.0f);
+}
+
 // Do the transforms and stuff which are going to be the same for nearly everything.
 void Actor::DrawBase()
 {
