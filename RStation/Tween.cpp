@@ -150,8 +150,8 @@ vec3 interpolate( int tweentype, vec3 _old, vec3 _new, float duration, float tim
 	if( Tween )
 	{
 		temp.x -= Tween( change.x, time, elapsed );
-		temp.y -= Tween( change.x, time, elapsed );
-		temp.z -= Tween( change.y, time, elapsed );
+		temp.y -= Tween( change.y, time, elapsed );
+		temp.z -= Tween( change.z, time, elapsed );
 	}
 	return temp;
 }

@@ -1,11 +1,4 @@
 #include "Actor.h"
 
-void Actor::Update(float deltaTime)
-{
-	// stub
-}
-
-void Actor::Draw()
-{
-	// stub
-}
+//void Actor::Update(float deltaTime) { }
+//void Actor::Draw() { }

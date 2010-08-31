@@ -5,8 +5,8 @@
 
 class Actor : public MessageSubscriber {
 public:
-	virtual void Update(float fDeltaTime);
-	virtual void Draw();
+	virtual void Update(float fDeltaTime) {}
+	virtual void Draw() {}
 };
 
 #endif
