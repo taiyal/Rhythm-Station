@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include;.\win32\"
+				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44\&quot;"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib"
+				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib libpng.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=".\win32"
 				GenerateDebugInformation="true"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories=".;..\glfw\include;..\glew\include;.\win32\"
+				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44\&quot;;&quot;..\extern\zlib-1.2.5\&quot;"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib"
+				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib libpng.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=".\win32"
 				GenerateDebugInformation="true"
@@ -176,6 +176,14 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\Actor.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Actor.h"
+				>
+			</File>
 			<File
 				RelativePath=".\GameLoop.cpp"
 				>
@@ -222,6 +230,14 @@
 			</File>
 			<File
 				RelativePath=".\Screen.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Shader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Shader.h"
 				>
 			</File>
 			<File
@@ -366,14 +382,6 @@
 			</File>
 			<File
 				RelativePath=".\PNGLoader.h"
-				>
-			</File>
-			<File
-				RelativePath=".\TGALoader.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\TGALoader.h"
 				>
 			</File>
 		</Filter>
