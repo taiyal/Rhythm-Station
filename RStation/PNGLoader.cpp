@@ -9,8 +9,7 @@ void PNGLoader::Load(std::string _path)
 	png_infop info_ptr = NULL;
 	png_bytep *row_pointers = NULL;
 	int bitDepth, format;
-
-	Log::Print("[PNGLoader::Load] Loading \"" + _path + "\"");
+	
 	_path = FileManager::GetFile(_path);
 	FILE *pngFile = fopen(_path.c_str(), "rb");
 

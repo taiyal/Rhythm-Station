@@ -42,19 +42,16 @@ std::string getProgramLog(GLuint obj)
 Shader::Shader()
 {
 	program = NULL;
-	Log::DebugPrint("[Shader::Shader] Creating a new shader.");
 }
 
 Shader::~Shader()
 {
-	Log::DebugPrint("[Shader::~Shader] Cleaning up shader.");
 	this->Unbind();
 	this->Unload();
 }
 
 void Shader::Load(std::string _vs, std::string _fs, bool reload)
 {
-	Log::DebugPrint("[Shader::Load] Loading shader...");
 	if ( program && !reload)
 	{
 		if ( !reload )
@@ -104,7 +101,6 @@ void Shader::Load(std::string _vs, std::string _fs, bool reload)
 		Log::Print("Shader program log: " + log);
 
 	glUseProgram(program);
-	Log::DebugPrint("[Shader::Load] Loaded.");
 }
 
 void Shader::Load(GLuint _program)

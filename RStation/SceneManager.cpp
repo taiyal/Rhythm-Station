@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include <GL/glfw.h>
 #include "Sprite.h"
+#include "Timer.h"
 
 std::vector<Screen*> vpScreens;
 
@@ -12,6 +13,7 @@ void Scene::PushScreen()
 	vpScreens.push_back(scr);
 	Log::Print("[Scene::PushScreen] Pushed a new screen to the stack.");
 	
+	Timer timer;
 	int spacing = 100;
 	int num = 10;
 	for (int i = -num; i<num; i++) {
@@ -22,6 +24,7 @@ void Scene::PushScreen()
 		spr->Scale(vec3(0.5));
 		scr->AddActor(spr);
 	}
+	Log::Print("[Scene::PushScreen] Loading took: " + timer.strAgo() + " seconds.");
 }
 
 void Scene::PopScreen()
