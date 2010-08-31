@@ -12,10 +12,16 @@ void Scene::PushScreen()
 	vpScreens.push_back(scr);
 	Log::Print("[Scene::PushScreen] Pushed a new screen to the stack.");
 	
-	Sprite* spr = new Sprite();
-	spr->Load("Themes/rstation-logo.png");
-	spr->Rotate(vec3(0,0,90));
-	scr->AddActor(spr);
+	int spacing = 100;
+	int num = 10;
+	for (int i = -num; i<num; i++) {
+		Sprite* spr = new Sprite();
+		spr->Load("Themes/rstation-logo.png");
+		spr->Position(vec3(i*spacing,100,0));
+		spr->Rotate(vec3(0,0,45));
+		spr->Scale(vec3(0.5));
+		scr->AddActor(spr);
+	}
 }
 
 void Scene::PopScreen()
