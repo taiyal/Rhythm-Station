@@ -219,6 +219,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\RSFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RSFile.h"
+				>
+			</File>
+			<File
 				RelativePath=".\RStation.cpp"
 				>
 			</File>
@@ -240,6 +248,14 @@
 			</File>
 			<File
 				RelativePath=".\Shader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sprite.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sprite.h"
 				>
 			</File>
 			<File
