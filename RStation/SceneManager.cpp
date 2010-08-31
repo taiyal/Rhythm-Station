@@ -14,6 +14,7 @@ void Scene::PushScreen()
 	
 	Sprite* spr = new Sprite();
 	spr->Load("Themes/rstation-logo.png");
+	spr->Rotate(vec3(0,0,90));
 	scr->AddActor(spr);
 }
 

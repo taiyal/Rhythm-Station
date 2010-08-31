@@ -34,7 +34,7 @@ void Sprite::Load(std::string _path)
 	void main()\
 	{\
 		vec4 texture = texture2D(tex, gl_TexCoord[0].st);\
-		gl_FragColor = texture;\
+		gl_FragColor = texture + vec4(vec3(0.2),0.0);\
 	}";
 	
 	ob_shader->Load(vs,fs);

@@ -12,7 +12,7 @@ void GLFWCALL ResizeViewport(int w, int h)
 	glLoadIdentity();
 
 	glViewport(0, 0, w, h);
-	glOrtho(int(-(w/2)), int((w/2)), int((h/2)), int(-(h/2)), -10, 10);
+	glOrtho(int(-(w/2)), int((w/2)), int((h/2)), int(-(h/2)), -100, 100);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
