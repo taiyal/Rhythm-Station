@@ -105,8 +105,8 @@ void PNGLoader::Load(std::string _path)
 	png_read_image(png_ptr, row_pointers);
 	png_read_end(png_ptr, NULL);
 
-	this->SetWidth(width);
-	this->SetHeight(height);
+	this->setWidth(width);
+	this->setHeight(height);
 
 	// upload texture to GPU
 	GLuint texture;
@@ -136,7 +136,7 @@ void PNGLoader::Load(std::string _path)
 	}
 	glTexImage2D(GL_TEXTURE_2D, 0, ret, width, height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	this->SetTexture(texture);	
+	this->setTexture(texture);	
 
 	// cleanup
 	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);	

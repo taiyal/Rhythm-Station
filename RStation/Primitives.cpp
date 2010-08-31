@@ -4,7 +4,6 @@
 #include <math.h>
 
 // TODO: make some functions for building vertex arrays / VBOs
-
 struct Vertex {
 	Vertex() : x(0), y(0), z(0) {}
 	Vertex(float _x) : y(0), z(0)
@@ -57,6 +56,7 @@ void Primitive::Ngon(float _radius, unsigned _edges)
 	glDisableClientState(GL_VERTEX_ARRAY);
 }
 
+// This is primarily for testing - use an Actor for real usage.
 void Primitive::Quad(vec2 size)
 {
 	float cx = size.x * 0.5f;

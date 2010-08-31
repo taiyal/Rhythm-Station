@@ -10,12 +10,12 @@ ImageLoader::~ImageLoader()
 	this->Unload();
 }
 
-GLuint ImageLoader::GetTexture()
+GLuint ImageLoader::getTexture()
 {
 	return im_texture;
 }
 
-void ImageLoader::SetTexture(GLuint _tex)
+void ImageLoader::setTexture(GLuint _tex)
 {
 	im_texture = _tex;
 }
@@ -37,22 +37,22 @@ void ImageLoader::Unbind()
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-unsigned ImageLoader::GetWidth()
+unsigned ImageLoader::getWidth()
 {
 	return im_width;
 }
 
-unsigned ImageLoader::GetHeight()
+unsigned ImageLoader::getHeight()
 {
 	return im_height;
 }
 
-void ImageLoader::SetWidth(unsigned _width)
+void ImageLoader::setWidth(unsigned _width)
 {
 	im_width = _MIN(_width);
 }
 
-void ImageLoader::SetHeight(unsigned _height)
+void ImageLoader::setHeight(unsigned _height)
 {
 	im_height = _MIN(_height);
 }

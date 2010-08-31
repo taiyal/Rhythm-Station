@@ -19,7 +19,7 @@ class IMessageSubscriber
 {
 public:
 	virtual ~IMessageSubscriber() { }
-	virtual void HandleMessage( const Message &msg ) = 0;
+	virtual void HandleMessage( const Message &msg ) { };
 	void ClearMessages(const std::string Message = "");
 
 private:

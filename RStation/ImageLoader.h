@@ -1,6 +1,7 @@
 #ifndef _IMAGE_LOADER_H_
 #define _IMAGE_LOADER_H_
 
+#include "RStation.h"
 #include <GL/glfw.h>
 
 /*
@@ -13,18 +14,19 @@ public:
 	ImageLoader();
 	virtual ~ImageLoader();
 
-	GLuint GetTexture();
-	void Unload();
+	virtual void Load(std::string _path) { }
+	virtual void Unload();
 
-	void Bind();
-	void Unbind();
+	virtual void Bind();
+	virtual void Unbind();
 
-	unsigned GetWidth();
-	unsigned GetHeight();
+	virtual GLuint getTexture();
+	virtual unsigned getWidth();
+	virtual unsigned getHeight();
 
-	void SetTexture(GLuint texture); // texture pointer
-	void SetWidth(unsigned width);
-	void SetHeight(unsigned height);
+	virtual void setTexture(GLuint texture); // texture pointer
+	virtual void setWidth(unsigned width);
+	virtual void setHeight(unsigned height);
 
 private:
 	GLuint im_texture;

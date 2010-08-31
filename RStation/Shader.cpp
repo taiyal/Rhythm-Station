@@ -143,7 +143,7 @@ void Shader::Unbind()
 	glUseProgram(0);
 }
 
-GLuint Shader::GetProgram()
+GLuint Shader::getProgram()
 {
 	return program;
 }

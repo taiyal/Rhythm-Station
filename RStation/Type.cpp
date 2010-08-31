@@ -23,9 +23,7 @@ std::string convert::toString(bool _in)
 }
 
 // vec2
-vec2::vec2() {
-	x = y = 0.0f;
-}
+vec2::vec2() : x(0), y(0) {}
 vec2::vec2(float _xy)
 {
 	x = y = _xy;
@@ -37,9 +35,7 @@ vec2::vec2(float _x, float _y)
 }
 
 // vec3
-vec3::vec3() {
-	x = y = z = 0.0f;
-}
+vec3::vec3() : x(0), y(0), z(0) {}
 vec3::vec3(float _vec)
 {
 	x = y = z = _vec;
@@ -64,9 +60,7 @@ vec3::vec3(float _x, float _y, float _z)
 }
 
 // rgba
-rgba::rgba() {
-	r = g = b = a = 1.0f;
-}
+rgba::rgba() : r(0), g(0), b(0), a(0) {}
 rgba::rgba(float _rgb)
 {
 	r = g = b = _rgb;
