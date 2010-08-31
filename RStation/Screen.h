@@ -23,6 +23,7 @@ private:
 	PNGLoader* img;
 	Shader* shader;
 	Timer timer;
+	GLuint alphaLoc;
 };
 
 #endif

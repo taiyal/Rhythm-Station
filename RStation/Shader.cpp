@@ -103,6 +103,7 @@ void Shader::Load(std::string _vs, std::string _fs, bool reload)
 	if ( log.size() > 0 )
 		Log::Print("Shader program log: " + log);
 
+	glUseProgram(program);
 	Log::DebugPrint("[Shader::Load] Loaded.");
 }
 
@@ -111,6 +112,7 @@ void Shader::Load(GLuint _program)
 	if ( program )
 		return;
 	program = _program;
+	glUseProgram(program);
 }
 
 void Shader::Unload()

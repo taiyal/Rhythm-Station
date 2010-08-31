@@ -14,14 +14,17 @@ Screen::Screen()
 		gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;\
 	}";
 	fs = "uniform sampler2D tex;\
+	uniform float overlay_alpha;\
 	void main()\
 	{\
 		vec4 texture = texture2D(tex, gl_TexCoord[0].st);\
-		gl_FragColor = texture * vec4(0.4,0.4,0.8,1.0);\
+		gl_FragColor = texture + (texture * overlay_alpha);\
 	}";
 
 	shader = new Shader();
 	shader->Load(vs,fs);
+	alphaLoc = glGetUniformLocation(shader->GetProgram(),"overlay_alpha");
+	shader->Unbind();
 	glfwEnable(GLFW_KEY_REPEAT);
 	timer.Touch();
 }
@@ -47,8 +50,9 @@ void Screen::Input(const IEvent &e)
 	}
 }
 
-float alpha = 0.f;
-float fade_length = 1.5f;
+float alpha = 1.f;
+float fade_length = 2.f;
+bool bFinished = false;
 
 void Screen::Update(float deltaTime)
 {
@@ -57,7 +61,15 @@ void Screen::Update(float deltaTime)
 
 	float time = timer.Ago();
 	if ( time <= fade_length )
-		alpha = interpolate(TWEEN_EASE_OUT, 1.0f, 0.0f, fade_length, time);
+	{
+		alpha = interpolate(TWEEN_LINEAR, 1.0f, 0.0f, fade_length, time);
+	}
+	else if ( !bFinished )
+	{
+		bFinished = true;
+		Log::Print("Finished tweening.");
+		alpha = 0;
+	}
 }
 
 void Screen::Draw()
@@ -65,19 +77,8 @@ void Screen::Draw()
 	for(unsigned i = 0; i<vpActors.size(); i++)
 		vpActors[i]->Draw();
 
-	glPushMatrix();
-		img->Bind();
-		//shader->Bind();
-		Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));	
-		//shader->Unbind();
-
-		// additive blend and alpha fade
-		glColor4f(1.f, 1.f, 1.f, alpha);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-		Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
-
-		// reset color and blend
-		glColor4f(1.f, 1.f, 1.f, 1.f);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // normal blend
-	glPopMatrix();
+	img->Bind();
+	shader->Bind();
+	glUniform1f(alphaLoc, alpha);
+	Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
 }
