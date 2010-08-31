@@ -6,6 +6,8 @@
 #include "Actor.h"
 #include "PNGLoader.h"
 #include "Shader.h"
+#include "Timer.h"
+#include "Tween.h"
 
 class Screen
 {
@@ -20,6 +22,7 @@ private:
 	std::vector<Actor*> vpActors;
 	PNGLoader* img;
 	Shader* shader;
+	Timer timer;
 };
 
 #endif

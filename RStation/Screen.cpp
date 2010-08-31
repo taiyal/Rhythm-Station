@@ -1,14 +1,12 @@
 #include "Screen.h"
 #include "Primitives.h"
 #include "GameLoop.h"
-#include "Timer.h"
-#include "Tween.h"
 
 Screen::Screen()
 {
 	Log::DebugPrint("[Screen::Screen] Creating screen.");
 	img = new PNGLoader();
-	img->Load("image-png.png");
+	img->Load("Themes/rstation-logo.png");
 	
 	std::string vs, fs;
 	vs = "void main() {\
@@ -25,29 +23,13 @@ Screen::Screen()
 	shader = new Shader();
 	shader->Load(vs,fs);
 	glfwEnable(GLFW_KEY_REPEAT);
+	timer.Touch();
 }
 
 Screen::~Screen()
 {
 	Log::DebugPrint("[Screen::~Screen] Deleting.");
 	img->Unload();
-}
-
-vec3 pos = vec3(5,5,0);
-vec3 dest, temp = pos;
-
-Timer timer;
-
-bool bMoving = false;
-
-void Move(float x, float y)
-{
-	if ( bMoving )
-		return;
-	bMoving = true;
-	dest.x += x;
-	dest.y += y;
-	timer.Touch();
 }
 
 void Screen::Input(const IEvent &e)
@@ -63,15 +45,10 @@ void Screen::Input(const IEvent &e)
 	{
 		Game::Terminate();
 	}
-	if ( e.Key == KEY_LEFT )
-		Move(-5,0);
-	if ( e.Key == KEY_RIGHT )
-		Move(5,0);
-	if ( e.Key == KEY_UP )
-		Move(0,-5);
-	if ( e.Key == KEY_DOWN )
-		Move(0,5);
 }
+
+float alpha = 0.f;
+float fade_length = 1.5f;
 
 void Screen::Update(float deltaTime)
 {
@@ -79,38 +56,28 @@ void Screen::Update(float deltaTime)
 		vpActors[i]->Update(deltaTime);
 	
 	float time = timer.Ago();
-	if ( bMoving )
-	{
-		if ( time >= 0.25f )
-		{
-			bMoving = false;
-			pos = dest;
-			return;
-		}
-		else
-		{
-			temp = interpolate( TWEEN_LINEAR, pos, dest, 0.25f, time );
-		}
-
-	}
+	if ( time <= fade_length )
+		alpha = interpolate(TWEEN_EASE_OUT, 1.0f, 0.0f, fade_length, time);
 }
 
 void Screen::Draw()
 {
 	for(unsigned i = 0; i<vpActors.size(); i++)
 		vpActors[i]->Draw();
-
-	shader->Bind();
-	img->Bind();
-	
-	Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
-	
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	shader->Unbind();
 	
 	glPushMatrix();
-	glTranslatef(temp.x, temp.y, 0);
-	Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		img->Bind();
+		//shader->Bind();
+		Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));	
+		//shader->Unbind();
+		
+		// additive blend and alpha fade
+		glColor4f(1.f, 1.f, 1.f, alpha);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+		Primitive::Quad(vec2(img->GetWidth(), img->GetHeight()));
+		
+		// reset color and blend
+		glColor4f(1.f, 1.f, 1.f, 1.f);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // normal blend
 	glPopMatrix();
 }

@@ -33,7 +33,7 @@ void Scene::SendInput(const IEvent &e)
 
 void Scene::Clear()
 {
-	while(vpScreens.size() > 0)
+	while(vpScreens.size())
 	{
 		delete vpScreens.back();
 		vpScreens.pop_back();
