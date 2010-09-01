@@ -18,8 +18,12 @@
 
 #define sign(x)				(((x) > 0) ? 1 : ((x) < 0) ? -1 : 0)
 #define smallest(x,y)			(ABS(x) < ABS(y) ? 0 : x)
+#ifndef min
 #define min(x,y)				((x) < (y) ? x : y)
+#endif
+#ifndef max
 #define max(x,y)				((x) > (y) ? x : y)
+#endif
 //#define swap(a,b)				{ int temp = a; a = b; b = temp; }
 
 float radf(float val);

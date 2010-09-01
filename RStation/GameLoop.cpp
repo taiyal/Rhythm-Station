@@ -3,8 +3,8 @@
 #include "GameLoop.h"
 #include "InputManager.h"
 #include "SceneManager.h"
+#include "RSUtil.h"
 #include "Screen.h"
-#include <sstream>
 
 bool bRunning = true;
 
@@ -33,17 +33,7 @@ namespace Game
 			// calculate FPS and set window title.
 			if( int(then * freq) != int(now * freq) )
 			{
-				double fps = 1.f / delta;
-
-				std::ostringstream str;
-				str << "RStation - ";
-				str << "FPS: ";
-				str << int(fps * 10) * 0.1f;
-				str << ", Delta: ";
-				str << delta;
-
-				std::string sfps = str.str(); // str.c_str doesn't work?
-				glfwSetWindowTitle(sfps.c_str());
+				Util::UpdateWindowTitle(delta);
 			}
 			then = now;
 

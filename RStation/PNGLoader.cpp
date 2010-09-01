@@ -93,7 +93,7 @@ void PNGLoader::Load(std::string _path)
 	GLubyte *pixels = new GLubyte[width * height * ret];
 	row_pointers = new png_bytep[height];
 	
-	for(int i = 0; i < height; ++i)
+	for(unsigned i = 0; i < height; ++i)
 	{
 		row_pointers[i] = (png_bytep)(pixels + (i * width * ret));
 	}

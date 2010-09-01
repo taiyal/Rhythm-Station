@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="1"
@@ -171,6 +171,18 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}"
+			RelativePathToProject=".\extern\glfw\support\msvc90\GLFW.vcproj"
+		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{61BB3BAF-3AD7-4DA9-83BB-37A3DF9EC2FA}"
+			RelativePathToProject=".\extern\libpng-1.2.44\projects\visualc71\zlib.vcproj"
+		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{82321A1B-851F-4A52-835C-F10EACDB26CD}"
+			RelativePathToProject=".\extern\libpng-1.2.44\projects\visualc71\libpng.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter
@@ -232,6 +244,14 @@
 			</File>
 			<File
 				RelativePath=".\RStation.h"
+				>
+			</File>
+			<File
+				RelativePath=".\RSUtil.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RSUtil.h"
 				>
 			</File>
 			<File

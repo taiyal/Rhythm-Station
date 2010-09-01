@@ -660,6 +660,10 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{61BB3BAF-3AD7-4DA9-83BB-37A3DF9EC2FA}"
+			RelativePathToProject=".\extern\libpng-1.2.44\projects\visualc71\zlib.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter

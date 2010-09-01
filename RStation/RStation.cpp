@@ -15,8 +15,8 @@ void GLFWCALL ResizeViewport(int w, int h)
 	
 	// half width, half height.
 	int hw, hh;
-	hw = w*0.5;
-	hh = h*0.5;
+	hw = int(w*0.5f);
+	hh = int(h*0.5f);
 	
 	glOrtho(-hw, hw, hh, -hh, -hw, hw);
 
@@ -47,7 +47,7 @@ void InitWindow(int ScrX, int ScrY)
 
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
-	glfwSwapInterval(1);
+//	glfwSwapInterval(1);
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
 
 	glfwSetWindowSizeCallback(ResizeViewport);
