@@ -15,11 +15,11 @@ void Scene::PushScreen()
 	
 	Timer timer;
 	int spacing = 100;
-	int num = 2;
+	int num = 5;
 	for (int i = -num; i<num; i++) {
 		Sprite* spr = new Sprite();
 		spr->Load("Themes/rstation-logo.png");
-		spr->Position(vec3(float(i*spacing),100.0f,0.0f));
+		spr->Position(vec3(float((i+0.5)*spacing),100.0f,0.0f));
 		spr->Rotate(vec3(0,0,45));
 		spr->Scale(vec3(0.5));
 		scr->AddActor(spr);
