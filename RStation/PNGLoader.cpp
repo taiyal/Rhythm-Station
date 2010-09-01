@@ -18,7 +18,9 @@ void PNGLoader::Load(std::string _path)
 	png_bytep *row_pointers = NULL;
 	int bitDepth, format;
 	
+	texture.path = _path;
 	_path = FileManager::GetFile(_path);
+
 	FILE *pngFile = fopen(_path.c_str(), "rb");
 
 	if(!pngFile)
