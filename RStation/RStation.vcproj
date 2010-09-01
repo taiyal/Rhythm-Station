@@ -382,6 +382,14 @@
 				RelativePath=".\SceneManager.h"
 				>
 			</File>
+			<File
+				RelativePath=".\TextureManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TextureManager.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Input"

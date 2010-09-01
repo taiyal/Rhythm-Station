@@ -15,6 +15,13 @@
 build/
 *.build
 
+*.ncb
+*.pdb
+*.suo
+*.old
+*.ilk
+*.tlog
+
 *-log.txt
 
 # xcode user files
@@ -23,3 +30,17 @@ build/
 
 *.svn
 *.CVS*
+
+RStation/Debug/*
+RStation/Release/*
+
+*.obj
+BuildLog.htm
+*.pch
+*.lastbuildstate
+*.log
+*.user
+*.filters
+*.lib
+*.idb
+*.cache

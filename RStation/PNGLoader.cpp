@@ -2,9 +2,19 @@
 #include "PNGLoader.h"
 #include <png.h>
 #include <GL/glfw.h>
+#include "TextureManager.h"
 
 void PNGLoader::Load(std::string _path)
 {
+	Texture dupe = TextureManager::CheckForDuplicates(_path);
+	Texture texture;
+	if( dupe.ptr )
+	{
+		this->setTexture(dupe.ptr);
+		this->setWidth(dupe.width);
+		this->setHeight(dupe.height);
+		return;
+	}
 	png_structp png_ptr = NULL;
 	png_infop info_ptr = NULL;
 	png_bytep *row_pointers = NULL;
@@ -63,6 +73,8 @@ void PNGLoader::Load(std::string _path)
 	png_uint_32 width, height;
 	png_get_IHDR(png_ptr, info_ptr, &width, &height,
 			 &bitDepth, &format, NULL, NULL, NULL);
+	texture.width = width;
+	texture.height = height;
 
 	int ret;
 	switch(format)
@@ -90,24 +102,20 @@ void PNGLoader::Load(std::string _path)
 		Log::Print("[PNGLoader::Load] File invalid. Is this really a PNG file?");
 		return;
 	}
-	GLubyte *pixels = new GLubyte[width * height * ret];
-	row_pointers = new png_bytep[height];
+	GLubyte *pixels = new GLubyte[texture.width * texture.height * ret];
+	row_pointers = new png_bytep[texture.height];
 	
-	for(unsigned i = 0; i < height; ++i)
+	for(unsigned i = 0; i < texture.height; ++i)
 	{
-		row_pointers[i] = (png_bytep)(pixels + (i * width * ret));
+		row_pointers[i] = (png_bytep)(pixels + (i * texture.width * ret));
 	}
 
 	png_read_image(png_ptr, row_pointers);
 	png_read_end(png_ptr, NULL);
 
-	this->setWidth(width);
-	this->setHeight(height);
-
 	// upload texture to GPU
-	GLuint texture;
-	glGenTextures(1, &texture); // make it
-	glBindTexture(GL_TEXTURE_2D, texture); // bind it
+	glGenTextures(1, &texture.ptr); // make it
+	glBindTexture(GL_TEXTURE_2D, texture.ptr); // bind it
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 
@@ -130,9 +138,15 @@ void PNGLoader::Load(std::string _path)
 			glformat = 0; // this shouldn't happen.
 			break;
 	}
-	glTexImage2D(GL_TEXTURE_2D, 0, ret, width, height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
+	glTexImage2D(GL_TEXTURE_2D, 0, ret, texture.width, texture.height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	this->setTexture(texture);	
+
+	this->setTexture(texture.ptr);
+	this->setWidth(texture.width);
+	this->setHeight(texture.height);
+
+	// register this so we don't load it again.
+	TextureManager::addTexture(texture);
 
 	// cleanup
 	png_destroy_read_struct(&png_ptr, &info_ptr, NULL);	

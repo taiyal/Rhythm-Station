@@ -5,6 +5,7 @@
 #include "Log.h"
 #include "KeyboardHandler.h"
 #include "MouseHandler.h"
+#include "TextureManager.h"
 
 void GLFWCALL ResizeViewport(int w, int h)
 {
