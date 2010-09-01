@@ -3,6 +3,7 @@
 
 #include "RStation.h"
 #include <GL/glfw.h>
+#include "TextureManager.h"
 
 /*
  * Generic image loading class for others to be based on.
@@ -24,15 +25,11 @@ public:
 	virtual unsigned getWidth();
 	virtual unsigned getHeight();
 
-	virtual void setTexture(GLuint texture); // texture pointer
-	virtual void setWidth(unsigned width);
-	virtual void setHeight(unsigned height);
+	virtual void setTexture(Texture texture); // texture pointer
 
 private:
-	GLuint im_texture;
+	Texture im_texture;
 	char _fmt;
-	unsigned im_width;
-	unsigned im_height;
 };
 
 #endif

@@ -10,9 +10,7 @@ void PNGLoader::Load(std::string _path)
 	Texture texture;
 	if( dupe.ptr )
 	{
-		this->setTexture(dupe.ptr);
-		this->setWidth(dupe.width);
-		this->setHeight(dupe.height);
+		this->setTexture(dupe);
 		return;
 	}
 	png_structp png_ptr = NULL;
@@ -141,9 +139,7 @@ void PNGLoader::Load(std::string _path)
 	glTexImage2D(GL_TEXTURE_2D, 0, ret, texture.width, texture.height, 0, glformat, GL_UNSIGNED_BYTE, pixels);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	this->setTexture(texture.ptr);
-	this->setWidth(texture.width);
-	this->setHeight(texture.height);
+	this->setTexture(texture);
 
 	// register this so we don't load it again.
 	TextureManager::addTexture(texture);

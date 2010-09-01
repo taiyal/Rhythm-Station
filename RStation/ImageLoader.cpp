@@ -12,10 +12,20 @@ ImageLoader::~ImageLoader()
 
 GLuint ImageLoader::getTexture()
 {
-	return im_texture;
+	return im_texture.ptr;
 }
 
-void ImageLoader::setTexture(GLuint _tex)
+unsigned ImageLoader::getWidth()
+{
+	return im_texture.width;
+}
+
+unsigned ImageLoader::getHeight()
+{
+	return im_texture.height;
+}
+
+void ImageLoader::setTexture(Texture _tex)
 {
 	im_texture = _tex;
 }
@@ -24,37 +34,17 @@ void ImageLoader::setTexture(GLuint _tex)
 
 void ImageLoader::Unload()
 {
-	glDeleteTextures(1, &im_texture);
+	glDeleteTextures(1, &im_texture.ptr);
 }
 
 void ImageLoader::Bind()
 {
-	glBindTexture(GL_TEXTURE_2D, im_texture);
+	glBindTexture(GL_TEXTURE_2D, im_texture.ptr);
 }
 
 void ImageLoader::Unbind()
 {
 	glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-unsigned ImageLoader::getWidth()
-{
-	return im_width;
-}
-
-unsigned ImageLoader::getHeight()
-{
-	return im_height;
-}
-
-void ImageLoader::setWidth(unsigned _width)
-{
-	im_width = _MIN(_width);
-}
-
-void ImageLoader::setHeight(unsigned _height)
-{
-	im_height = _MIN(_height);
 }
 
 #undef _MIN
