@@ -23,6 +23,9 @@ namespace Game
 	{
 		Scene::PushScreen(); // push initial screen
 
+		// Init is done, flush the log.
+		Log::Write();
+
 		double then = glfwGetTime();
 		while(bRunning && glfwGetWindowParam(GLFW_OPENED))
 		{

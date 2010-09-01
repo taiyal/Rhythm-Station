@@ -20,6 +20,12 @@ void Log::Close()
 	logFile.close();
 }
 
+void Log::Write()
+{
+	Print("[Log::Write] Flushing log to disk.");
+	logFile.flush();
+}
+
 // don't forget to define _DEBUG_!
 void Log::DebugPrint(std::string input)
 {

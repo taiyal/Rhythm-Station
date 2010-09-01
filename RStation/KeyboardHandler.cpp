@@ -1,5 +1,6 @@
 #include "KeyboardHandler.h"
 #include "SceneManager.h"
+#include "Log.h"
 
 int Keys[GLFW_KEY_LAST] = { RS_FIRST_PRESS };
 
@@ -24,6 +25,12 @@ void KeyCallback(int key, int action)
 	IEvent event;
 	event.Key = key;
 	event.State = Keys[key];
+
+	// flush log on F3
+	if(event.Key == KEY_F3 && event.State == RS_FIRST_PRESS)
+	{
+		Log::Write();
+	}
 
 	Scene::SendInput(event);
 }
