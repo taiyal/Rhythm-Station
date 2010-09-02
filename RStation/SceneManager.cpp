@@ -56,8 +56,7 @@ void Scene::Clear()
 {
 	while(!vpScreens.empty())
 	{
-		delete vpScreens.back();
-		vpScreens.pop_back();
+		PopScreen();
 	}
 	Log::Print("[Scene::Clear] Cleared all screens.");
 }
