@@ -287,6 +287,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\TimingData.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Tween.cpp"
 				>
 			</File>
