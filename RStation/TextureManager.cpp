@@ -25,10 +25,9 @@ void TextureManager::addTexture(Texture _texture)
 
 void TextureManager::clear()
 {
+	// These should be cleaned up properly by ImageLoader, so no need here.
 	for(unsigned i = 0; i<tm_textures.size(); i++)
 	{
-		Texture *current = &tm_textures[i];
-		glDeleteTextures(1, &current->ptr);
 		tm_textures.pop_back();
 	}
 }
