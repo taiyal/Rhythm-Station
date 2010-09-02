@@ -2,8 +2,8 @@
 #define _IMAGE_LOADER_H_
 
 #include "RStation.h"
-#include <GL/glfw.h>
 #include "TextureManager.h"
+#include <GL/glfw.h>
 
 /*
  * Generic image loading class for others to be based on.
@@ -18,14 +18,14 @@ public:
 	virtual void Load(std::string _path) { }
 	virtual void Unload();
 
-	virtual void Bind();
-	virtual void Unbind();
+	void Bind();
+	void Unbind();
 
-	virtual GLuint getTexture();
-	virtual unsigned getWidth();
-	virtual unsigned getHeight();
+	GLuint getTexture();
+	unsigned getWidth();
+	unsigned getHeight();
 
-	virtual void setTexture(Texture texture); // texture pointer
+	void setTexture(Texture tex); // texture pointer
 
 private:
 	Texture im_texture;

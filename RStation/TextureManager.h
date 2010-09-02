@@ -2,6 +2,7 @@
 #define _TEXTURE_MANAGER_H_
 
 #include "RStation.h"
+#include "ImageLoader.h"
 #include <GL/glfw.h>
 
 struct Texture
@@ -9,6 +10,7 @@ struct Texture
 	std::string path;
 	GLuint ptr;
 	unsigned width, height;
+	ImageLoader *loader;
 };
 
 namespace TextureManager
