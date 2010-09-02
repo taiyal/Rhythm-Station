@@ -43,7 +43,8 @@ void Scene::Update(float deltaTime)
 
 void Scene::SendInput(const IEvent &e)
 {
-	vpScreens.back()->Input(e);
+	if(vpScreens.back())
+		vpScreens.back()->Input(e);
 }
 
 void Scene::Clear()
