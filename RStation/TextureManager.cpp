@@ -1,4 +1,5 @@
 #include "TextureManager.h"
+#include "ImageLoader.h"
 
 std::vector<Texture> tm_textures;
 
@@ -25,9 +26,10 @@ void TextureManager::addTexture(Texture _texture)
 
 void TextureManager::clear()
 {
-	// These should be cleaned up properly by ImageLoader, so no need here.
 	for(unsigned i = 0; i<tm_textures.size(); i++)
 	{
-		tm_textures.pop_back();
+		// make sure the texture is unloaded and pop it from the stack
+		tm_textures.back().loader->Unload();
 	}
+	tm_textures.clear();
 }
