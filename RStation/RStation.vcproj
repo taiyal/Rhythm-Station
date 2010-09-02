@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44&quot;;&quot;..\extern\zlib-1.2.5&quot;"
+				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44&quot;;&quot;..\extern\zlib-1.2.5&quot;;&quot;..\extern\lua-5.1.4\src&quot;"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC;_DEBUG_"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -118,7 +118,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44&quot;;&quot;..\extern\zlib-1.2.5&quot;"
+				AdditionalIncludeDirectories="win32\;..\extern\glew\include;..\extern\glfw\include;&quot;..\extern\libpng-1.2.44&quot;;&quot;..\extern\zlib-1.2.5&quot;;&quot;..\extern\lua-5.1.4\src&quot;"
 				PreprocessorDefinitions=" __WINDOWS__;GLEW_STATIC"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -182,6 +182,10 @@
 		<ProjectReference
 			ReferencedProjectIdentifier="{82321A1B-851F-4A52-835C-F10EACDB26CD}"
 			RelativePathToProject=".\extern\libpng-1.2.44\projects\visualc71\libpng.vcproj"
+		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}"
+			RelativePathToProject=".\extern\lua-5.1.4\etc\vs2008\lua.vcproj"
 		/>
 	</References>
 	<Files>
