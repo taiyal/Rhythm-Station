@@ -2,8 +2,9 @@
 #define _TEXTURE_MANAGER_H_
 
 #include "RStation.h"
-#include "ImageLoader.h"
 #include <GL/glfw.h>
+
+class ImageLoader;
 
 struct Texture
 {
