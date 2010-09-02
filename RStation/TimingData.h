@@ -1,6 +1,8 @@
 #ifndef _TIMING_DATA_H_
 #define _TIMING_DATA_H_
 
+#include "RStation.h"
+
 // please edit this until you think it is sane.
 
 enum NoteType {
@@ -31,34 +33,35 @@ struct Note
 	vec3 position;
 };
 
-struct TimeSignature
+struct NoteRow
 {
-	int numerator;
-	int denominator;
+	std::vector<Note> notes; // Notes on this row
+	int time; // Time in milliseconds.
+
+	// This is independent of time - use for stops, delays, warping, whatever.
+	float scroll_speed;
 };
 
 struct NoteRegion
 {
 	int combo_rate; // aka tickcount
 	float bpm; // For display purposes, not timing.
-	TimeSignature time_sig;
-};
 
-struct NoteRow
-{
-	std::vector<Note> notes; // Notes on this row
-	int time; // Time in milliseconds.
-	/*
-	 * Note: This can be zero. Notes will always arrive on time, regardless
-	 * of the scrolling speed.
-	 */
-	float scroll_speed;
+	struct TimeSignature
+	{
+		int numerator;
+		int denominator;
+	} time_sig;
+
+	int time;
 };
 
 struct TimingData
 {
-	std::vector<NoteRow> note_rows; // all the note rows in this data
+	std::vector<NoteRow> note_rows;
 	std::vector<NoteRegion> note_regions;
+
+	int timing_offset;
 };
 
 #endif
