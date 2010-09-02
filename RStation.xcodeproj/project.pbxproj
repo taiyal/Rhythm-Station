@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B75C4F11230542800913E60 /* RSUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4EF1230542800913E60 /* RSUtil.cpp */; };
+		2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4F51230545F00913E60 /* TextureManager.cpp */; };
 		EE1313BE122CFFF000511DD5 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE1313BD122CFFF000511DD5 /* Sprite.cpp */; };
 		EE1314E6122D760F00511DD5 /* RSFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE1314E5122D760F00511DD5 /* RSFile.cpp */; };
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
@@ -120,6 +122,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B75C4EF1230542800913E60 /* RSUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RSUtil.cpp; sourceTree = "<group>"; };
+		2B75C4F01230542800913E60 /* RSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSUtil.h; sourceTree = "<group>"; };
+		2B75C4F41230545200913E60 /* TimingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimingData.h; sourceTree = "<group>"; };
+		2B75C4F51230545F00913E60 /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
+		2B75C4F61230545F00913E60 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* RStation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RStation-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* RStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1313BC122CFFF000511DD5 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
@@ -435,8 +442,11 @@
 				EEF7711012282B7400C6B4E7 /* Timer.h */,
 				EEF7711112282B7400C6B4E7 /* Tween.cpp */,
 				EEF7711212282B7400C6B4E7 /* Tween.h */,
+				2B75C4F41230545200913E60 /* TimingData.h */,
 				EEF7711312282B7400C6B4E7 /* Type.cpp */,
 				EEF7711412282B7400C6B4E7 /* Type.h */,
+				2B75C4EF1230542800913E60 /* RSUtil.cpp */,
+				2B75C4F01230542800913E60 /* RSUtil.h */,
 				EE1314E4122D760F00511DD5 /* RSFile.h */,
 				EE1314E5122D760F00511DD5 /* RSFile.cpp */,
 			);
@@ -462,6 +472,8 @@
 				EEF40EDD121FD490009F8F49 /* FileManager.cpp */,
 				EEF40EDE121FD490009F8F49 /* FileManager.h */,
 				EEF40EF9121FECFD009F8F49 /* InputManager.h */,
+				2B75C4F51230545F00913E60 /* TextureManager.cpp */,
+				2B75C4F61230545F00913E60 /* TextureManager.h */,
 				EEF40EFA121FECFD009F8F49 /* InputManager.cpp */,
 				EEF40FB2122144B9009F8F49 /* MessageManager.cpp */,
 				EEF40FB3122144B9009F8F49 /* MessageManager.h */,
@@ -786,6 +798,8 @@
 				EEBD1F67122BBEFF003DB675 /* Shader.cpp in Sources */,
 				EE1313BE122CFFF000511DD5 /* Sprite.cpp in Sources */,
 				EE1314E6122D760F00511DD5 /* RSFile.cpp in Sources */,
+				2B75C4F11230542800913E60 /* RSUtil.cpp in Sources */,
+				2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
