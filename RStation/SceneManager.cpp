@@ -29,6 +29,11 @@ void Scene::PushScreen()
 
 void Scene::PopScreen()
 {
+	if(vpScreens.empty())
+	{
+		Log::Print("No Screens to delete!");
+		return;
+	}
 	delete vpScreens.back();
 	vpScreens.pop_back();
 
@@ -43,13 +48,13 @@ void Scene::Update(float deltaTime)
 
 void Scene::SendInput(const IEvent &e)
 {
-	if(vpScreens.back())
+	if(!vpScreens.empty())
 		vpScreens.back()->Input(e);
 }
 
 void Scene::Clear()
 {
-	while(vpScreens.size())
+	while(!vpScreens.empty())
 	{
 		delete vpScreens.back();
 		vpScreens.pop_back();
