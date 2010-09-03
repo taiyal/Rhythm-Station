@@ -1,8 +1,5 @@
 #include "Actor.h"
 
-//void Actor::Update(float deltaTime) { }
-//void Actor::Draw() { }
-
 Actor::Actor()
 {
 	ob_scale = vec3(1.0f);
@@ -28,9 +25,7 @@ void Actor::DrawBase()
 				// draw recursively.
 				this->Draw();
 				for (unsigned i = 0; i<vpChildren.size(); i++)
-				{
 					vpChildren[i]->DrawBase();
-				}
 			glPopMatrix();
 		glPopMatrix();
 	glPopMatrix();

@@ -33,9 +33,7 @@ void Screen::Update(float deltaTime)
 
 //	float time = timer.Ago();
 //	if ( time <= fade_length )
-//	{
 //		alpha = interpolate(TWEEN_LINEAR, 1.0f, 0.0f, fade_length, time);
-//	}
 //	else if ( !bFinished )
 //	{
 //		bFinished = true;

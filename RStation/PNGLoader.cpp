@@ -107,9 +107,7 @@ void PNGLoader::Load(std::string _path)
 	row_pointers = new png_bytep[tex.height];
 	
 	for(unsigned i = 0; i < tex.height; ++i)
-	{
 		row_pointers[i] = (png_bytep)(pixels + (i * tex.width * ret));
-	}
 
 	png_read_image(png_ptr, row_pointers);
 	png_read_end(png_ptr, NULL);

@@ -35,9 +35,8 @@ namespace Game
 
 			// calculate FPS and set window title.
 			if( int(then * freq) != int(now * freq) )
-			{
 				Util::UpdateWindowTitle(delta);
-			}
+
 			then = now;
 
 			Scene::Update(delta);
