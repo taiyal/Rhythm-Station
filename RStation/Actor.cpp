@@ -8,6 +8,12 @@ Actor::Actor()
 	ob_scale = vec3(1.0f);
 }
 
+void Actor::AddChild(Actor *child)
+{
+	child->parent = this;
+	vpChildren.push_back(child);
+}
+
 // Do the transforms and stuff which are going to be the same for nearly everything.
 void Actor::DrawBase()
 {
@@ -19,10 +25,12 @@ void Actor::DrawBase()
 			glRotatef(ob_rot.z, 0, 0, 1);
 			glPushMatrix();
 				glScalef(ob_scale.x, ob_scale.y, ob_scale.z);
-				// draw self
+				// draw recursively.
 				this->Draw();
-				// TODO: draw children
-//				for (unsigned i = 0; i<vpChildren.size(); i++) { vpChildren[i]->DrawBase(); }
+				for (unsigned i = 0; i<vpChildren.size(); i++)
+				{
+					vpChildren[i]->DrawBase();
+				}
 			glPopMatrix();
 		glPopMatrix();
 	glPopMatrix();

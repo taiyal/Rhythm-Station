@@ -12,6 +12,7 @@ public:
 	virtual void Update(float fDeltaTime) {}
 	virtual void Draw() {}
 	virtual void DrawBase();
+	void AddChild(Actor* _child);
 
 	virtual void Position(vec3 _pos) { ob_pos = _pos; }
 	virtual void Rotate(vec3 _rot) { ob_rot = _rot; }
@@ -25,6 +26,9 @@ protected:
 	vec3 ob_pos;
 	vec3 ob_rot;
 	vec3 ob_scale;
+
+	Actor *parent;
+	std::vector<Actor*> vpChildren;
 };
 
 #endif
