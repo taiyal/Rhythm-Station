@@ -1,4 +1,6 @@
+#ifdef _WIN32
 #pragma once
+#endif
 
 #ifdef _WIN32
 #include "win32\Resource.h"

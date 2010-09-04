@@ -41,3 +41,9 @@ vars passed in as arguments prefix names with underscores, and CamelCase funcs.
 I can usually be found in #shakesoda on irc.freenode.net, or you can email me
 at shakesoda+rstation at gmail dot com. #shakesoda is, at this point, the
 official channel for Rhythm-Station.
+
+[Compiling on Linux/gcc]
+Make sure you've installed GLEW, GLFW, libpng, zlib, openal (and alut)
+
+Then just run make in the root directory. Note: the Makefile is very basic
+and was hacked together in about 2 minutes.

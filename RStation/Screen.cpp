@@ -50,7 +50,6 @@ void Screen::Draw()
 	
 /*	glPushMatrix();
 		// XXX: the Gran Turismo trick; it only works for moving stuff.
-		/*
 		if ( ++frame % 2 )
 			glTranslatef(0.5, 1, 0);
 		else
