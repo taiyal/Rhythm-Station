@@ -869,6 +869,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
+				SYMROOT = "$(PROJECT_DIR)";
 			};
 			name = Debug;
 		};
@@ -887,6 +888,7 @@
 				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
+				SYMROOT = "$(PROJECT_DIR)";
 			};
 			name = Release;
 		};
