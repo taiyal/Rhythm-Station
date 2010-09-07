@@ -49,6 +49,7 @@ void InitWindow(int ScrX, int ScrY)
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
+	glfwSwapInterval(1); // vsync
 
 	glfwSetWindowSizeCallback(ResizeViewport);
 	RegisterKeyboardCallbacks();
