@@ -1,5 +1,7 @@
 #include <GL/glew.h> // must be before glfw.h!
 #include "Shader.h"
+#include <fstream>
+#include "FileManager.h"
 
 std::string getShaderLog(GLuint obj)
 {
@@ -65,7 +67,21 @@ void Shader::Load(std::string _vs, std::string _fs, bool reload)
 			Log::DebugPrint("[Shader::Load] Reloading shader.");
 		}
 	}
+	_vs = "GameData/Shaders/" + _vs;
+	_fs = "GameData/Shaders/" + _fs;
+	
+	// expand the file paths for vs and fs.
+	_vs = FileManager::GetFile(_vs);
+	_fs = FileManager::GetFile(_fs);
 
+	// load up the files
+	_vs = FileManager::GetFileContents(_vs);
+	_fs = FileManager::GetFileContents(_fs);
+	
+	// bad paths!
+	if(_vs.size() == 0 || _fs.size() == 0)
+		return;
+	
 	// create pointers for our vertex and frag shaders
 	vs = glCreateShader(GL_VERTEX_SHADER);
 	fs = glCreateShader(GL_FRAGMENT_SHADER);	

@@ -10,6 +10,7 @@ namespace FileManager
 	std::string GetWorkingDirectory();
 	std::string GetFile(std::string);
 	std::string GetThemeFile(std::string);
+	std::string GetFileContents(std::string);
 }
 
 #endif

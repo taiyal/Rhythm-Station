@@ -98,9 +98,8 @@ float interpolate( int tweentype, float _old, float _new, float duration, float 
 	TweenFn Tween = SetTweenType(tweentype);
 
 	if( Tween )
-	{
 		temp -= Tween( change, time, elapsed );
-	}
+
 	return temp;
 }
 

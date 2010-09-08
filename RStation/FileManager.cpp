@@ -55,8 +55,25 @@ namespace FileManager
 		getcwd(path, 1024);
 		return std::string(path) + "/";
 	}
-	std::string GetFile( std::string _path )
+	std::string GetFile(std::string _path)
 	{
 		return GetWorkingDirectory() + _path;
+	}
+	std::string GetFileContents(std::string _path)
+	{
+		std::string out, buf;
+		std::ifstream file(_path.c_str());
+		
+		if(!file.is_open())
+			return std::string();
+		
+		while(!file.eof())
+		{
+			getline(file, buf);
+			out += buf;
+			out += "\n";
+		}
+		
+		return out;
 	}
 }

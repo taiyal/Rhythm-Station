@@ -26,16 +26,8 @@ void Sprite::Load(std::string _path)
 	ob_texture->Load(_path);
 	
 	std::string vs, fs;
-	vs = "void main() {\
-		gl_TexCoord[0]  = gl_MultiTexCoord0;\
-		gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;\
-	}";
-	fs = "uniform sampler2D tex;\
-	void main()\
-	{\
-		vec4 texture = texture2D(tex, gl_TexCoord[0].st);\
-		gl_FragColor = texture + vec4(vec3(0.2),0.0);\
-	}";
+	vs = "sprite.vert";
+	fs = "sprite.frag";
 	
 	ob_shader->Load(vs,fs);
 }
@@ -53,4 +45,6 @@ void Sprite::Draw()
 	ob_texture->Bind();
 	ob_shader->Bind();
 	Primitive::Quad(vec2(ob_texture->getWidth(), ob_texture->getHeight()));
+	ob_shader->Unbind();
+	ob_texture->Unbind();
 }
