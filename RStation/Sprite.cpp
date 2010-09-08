@@ -7,6 +7,7 @@ Sprite::Sprite()
 	ob_texture = new ImageLoader(); // make sure this exists!
 	ob_shader = new Shader();
 }
+
 Sprite::~Sprite()
 {
 	delete ob_texture;
@@ -27,6 +28,7 @@ void Sprite::Load(std::string _path)
 	
 	ob_shader->Load("sprite.vert","sprite.frag");
 }
+
 void Sprite::SetFrames(vec2 frames)
 {
 	// TODO
