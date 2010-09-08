@@ -22,8 +22,15 @@ void Scene::PushScreen()
 		spr->Position(vec3(float((i+0.5)*spacing),100.0f,0.0f));
 		spr->Rotate(vec3(0,0,45));
 		spr->Scale(vec3(0.5));
-		scr->AddActor(spr);
+		spr->Register();
 	}
+	
+	Sprite* spr_mouse = new Sprite();
+	spr_mouse->Load("Themes/_arrow.png");
+	spr_mouse->Position(vec3(0,0,0));
+	spr_mouse->Hook(RS_ATTACH_CURSOR);
+	spr_mouse->Register();
+	
 	Log::Print("[Scene::PushScreen] Loading took: " + timer.strAgo() + " seconds.");
 }
 
@@ -38,6 +45,11 @@ void Scene::PopScreen()
 	vpScreens.pop_back();
 
 	Log::Print("[Scene::PopScreen] Deleted top screen.");
+}
+
+Screen* Scene::GetTopScreen()
+{
+	return vpScreens.back();
 }
 
 void Scene::Update(float deltaTime)

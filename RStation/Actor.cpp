@@ -1,4 +1,6 @@
 #include "Actor.h"
+#include "Screen.h"
+#include "SceneManager.h"
 
 Actor::Actor()
 {
@@ -9,6 +11,18 @@ void Actor::AddChild(Actor *child)
 {
 	child->parent = this;
 	vpChildren.push_back(child);
+}
+
+void Actor::Register()
+{
+	Screen* scr = Scene::GetTopScreen();
+	scr->AddActor(this);
+}
+
+void Actor::Hook(ActorAttach _attach)
+{
+	Screen* scr = Scene::GetTopScreen();
+	scr->AddHook(this, _attach);
 }
 
 // Do the transforms and stuff which are going to be the same for nearly everything.

@@ -11,20 +11,33 @@ Screen::Screen()
 
 Screen::~Screen() { }
 
-void Screen::AddActor(Actor* actor)
+void Screen::AddActor(Actor* _actor)
 {
-	vpActors.push_back(actor);
+	vpActors.push_back(_actor);
+}
+
+void Screen::AddHook(Actor* _actor, ActorAttach _attach)
+{
+	if(_attach == RS_ATTACH_CURSOR)
+		vpActorHooks.push_back(_actor);
 }
 
 void Screen::Input(const IEvent &e)
 {
-	if ( e.Key == KEY_ESC )
+	// when hitting a key you tend to get x being a huge negative number. weird.
+	if(e.Mouse.moving && e.Mouse.x >= -1000.f)
+	{
+		// XXX: wtf.
+		if(!vpActorHooks.empty())
+			vpActorHooks.back()->Position(vec3(e.Mouse.x-(854/2),e.Mouse.y-(480/2),0));
+	}
+	if(e.Key == KEY_ESC )
 		Game::Terminate();
 }
 
-float alpha = 1.f;
-float fade_length = 2.f;
-bool bFinished = false;
+//float alpha = 1.f;
+//float fade_length = 2.f;
+//bool bFinished = false;
 
 void Screen::Update(float deltaTime)
 {

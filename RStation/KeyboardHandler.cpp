@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 #include "Log.h"
 
-int Keys[GLFW_KEY_LAST] = { RS_FIRST_PRESS };
+KeyStates Keys[GLFW_KEY_LAST] = { RS_FIRST_PRESS };
 
 void KeyCallback(int key, int action)
 {
@@ -23,7 +23,7 @@ void KeyCallback(int key, int action)
 	}
 
 	IEvent event;
-	event.Key = key;
+	event.Key = (KeyAliases)key;
 	event.State = Keys[key];
 
 	// flush log on F3

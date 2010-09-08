@@ -3,18 +3,6 @@
 
 #include <GL/glfw.h>
 
-struct MouseInfo
-{  
-	int x,y;
-	bool left, right, middle;
-};
-
-struct IEvent {
-	int Key;
-	int State;
-	MouseInfo Mouse;
-};
-
 class InputManager
 {
 public:
@@ -103,6 +91,19 @@ enum KeyStates {
 	RS_FIRST_PRESS,
 	RS_HELD,
 	RS_LAST // for looping
+};
+
+struct MouseInfo
+{  
+	int x,y;
+	bool left, right, middle;
+	bool moving;
+};
+
+struct IEvent {
+	KeyAliases Key;
+	KeyStates State;
+	MouseInfo Mouse;
 };
 
 #endif

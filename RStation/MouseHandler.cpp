@@ -30,6 +30,7 @@ void MousePosCallback(int _x, int _y)
 {
 	Mouse.x = _x;
 	Mouse.y = _y;
+	Mouse.moving = true;
 	
 	SendMouseInput();
 }

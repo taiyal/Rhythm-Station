@@ -43,12 +43,14 @@ void SetInitialStates()
 void InitWindow(int ScrX, int ScrY)
 {
 	glfwInit();
-	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 4);
+	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 0);
 	glfwOpenWindow(ScrX,ScrY, /* rgba */ 0,0,0,8, /* depth, stencil, mode */ 32,1, GLFW_WINDOW);
 
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
+//	glfwDisable(GLFW_MOUSE_CURSOR);
+
 	glfwSwapInterval(1); // vsync
 
 	glfwSetWindowSizeCallback(ResizeViewport);

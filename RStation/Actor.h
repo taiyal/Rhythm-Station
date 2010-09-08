@@ -4,6 +4,10 @@
 #include "RStation.h"
 #include "MessageManager.h"
 
+enum ActorAttach {
+	RS_ATTACH_CURSOR
+};
+
 class Actor : public MessageSubscriber
 {
 public:
@@ -13,7 +17,9 @@ public:
 	virtual void Draw() {}
 	virtual void DrawBase();
 	void AddChild(Actor* _child);
-
+	void Hook(ActorAttach _attach);
+	void Register();
+	
 	virtual void Position(vec3 _pos) { ob_pos = _pos; }
 	virtual void Rotate(vec3 _rot) { ob_rot = _rot; }
 	virtual void Scale(vec3 _scale) { ob_scale = _scale; }
