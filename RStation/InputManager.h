@@ -3,9 +3,16 @@
 
 #include <GL/glfw.h>
 
+struct MouseInfo
+{  
+	int x,y;
+	bool left, right, middle;
+};
+
 struct IEvent {
 	int Key;
 	int State;
+	MouseInfo Mouse;
 };
 
 class InputManager
