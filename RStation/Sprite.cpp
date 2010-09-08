@@ -25,11 +25,7 @@ void Sprite::Load(std::string _path)
 	ob_texture = new PNGLoader();
 	ob_texture->Load(_path);
 	
-	std::string vs, fs;
-	vs = "sprite.vert";
-	fs = "sprite.frag";
-	
-	ob_shader->Load(vs,fs);
+	ob_shader->Load("sprite.vert","sprite.frag");
 }
 void Sprite::SetFrames(vec2 frames)
 {
