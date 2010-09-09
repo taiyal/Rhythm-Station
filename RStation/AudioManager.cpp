@@ -9,26 +9,24 @@
 #include "AudioManager.h"
 #include <stdio.h>
 
-namespace Audio
+ALCdevice* device;
+ALCcontext* context;
+
+void Audio::Open()
 {
-	ALCdevice* device;
-	ALCcontext* context;
-	void Open()
-	{
-		device = alcOpenDevice(NULL); // open default device.
-		if( !device )
-			return;
+	device = alcOpenDevice(NULL); // open default device.
+	if( !device )
+		return;
 
-		context = alcCreateContext(device, NULL);
-		alcMakeContextCurrent(context);
+	context = alcCreateContext(device, NULL);
+	alcMakeContextCurrent(context);
 
-		alGetError();
-	}
+	alGetError();
+}
 
-	void Close()
-	{
-		alcMakeContextCurrent(NULL);
-		alcDestroyContext(context);
-		alcCloseDevice(device);
-	}
-} // audio
+void Audio::Close()
+{
+	alcMakeContextCurrent(NULL);
+	alcDestroyContext(context);
+	alcCloseDevice(device);
+}
