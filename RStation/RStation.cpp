@@ -17,12 +17,12 @@ void GLFWCALL ResizeViewport(int w, int h)
 	glLoadIdentity();
 
 	glViewport(0, 0, w, h);
-	
+
 	// half width, half height.
 	int hw, hh;
 	hw = int(w*0.5f);
 	hh = int(h*0.5f);
-	
+
 	glOrtho(-hw, hw, hh, -hh, -hw, hw);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -50,6 +50,7 @@ void InitWindow(int ScrX, int ScrY)
 	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 0);
 	glfwOpenWindow(ScrX,ScrY, /* rgba */ 0,0,0,8, /* depth, stencil, mode */ 32,1, GLFW_WINDOW);
 	glewInit();
+
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
@@ -62,69 +63,50 @@ void InitWindow(int ScrX, int ScrY)
 	RegisterMouseCallbacks();
 }
 
-#define D2R 0.0174532925
 #include <OpenAL/al.h>
 #include "MathUtils.h"
 #include <math.h>
 
 int sine_wave()
 {
-	alGetError(); // Clear errors
-
-	ALuint buffer[1];
-
-	// Create the buffers
-	alGenBuffers(1, buffer);
+	// create the buffers
+	SoundData *sound = new SoundData();
 	if (alGetError() != AL_NO_ERROR)
 		return -1;
 
-	// Build the data
-	ALenum format = AL_FORMAT_STEREO16;
-	ALsizei size;
-	ALsizei freq;
-	ALboolean loop;
+	ALsizei size, freq;
 	ALvoid *data;
 
+	// wave parameters and buffer size
 	unsigned char *sineWave;
 	int samples = 16;
-	int frequency = 20;
-	loop = true;
+	int frequency = 100;
 	freq = samples * frequency;
-	size = freq;
+	size = 32000; // 32k buffer
 	
-	if(!(sineWave = (unsigned char*)malloc(size)))
-		return -2;
-	
-	for (int i = 0; i < size; ++i) {
+	// build the sine wave
+	sineWave = new unsigned char[size];
+	for (int i = 0; i < size; ++i)
+	{
 		float x = i * 360.f / (float)samples;
-		sineWave[i] = sinf(radf(x)) * 255;
+		sineWave[i] = sinf(radf(x)) * 128 + 128;
 	}
 	data = sineWave;
+	delete[] sineWave;
 
-	alBufferData(buffer[0], format, data, size, freq);
-	// Setup sources
-	ALuint source[1];
-	alGenSources(1, source);
+	alBufferData(sound->buffer[0], AL_FORMAT_STEREO16, data, size, freq);
+
 	if (alGetError() != AL_NO_ERROR)
-		return -3;
+		return -2;
 
-	float srcPos[] = {3.0, 0.0, -3.0};
+	alSourcei(sound->source[0], AL_LOOPING, (ALboolean)true);
+	alSourcei(sound->source[0], AL_BUFFER, sound->buffer[0]);
+	alSourcef(sound->source[0], AL_GAIN, 0.5f); // volume
 
-	alSourcei(source[0], AL_LOOPING, loop);
-	alSourcei(source[0], AL_BUFFER, buffer[0]);
-	alSourcefv(source[0], AL_POSITION, srcPos);
-
-	float lstPos[] = {0.0, 0.0, 0.0};
-	alListenerfv(AL_POSITION, lstPos);
-
-	alSourcePlay(source[0]);
+	alSourcePlay(sound->source[0]);
 	
-	sleep(5);
-	
-	// Clear the things
-	alDeleteSources(1, source);
-	alDeleteBuffers(1, buffer);
-	
+	sound->Register();
+
 	return 0;
 }
 
@@ -135,21 +117,18 @@ int WINAPI WinMain(HINSTANCE d1, HINSTANCE d2, LPSTR d3, int d4)
 int main(int argc, char** argv)
 #endif
 {
-	// Init everything needed
+	// initialize everything needed
 	Log::Open();
-#ifdef _WITH_OPENAL_
 	Audio::Open();
-//	sine_wave();
-#endif
+
+	sine_wave();
 
 	InitWindow(854, 480); // TODO: read prefs.
+	
 	/*
-	 * Shader support is required as I would like this to be fairly modern.
-	 * As my laptop doesn't support OpenGL 3.x and far more hardware is around
-	 * which supports 2.x anyways, 2.x will be the base.
-	 *
-	 * Most hardware which supports it should have enough power to handle this app.
-	 * (Excluding some bottom end cards - I don't have high hopes for, say, a GF 6150)
+	 * Shaders are used for a lot here, so of course OpenGL 2.0 is required.
+	 * In the future I may start using Cg, although I like GLSL more it would allow
+	 * having a DX renderer without a ton of dupe shades.
 	 */
 	if (!GLEW_VERSION_2_0)
 	{
@@ -160,11 +139,10 @@ int main(int argc, char** argv)
 	// Set up our defaults and pass control.
 	SetInitialStates();
 	Game::Run();
+
 	// Clean up
 	glfwTerminate();
-#ifdef _WITH_OPENAL_
 	Audio::Close();
-#endif
 	Log::Close();
 	return 0;
 }

@@ -1,6 +1,7 @@
 #include "RStation.h"
 #include <GL/glfw.h>
 #include "GameLoop.h"
+#include "AudioManager.h"
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "RSUtil.h"
