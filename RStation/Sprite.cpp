@@ -5,7 +5,7 @@
 Sprite::Sprite()
 {
 	ob_texture = new ImageLoader(); // make sure this exists!
-	ob_shader = new Shader();
+	ob_shader = new ShaderLoader();
 }
 
 Sprite::~Sprite()

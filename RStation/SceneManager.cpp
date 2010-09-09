@@ -23,6 +23,8 @@ void Scene::PushScreen()
 	Sprite* spr_mouse = new Sprite();
 	spr_mouse->Load("Themes/_arrow.png");
 	spr_mouse->Hook(RS_ATTACH_CURSOR);
+	spr_mouse->Rotate(vec3(0,0,-45));
+	spr_mouse->Scale(vec3(0.5,0.75,1));
 	scr->AddActor(spr_mouse);
 	
 	Log::Print("[Scene::PushScreen] Loading took: " + timer.strAgo() + " seconds.");

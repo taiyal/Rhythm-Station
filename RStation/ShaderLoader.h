@@ -14,11 +14,11 @@ struct Uniform
 */
 
 // TODO: support uniforms, more functions, etc.
-class Shader
+class ShaderLoader
 {
 public:
-	Shader();
-	virtual ~Shader();
+	ShaderLoader();
+	virtual ~ShaderLoader();
 
 	/*
 	 * Load up the vs and fs in one go, overload so we can use another program.

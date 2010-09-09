@@ -5,7 +5,7 @@
 #include "Actor.h"
 #include "Tween.h"
 #include "Timer.h"
-#include "Shader.h"
+#include "ShaderLoader.h"
 #include "ImageLoader.h"
 
 class Sprite : public Actor
@@ -27,7 +27,7 @@ protected:
 	rgba ob_color;
 
 	ImageLoader* ob_texture;
-	Shader* ob_shader;
+	ShaderLoader* ob_shader;
 	
 	GLuint ob_buffer;
 };

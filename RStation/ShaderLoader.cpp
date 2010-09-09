@@ -1,6 +1,6 @@
 #include <GL/glew.h> // must be before glfw.h!
-#include "Shader.h"
-#include <fstream>
+#include "ShaderLoader.h"
+#include "ShaderManager.h"
 #include "FileManager.h"
 
 std::string getShaderLog(GLuint obj)
@@ -41,30 +41,30 @@ std::string getProgramLog(GLuint obj)
 	return log;
 }
 
-Shader::Shader()
+ShaderLoader::ShaderLoader()
 {
 	program = NULL;
 }
 
-Shader::~Shader()
+ShaderLoader::~ShaderLoader()
 {
 	this->Unbind();
 	this->Unload();
 }
 
-void Shader::Load(std::string _vs, std::string _fs, bool reload)
+void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 {
 	if ( program && !reload)
 	{
 		if ( !reload )
 		{
-			Log::DebugPrint("[Shader::Load] Shader already loaded.");
+			Log::DebugPrint("[ShaderLoader::Load] Shader already loaded.");
 			return; // return if this has already been done.
 		}
 		else
 		{
 			this->Unload(); // unload everything if reloading.
-			Log::DebugPrint("[Shader::Load] Reloading shader.");
+			Log::DebugPrint("[ShaderLoader::Load] Reloading shader.");
 		}
 	}
 	_vs = "GameData/Shaders/" + _vs;
@@ -119,7 +119,7 @@ void Shader::Load(std::string _vs, std::string _fs, bool reload)
 	glUseProgram(program);
 }
 
-void Shader::Load(GLuint _program)
+void ShaderLoader::Load(GLuint _program)
 {
 	if ( program )
 		return;
@@ -127,7 +127,7 @@ void Shader::Load(GLuint _program)
 	glUseProgram(program);
 }
 
-void Shader::Unload()
+void ShaderLoader::Unload()
 {
 	// detach shaders from the program so they can be deleted
 	glDetachShader(program, vs);
@@ -144,18 +144,18 @@ void Shader::Unload()
 	program = NULL;
 }
 
-void Shader::Bind()
+void ShaderLoader::Bind()
 {
 	if ( program )
 		glUseProgram(program);
 }
 
-void Shader::Unbind()
+void ShaderLoader::Unbind()
 {
 	glUseProgram(0);
 }
 
-GLuint Shader::getProgram()
+GLuint ShaderLoader::getProgram()
 {
 	return program;
 }
