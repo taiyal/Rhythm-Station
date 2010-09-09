@@ -45,11 +45,10 @@ void InitWindow(int ScrX, int ScrY)
 	glfwInit();
 	glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 0);
 	glfwOpenWindow(ScrX,ScrY, /* rgba */ 0,0,0,8, /* depth, stencil, mode */ 32,1, GLFW_WINDOW);
-
 	// The window title will be overridden less than a second from startup anyways.
 	glfwSetWindowTitle("RStation");
 	glfwDisable(GLFW_AUTO_POLL_EVENTS);
-//	glfwDisable(GLFW_MOUSE_CURSOR);
+	glfwDisable(GLFW_MOUSE_CURSOR);
 
 	glfwSwapInterval(1); // vsync
 
@@ -69,7 +68,6 @@ int main(int argc, char** argv)
 	Log::Open();
 
 	InitWindow(854, 480); // TODO: read prefs.
-
 	/*
 	 * Shader support is required as I would like this to be fairly modern.
 	 * As my laptop doesn't support OpenGL 3.x and far more hardware is around

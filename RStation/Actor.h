@@ -33,6 +33,8 @@ protected:
 	vec3 ob_rot;
 	vec3 ob_scale;
 
+	bool isHooked;
+
 	Actor *parent;
 	std::vector<Actor*> vpChildren;
 };

@@ -1,4 +1,5 @@
 #include "RStation.h"
+#include "MathUtils.h"
 #include "Screen.h"
 #include "SceneManager.h"
 #include <GL/glfw.h>
@@ -14,22 +15,15 @@ void Scene::PushScreen()
 	Log::Print("[Scene::PushScreen] Pushed a new screen to the stack.");
 	
 	Timer timer;
-	int spacing = 100;
-	int num = 5;
-	for (int i = -num; i<num; i++) {
-		Sprite* spr = new Sprite();
-		spr->Load("Themes/rstation-logo.png");
-		spr->Position(vec3(float((i+0.5)*spacing),100.0f,0.0f));
-		spr->Rotate(vec3(0,0,45));
-		spr->Scale(vec3(0.5));
-		spr->Register();
-	}
+	Sprite* spr = new Sprite();
+	spr->Load("Themes/rstation-logo.png");
+	spr->Rotate(vec3(0,0,0));
+	spr->Register();
 	
 	Sprite* spr_mouse = new Sprite();
 	spr_mouse->Load("Themes/_arrow.png");
-	spr_mouse->Position(vec3(0,0,0));
 	spr_mouse->Hook(RS_ATTACH_CURSOR);
-	spr_mouse->Register();
+	scr->AddActor(spr_mouse);
 	
 	Log::Print("[Scene::PushScreen] Loading took: " + timer.strAgo() + " seconds.");
 }

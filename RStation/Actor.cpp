@@ -5,6 +5,9 @@
 Actor::Actor()
 {
 	ob_scale = vec3(1.0f);
+	ob_pos = vec3(0.0f);
+	ob_rot = vec3(0.0f);
+	isHooked = false;
 }
 
 void Actor::AddChild(Actor *child)
@@ -23,11 +26,14 @@ void Actor::Hook(ActorAttach _attach)
 {
 	Screen* scr = Scene::GetTopScreen();
 	scr->AddHook(this, _attach);
+	isHooked = true;
 }
 
 // Do the transforms and stuff which are going to be the same for nearly everything.
 void Actor::DrawBase()
 {
+	// XXX: clear the z-buffer if hooked. This should be its own setting.
+	if(isHooked) { glClear(GL_DEPTH_BUFFER_BIT); }
 	glPushMatrix();
 		glTranslatef(ob_pos.x, ob_pos.y, ob_pos.z);
 		glPushMatrix();

@@ -29,7 +29,7 @@ void Screen::Input(const IEvent &e)
 	{
 		// XXX: wtf.
 		if(!vpActorHooks.empty())
-			vpActorHooks.back()->Position(vec3(e.Mouse.x-(854/2),e.Mouse.y-(480/2),0));
+			vpActorHooks.back()->Position(vec3(e.Mouse.x,e.Mouse.y,0));
 	}
 	if(e.Key == KEY_ESC )
 		Game::Terminate();
