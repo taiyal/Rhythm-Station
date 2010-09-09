@@ -13,6 +13,9 @@
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
 		EEBD1F67122BBEFF003DB675 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */; };
 		EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD75AD1238BE1900174877 /* ShaderManager.cpp */; };
+		EEBD779912393F7900174877 /* INIParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD779812393F7900174877 /* INIParser.cpp */; };
+		EEBD779C12393F8000174877 /* CSVParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD779B12393F8000174877 /* CSVParser.cpp */; };
+		EEBD796112395A2D00174877 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD796012395A2D00174877 /* Sound.cpp */; };
 		EEF40B4F121D257D009F8F49 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B49121D257D009F8F49 /* GameLoop.cpp */; };
 		EEF40B50121D257D009F8F49 /* RStation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4B121D257D009F8F49 /* RStation.cpp */; };
 		EEF40B51121D257D009F8F49 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4D121D257D009F8F49 /* SceneManager.cpp */; };
@@ -136,6 +139,12 @@
 		EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		EEBD75AC1238BE1900174877 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
 		EEBD75AD1238BE1900174877 /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderManager.cpp; sourceTree = "<group>"; };
+		EEBD779712393F7900174877 /* INIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIParser.h; sourceTree = "<group>"; };
+		EEBD779812393F7900174877 /* INIParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INIParser.cpp; sourceTree = "<group>"; };
+		EEBD779A12393F8000174877 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
+		EEBD779B12393F8000174877 /* CSVParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVParser.cpp; sourceTree = "<group>"; };
+		EEBD795F12395A2D00174877 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		EEBD796012395A2D00174877 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
 		EEF40B49121D257D009F8F49 /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		EEF40B4A121D257D009F8F49 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		EEF40B4B121D257D009F8F49 /* RStation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RStation.cpp; sourceTree = "<group>"; };
@@ -357,6 +366,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EEBD779612393F6900174877 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				EEBD779A12393F8000174877 /* CSVParser.h */,
+				EEBD779B12393F8000174877 /* CSVParser.cpp */,
+				EEBD779712393F7900174877 /* INIParser.h */,
+				EEBD779812393F7900174877 /* INIParser.cpp */,
+			);
+			name = Parsers;
+			path = RStation;
+			sourceTree = "<group>";
+		};
 		EEE2DC4B122A5692002C5898 /* extern */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +393,7 @@
 		EEF40B52121D2580009F8F49 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EEBD779612393F6900174877 /* Parsers */,
 				EEF770EB1227AA3300C6B4E7 /* Image Formats */,
 				EEF40DEB121FC636009F8F49 /* Actors */,
 				EEF40D21121DC4D7009F8F49 /* Core */,
@@ -459,6 +481,8 @@
 			children = (
 				EE1313BC122CFFF000511DD5 /* Sprite.h */,
 				EE1313BD122CFFF000511DD5 /* Sprite.cpp */,
+				EEBD795F12395A2D00174877 /* Sound.h */,
+				EEBD796012395A2D00174877 /* Sound.cpp */,
 			);
 			name = Actors;
 			path = RStation;
@@ -800,6 +824,9 @@
 				2B75C4F11230542800913E60 /* RSUtil.cpp in Sources */,
 				2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */,
 				EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */,
+				EEBD779912393F7900174877 /* INIParser.cpp in Sources */,
+				EEBD779C12393F8000174877 /* CSVParser.cpp in Sources */,
+				EEBD796112395A2D00174877 /* Sound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
