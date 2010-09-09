@@ -21,13 +21,15 @@ void IniParser::Load(std::string _path)
 	for(unsigned i = 0; i<lines.size(); i++)
 	{
 		std::string line = lines[i];
-		if(line[0] == '[' && line[sizeof(line)-1] == ']');
+		if(line[0] == '[' && line[sizeof(line)-1] == ']')
 			current_section = line;
 		if(current_section != "")
 		{
 			std::vector<std::string> vLine = split(lines[i], '=');
 			if(vLine[0] != "" && vLine[1] != "")
-				ini_data.insert(current_section, sPair(vLine[0],vLine[1]));
+			{
+				
+			}
 		}
 	}
 }
