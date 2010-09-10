@@ -128,7 +128,7 @@ int main(int argc, char** argv)
 
 	IniParser* ini = new IniParser();
 	ini->Load("GameData/Test.ini");
-//	delete ini;
+	delete ini;
 
 	InitWindow(854, 480); // TODO: read prefs.
 	
