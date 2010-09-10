@@ -80,7 +80,7 @@ int sine_wave()
 	// wave parameters and buffer size
 	unsigned char *sineWave;
 	int samples = 16;
-	int frequency = 100;
+	int frequency = 200;
 	freq = samples * frequency;
 	size = 32000; // 32k buffer
 	
@@ -89,7 +89,7 @@ int sine_wave()
 	for (int i = 0; i < size; ++i)
 	{
 		float x = i * 360.f / (float)samples;
-		sineWave[i] = sinf(radf(x)) * 128 + 128;
+		sineWave[i] = sinf(radf(x))*128+128;
 	}
 	data = sineWave;
 	delete[] sineWave;
@@ -100,6 +100,7 @@ int sine_wave()
 		return -2;
 
 	alSourcei(sound->source[0], AL_LOOPING, (ALboolean)true);
+	alSourcef(sound->source[0], AL_PITCH, 1.0f);
 	alSourcei(sound->source[0], AL_BUFFER, sound->buffer[0]);
 	alSourcef(sound->source[0], AL_GAIN, 0.5f); // volume
 
@@ -109,6 +110,8 @@ int sine_wave()
 
 	return 0;
 }
+
+#include "INIParser.h"
 
 // TODO: handle command line args for windows and unix
 #ifdef _WIN32
@@ -122,6 +125,10 @@ int main(int argc, char** argv)
 	Audio::Open();
 
 	sine_wave();
+
+	IniParser* ini = new IniParser();
+	ini->Load("GameData/Test.ini");
+//	delete ini;
 
 	InitWindow(854, 480); // TODO: read prefs.
 	
