@@ -11,10 +11,10 @@ public:
 	virtual ~IniParser() { }
 	
 	void Load(std::string path);
-	std::string *getKeys();
-	std::string *getItem(std::string key, std::string name);
+	std::string getKeys();
+	std::string getItem(std::string key, std::string name);
 private:
-	std::map<std::string, std::pair<std::string, std::string> > ini_data;
+	std::map<std::string, std::map<std::string, std::string> > ini_data;
 };
 
 #endif
