@@ -12,7 +12,7 @@ public:
 	
 	void Load(std::string path);
 	std::string getKeys();
-	std::string getItem(std::string key, std::string name);
+	std::string getValue(std::string key, std::string name);
 private:
 	std::map<std::string, std::map<std::string, std::string> > ini_data;
 };

@@ -40,7 +40,7 @@ void IniParser::Load(string _path)
 	}
 }
 
-string IniParser::getItem(string section, string key)
+string IniParser::getValue(string section, string key)
 {
 	if(!ini_data[section].empty())
 	{

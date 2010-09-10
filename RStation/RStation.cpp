@@ -128,15 +128,23 @@ int main(int argc, char** argv)
 
 	IniParser* ini = new IniParser();
 	ini->Load("GameData/Test.ini");
-	Log::Print(ini->getItem("Test","Test"));
+	
+	// get the resolution from prefs
+	int width = 854;
+	int height = 480;
+
+	width = atoi(ini->getValue("Preferences","Width").c_str());
+	height = atoi(ini->getValue("Preferences","Height").c_str());
+	
+	// we're done reading the ini, nuke it.
 	delete ini;
 
-	InitWindow(854, 480); // TODO: read prefs.
-	
+	InitWindow(width, height);
+		
 	/*
 	 * Shaders are used for a lot here, so of course OpenGL 2.0 is required.
 	 * In the future I may start using Cg, although I like GLSL more it would allow
-	 * having a DX renderer without a ton of dupe shades.
+	 * having a DX renderer without a ton of dupe shaders.
 	 */
 	if (!GLEW_VERSION_2_0)
 	{
