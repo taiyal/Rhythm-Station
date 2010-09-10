@@ -21,17 +21,17 @@ public:
 	void Register();
 	
 	virtual void Position(vec3 _pos) { ob_pos = _pos; }
+	virtual void Offset(vec3 _offset) { ob_offset = _offset; }
 	virtual void Rotate(vec3 _rot) { ob_rot = _rot; }
 	virtual void Scale(vec3 _scale) { ob_scale = _scale; }
 
 	virtual vec3 getPosition() { return ob_pos; }
+	virtual vec3 getOffset() { return ob_offset; }
 	virtual vec3 getRotate() { return ob_rot; }
 	virtual vec3 getScale() { return ob_scale; }
 
 protected:
-	vec3 ob_pos;
-	vec3 ob_rot;
-	vec3 ob_scale;
+	vec3 ob_pos, ob_rot, ob_scale, ob_offset;
 
 	bool isHooked;
 

@@ -19,6 +19,11 @@ void Sprite::Color(rgba _col) { ob_color = _col; }
 
 rgba Sprite::getColor() { return ob_color; }
 
+int Sprite::getWidth() { return ob_texture->getWidth() * ob_scale.x; }
+int Sprite::getHeight() { return ob_texture->getHeight() * ob_scale.y; }
+int Sprite::getUnscaledWidth() { return ob_texture->getWidth(); }
+int Sprite::getUnscaledHeight() { return ob_texture->getHeight(); }
+
 // the business end of things
 void Sprite::Load(std::string _path)
 {

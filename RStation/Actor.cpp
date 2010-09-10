@@ -5,8 +5,7 @@
 Actor::Actor()
 {
 	ob_scale = vec3(1.0f);
-	ob_pos = vec3(0.0f);
-	ob_rot = vec3(0.0f);
+	ob_pos = ob_offset = ob_rot = vec3(0.0f);
 	isHooked = false;
 }
 
@@ -35,7 +34,7 @@ void Actor::DrawBase()
 	// XXX: clear the z-buffer if hooked. This should be its own setting.
 	if(isHooked) { glClear(GL_DEPTH_BUFFER_BIT); }
 	glPushMatrix();
-		glTranslatef(ob_pos.x, ob_pos.y, ob_pos.z);
+		glTranslatef(ob_pos.x+ob_offset.x, ob_pos.y+ob_offset.y, ob_pos.z+ob_offset.z);
 		glPushMatrix();
 			glRotatef(ob_rot.x, 1, 0, 0);
 			glRotatef(ob_rot.y, 0, 1, 0);

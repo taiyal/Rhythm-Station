@@ -20,6 +20,11 @@ public:
 	void ColorAdd(rgba _col);
 	rgba getColor();
 
+	int getWidth();
+	int getHeight();
+	int getUnscaledWidth();
+	int getUnscaledHeight();
+
 	void Update(float deltaTime);
 	void Draw();
 
