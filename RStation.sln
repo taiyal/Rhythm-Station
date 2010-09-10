@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RStation", "RStation\RStation.vcproj", "{D62AA04B-D95D-47FA-8FE1-ECB99CF30C46}"
 	ProjectSection(ProjectDependencies) = postProject
 		{82321A1B-851F-4A52-835C-F10EACDB26CD} = {82321A1B-851F-4A52-835C-F10EACDB26CD}
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9} = {BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}
 		{92427FC7-9DE9-4C86-B43E-BB67AF03DB12} = {92427FC7-9DE9-4C86-B43E-BB67AF03DB12}
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB} = {8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLFW", "extern\glfw\support\msvc90\GLFW.vcproj", "{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}"
@@ -18,6 +19,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "extern\libpng-1.2.44\projects\visualc71\zlib.vcproj", "{61BB3BAF-3AD7-4DA9-83BB-37A3DF9EC2FA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "extern\lua-5.1.4\etc\vs2008\lua.vcproj", "{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luabind", "extern\luabind-0.9\vsproj\luabind.vcproj", "{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92427FC7-9DE9-4C86-B43E-BB67AF03DB12} = {92427FC7-9DE9-4C86-B43E-BB67AF03DB12}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,12 @@ Global
 		{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}.Release|Win32.ActiveCfg = Release|Win32
 		{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}.Release|Win32.Build.0 = Release|Win32
 		{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}.Release|x64.ActiveCfg = Release|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Debug|Win32.Build.0 = Debug|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Debug|x64.ActiveCfg = Debug|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Release|Win32.ActiveCfg = Release|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Release|Win32.Build.0 = Release|Win32
+		{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

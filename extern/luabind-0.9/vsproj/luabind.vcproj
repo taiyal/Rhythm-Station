@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="lua"
-	ProjectGUID="{92427FC7-9DE9-4C86-B43E-BB67AF03DB12}"
-	RootNamespace="lua"
+	Name="luabind"
+	ProjectGUID="{8FA1DFF4-FB5C-4C8A-81A8-599B891E10FB}"
+	RootNamespace="luabind"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -40,6 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\luabind"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -101,6 +102,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="../;../../lua-5.1.4/src"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				WarningLevel="3"
@@ -117,7 +119,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\..\..\RStation\win32\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -140,211 +141,71 @@
 	</References>
 	<Files>
 		<File
-			RelativePath="..\..\src\lapi.c"
+			RelativePath="..\src\class.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lapi.h"
+			RelativePath="..\src\class_info.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lauxlib.c"
+			RelativePath="..\src\class_registry.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lauxlib.h"
+			RelativePath="..\src\class_rep.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lbaselib.c"
+			RelativePath="..\src\create_class.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lcode.c"
+			RelativePath="..\src\error.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lcode.h"
+			RelativePath="..\src\exception_handler.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldblib.c"
+			RelativePath="..\src\function.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldebug.c"
+			RelativePath="..\src\inheritance.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldebug.h"
+			RelativePath="..\src\link_compatibility.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldo.c"
+			RelativePath="..\src\object_rep.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldo.h"
+			RelativePath="..\src\open.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\ldump.c"
+			RelativePath="..\src\pcall.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lfunc.c"
+			RelativePath="..\src\scope.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lfunc.h"
+			RelativePath="..\src\stack_content_by_name.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lgc.c"
+			RelativePath="..\src\weak_ref.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\src\lgc.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\linit.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\liolib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\llex.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\llex.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\llimits.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lmathlib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lmem.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lmem.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\loadlib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lobject.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lobject.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lopcodes.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lopcodes.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\loslib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lparser.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lparser.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lstate.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lstate.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lstring.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lstring.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lstrlib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\ltable.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\ltable.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\ltablib.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\ltm.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\ltm.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lua.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\luaconf.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lualib.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lundump.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lundump.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lvm.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lvm.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lzio.c"
-			>
-		</File>
-		<File
-			RelativePath="..\..\src\lzio.h"
+			RelativePath="..\src\wrapper_base.cpp"
 			>
 		</File>
 	</Files>

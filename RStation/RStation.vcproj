@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib libpng.lib"
+				AdditionalDependencies="glew32s.lib GLFW.lib opengl32.lib glu32.lib user32.lib libpng.lib zlib.lib lua.lib luabind.lib"
 				OutputFile="..\$(ProjectName).exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=".\win32"
@@ -235,14 +235,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\RSFile.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\RSFile.h"
-				>
-			</File>
-			<File
 				RelativePath=".\RStation.cpp"
 				>
 			</File>
@@ -264,14 +256,6 @@
 			</File>
 			<File
 				RelativePath=".\Screen.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Shader.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Shader.h"
 				>
 			</File>
 			<File
@@ -391,6 +375,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ShaderManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ShaderManager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\TextureManager.cpp"
 				>
 			</File>
@@ -436,6 +428,14 @@
 			</File>
 			<File
 				RelativePath=".\PNGLoader.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ShaderLoader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ShaderLoader.h"
 				>
 			</File>
 		</Filter>
