@@ -6,6 +6,7 @@
 #include "SceneManager.h"
 #include "RSUtil.h"
 #include "Screen.h"
+#include "Sprite.h"
 
 bool bRunning = true;
 
@@ -23,7 +24,21 @@ namespace Game
 	void Run()
 	{
 		Scene::PushScreen(); // push initial screen
-
+		
+		Scene::PushScreen(); // push overlay
+		{
+			Sprite* spr_mouse = new Sprite();
+			spr_mouse->Load("Themes/_arrow.png");
+			spr_mouse->Hook(RS_ATTACH_CURSOR);
+			int w, h;
+			w = spr_mouse->getWidth();
+			h = spr_mouse->getHeight();
+			spr_mouse->Offset(vec3(w/13.f,h/7.f,0)); // not perfect.
+			spr_mouse->Rotate(vec3(0,0,-27));
+			spr_mouse->Scale(vec3(0.35,0.5,1));
+			spr_mouse->Register();
+		}
+		
 		// Init is done, flush the log.
 		Log::Write();
 
