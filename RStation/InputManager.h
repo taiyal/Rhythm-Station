@@ -6,7 +6,6 @@
 class InputManager
 {
 public:
-	InputManager();
 	void Update();
 };
 

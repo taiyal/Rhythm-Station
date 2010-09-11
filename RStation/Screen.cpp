@@ -5,9 +5,7 @@
 Screen::Screen()
 {
 //	alphaLoc = glGetUniformLocation(shader->getProgram(),"overlay_alpha");
-
-	// don't want to mix with other screens, if this comes later it's on top.
-	glClear(GL_DEPTH_BUFFER_BIT);
+//	glUniform1f(alphaLoc, alpha);
 }
 
 Screen::~Screen()
@@ -32,7 +30,6 @@ void Screen::AddHook(Actor* _actor, ActorAttach _attach)
 
 void Screen::Input(const IEvent &e)
 {
-	// XXX: ???
 	if(e.Mouse.moving)
 		if(!vpActorHooks.empty())
 			vpActorHooks.back()->Position(vec3(e.Mouse.x,e.Mouse.y,0));
@@ -49,7 +46,10 @@ void Screen::Update(float deltaTime)
 
 void Screen::Draw()
 {
+	// don't want to mix with other screens, if this comes later it's on top.
+	glClear(GL_DEPTH_BUFFER_BIT);
+	
+	// draw all the actors
 	for(unsigned i = 0; i<vpActors.size(); i++)
 		vpActors[i]->DrawBase();
-//	glUniform1f(alphaLoc, alpha);
 }

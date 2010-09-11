@@ -47,8 +47,12 @@ void Scene::Update(float deltaTime)
 		vpScreens[i]->Update(deltaTime);
 }
 
-void Scene::SendInput(const IEvent &e)
+void Scene::SendInput(IEvent &e)
 {
+	// this happens if mouse wasn't set by the sender.
+	if(e.Mouse.x < -200000)
+		e.Mouse = MouseInfo();
+
 	if(!vpScreens.empty())
 		vpScreens.back()->Input(e);
 }
@@ -67,7 +71,7 @@ void Scene::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	// recursively draw everything
+	// draw all screens and their children
 	for(unsigned i = 0; i<vpScreens.size(); i++)
 		vpScreens[i]->Draw();
 

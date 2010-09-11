@@ -11,7 +11,7 @@ namespace Scene
 	void PopScreen();
 
 	Screen* GetTopScreen();
-	void SendInput(const IEvent &e);
+	void SendInput(IEvent &e);
 	void Update(float deltaTime);
 	void Draw();
 
