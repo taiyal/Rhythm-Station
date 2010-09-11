@@ -12,15 +12,7 @@ void Scene::PushScreen()
 {
 	Screen* scr = new Screen();
 	vpScreens.push_back(scr);
-	Log::Print("[Scene::PushScreen] Pushed a new screen to the stack.");
-	
-	Timer timer;
-	Sprite* spr = new Sprite();
-	spr->Load("Themes/rstation-logo.png");
-	spr->Rotate(vec3(0,0,0));
-	spr->Register();
-	
-	Log::Print("[Scene::PushScreen] Loading took: " + timer.strAgo() + " seconds.");
+	Log::Print("[Scene::PushScreen] Pushed a new screen to the stack.");	
 }
 
 void Scene::PopScreen()

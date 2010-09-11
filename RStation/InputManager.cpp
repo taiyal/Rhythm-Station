@@ -2,8 +2,9 @@
 #include "InputManager.h"
 #include "MouseHandler.h"
 #include "KeyboardHandler.h"
+#include "SceneManager.h"
 
-void InputManager::Update()
+void Input::Update()
 {
 	glfwPollEvents();
 }

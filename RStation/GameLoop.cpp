@@ -10,9 +10,6 @@
 
 bool bRunning = true;
 
-// this will need to be declared in SceneManager probably.
-InputManager* Input = new InputManager();
-
 const int freq = 2; // update x times per second
 
 namespace Game
@@ -23,7 +20,16 @@ namespace Game
 	}
 	void Run()
 	{
+		// so we can work out how long loading takes.
+		Timer timer;
+		
 		Scene::PushScreen(); // push initial screen
+		{
+			Sprite* spr = new Sprite();
+			spr->Load("Themes/rstation-logo.png");
+			spr->Rotate(vec3(0,0,0));
+			spr->Register();
+		}
 		
 		Scene::PushScreen(); // push overlay
 		{
@@ -39,6 +45,8 @@ namespace Game
 			spr_mouse->Register();
 		}
 		
+		Log::Print("Loading took: " + timer.strAgo() + " seconds.");
+
 		// Init is done, flush the log.
 		Log::Write();
 
@@ -56,8 +64,8 @@ namespace Game
 			then = now;
 
 			Scene::Update(delta);
-			Input->Update(); // singleton for some reason
-
+			Input::Update();
+			
 			// Draw!
 			Scene::Draw();
 		}

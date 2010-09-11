@@ -3,11 +3,11 @@
 
 #include <GL/glfw.h>
 
-class InputManager
+namespace Input
 {
-public:
+	void CheckMouse();
 	void Update();
-};
+}
 
 // A-Z, for game buttons not text input (use the char callback for that!)
 enum KeyAliases {
