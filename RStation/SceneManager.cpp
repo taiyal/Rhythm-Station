@@ -26,8 +26,8 @@ void Scene::PushScreen()
 	int w, h;
 	w = spr_mouse->getWidth();
 	h = spr_mouse->getHeight();
-	spr_mouse->Offset(vec3(w/8.5f,h/8.5f,0)); // not perfect.
-	spr_mouse->Rotate(vec3(0,0,-45));
+	spr_mouse->Offset(vec3(w/13.f,h/7.f,0)); // not perfect.
+	spr_mouse->Rotate(vec3(0,0,-27));
 	spr_mouse->Scale(vec3(0.35,0.5,1));
 	scr->AddActor(spr_mouse);
 	
