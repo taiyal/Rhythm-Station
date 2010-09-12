@@ -175,8 +175,8 @@
 		EEB78D0E123D815B00203906 /* stack_content_by_name.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stack_content_by_name.cpp; sourceTree = "<group>"; };
 		EEB78D0F123D815B00203906 /* weak_ref.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = weak_ref.cpp; sourceTree = "<group>"; };
 		EEB78D10123D815B00203906 /* wrapper_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_base.cpp; sourceTree = "<group>"; };
-		EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderLoader.h; path = RStation/ShaderLoader.h; sourceTree = "<group>"; };
-		EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderLoader.cpp; path = RStation/ShaderLoader.cpp; sourceTree = "<group>"; };
+		EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderLoader.h; sourceTree = "<group>"; };
+		EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		EEBD75AC1238BE1900174877 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
 		EEBD75AD1238BE1900174877 /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderManager.cpp; sourceTree = "<group>"; };
 		EEBD779712393F7900174877 /* INILoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INILoader.h; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 		EEF770BF12265B4E00C6B4E7 /* print.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print.c; path = "lua-5.1.4/src/print.c"; sourceTree = "<group>"; };
 		EEF770F61227ACEA00C6B4E7 /* PNGLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNGLoader.h; sourceTree = "<group>"; };
 		EEF770F71227ACEA00C6B4E7 /* PNGLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PNGLoader.cpp; sourceTree = "<group>"; };
-		EEF770F91227B12200C6B4E7 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = RStation/ImageLoader.h; sourceTree = "<group>"; };
-		EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImageLoader.cpp; path = RStation/ImageLoader.cpp; sourceTree = "<group>"; };
+		EEF770F91227B12200C6B4E7 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
+		EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageLoader.cpp; sourceTree = "<group>"; };
 		EEF7710D12282B7400C6B4E7 /* Primitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitives.cpp; sourceTree = "<group>"; };
 		EEF7710E12282B7400C6B4E7 /* Primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitives.h; sourceTree = "<group>"; };
 		EEF7710F12282B7400C6B4E7 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
@@ -433,18 +433,6 @@
 			path = "luabind-0.9/src";
 			sourceTree = "<group>";
 		};
-		EEBD7C36123A0A5200174877 /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				EEF770F91227B12200C6B4E7 /* ImageLoader.h */,
-				EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */,
-				EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */,
-				EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */,
-			);
-			name = Loaders;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		EEE2DC4B122A5692002C5898 /* extern */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,7 +542,6 @@
 			isa = PBXGroup;
 			children = (
 				EEF40EF5121FECDE009F8F49 /* Input */,
-				EEBD7C36123A0A5200174877 /* Loaders */,
 				EEF7729A12282CD100C6B4E7 /* AudioManager.cpp */,
 				EEF7729B12282CD100C6B4E7 /* AudioManager.h */,
 				EEF40EDD121FD490009F8F49 /* FileManager.cpp */,
@@ -659,10 +646,14 @@
 		EEF770EB1227AA3300C6B4E7 /* Loaders */ = {
 			isa = PBXGroup;
 			children = (
-				EEBD779712393F7900174877 /* INILoader.h */,
 				EEBD779812393F7900174877 /* INILoader.cpp */,
-				EEF770F61227ACEA00C6B4E7 /* PNGLoader.h */,
+				EEBD779712393F7900174877 /* INILoader.h */,
 				EEF770F71227ACEA00C6B4E7 /* PNGLoader.cpp */,
+				EEF770F61227ACEA00C6B4E7 /* PNGLoader.h */,
+				EEF770FA1227B12200C6B4E7 /* ImageLoader.cpp */,
+				EEF770F91227B12200C6B4E7 /* ImageLoader.h */,
+				EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */,
+				EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */,
 			);
 			name = Loaders;
 			path = RStation;

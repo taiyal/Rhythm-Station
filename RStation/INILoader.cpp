@@ -38,7 +38,7 @@ void INILoader::Load(string _path)
 				continue;
 			string key = line.substr(0,pos);
 			string value = line.substr(pos+1,line.size()-1);
-			
+
 			ini_data[current_section].insert(pair<string,string>(key, value));
 		}
 	}

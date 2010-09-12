@@ -54,6 +54,16 @@ ShaderLoader::~ShaderLoader()
 
 void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 {
+	shader.path = _vs + "+" + _fs;
+	Shader dupe = ShaderManager::CheckForDuplicates(shader.path);
+
+	if (dupe.ptr)
+	{
+		this->shader = dupe;
+		this->Bind();
+		return;
+	}
+
 	if ( shader.ptr && !reload)
 	{
 		if ( !reload )
@@ -68,7 +78,7 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 		}
 	}
 	
-	shader.path = _vs + _fs;
+	Log::Print(shader.path);
 	
 	_vs = "GameData/Shaders/" + _vs;
 	_fs = "GameData/Shaders/" + _fs;
