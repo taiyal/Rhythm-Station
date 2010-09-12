@@ -63,10 +63,10 @@ namespace Game
 
 			then = now;
 
-			Scene::Update(delta);
+			// update this first so we're on the right frame
 			Input::Update();
-			
-			// Draw!
+
+			Scene::Update(delta);
 			Scene::Draw();
 		}
 
