@@ -14,6 +14,23 @@
 		EE2E83B3123CE6BF006309FC /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B1123CE6BF006309FC /* libvorbis.a */; };
 		EE2E83B4123CE6BF006309FC /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B2123CE6BF006309FC /* libvorbisfile.a */; };
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
+		EEB78D11123D815B00203906 /* class.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D00123D815B00203906 /* class.cpp */; };
+		EEB78D12123D815B00203906 /* class_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D01123D815B00203906 /* class_info.cpp */; };
+		EEB78D13123D815B00203906 /* class_registry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D02123D815B00203906 /* class_registry.cpp */; };
+		EEB78D14123D815B00203906 /* class_rep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D03123D815B00203906 /* class_rep.cpp */; };
+		EEB78D15123D815B00203906 /* create_class.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D04123D815B00203906 /* create_class.cpp */; };
+		EEB78D16123D815B00203906 /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D05123D815B00203906 /* error.cpp */; };
+		EEB78D17123D815B00203906 /* exception_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D06123D815B00203906 /* exception_handler.cpp */; };
+		EEB78D18123D815B00203906 /* function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D07123D815B00203906 /* function.cpp */; };
+		EEB78D19123D815B00203906 /* inheritance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D08123D815B00203906 /* inheritance.cpp */; };
+		EEB78D1A123D815B00203906 /* link_compatibility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D09123D815B00203906 /* link_compatibility.cpp */; };
+		EEB78D1B123D815B00203906 /* object_rep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0A123D815B00203906 /* object_rep.cpp */; };
+		EEB78D1C123D815B00203906 /* open.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0B123D815B00203906 /* open.cpp */; };
+		EEB78D1D123D815B00203906 /* pcall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0C123D815B00203906 /* pcall.cpp */; };
+		EEB78D1E123D815B00203906 /* scope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0D123D815B00203906 /* scope.cpp */; };
+		EEB78D1F123D815B00203906 /* stack_content_by_name.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0E123D815B00203906 /* stack_content_by_name.cpp */; };
+		EEB78D20123D815B00203906 /* weak_ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D0F123D815B00203906 /* weak_ref.cpp */; };
+		EEB78D21123D815B00203906 /* wrapper_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D10123D815B00203906 /* wrapper_base.cpp */; };
 		EEBD1F67122BBEFF003DB675 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */; };
 		EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD75AD1238BE1900174877 /* ShaderManager.cpp */; };
 		EEBD779912393F7900174877 /* INILoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD779812393F7900174877 /* INILoader.cpp */; };
@@ -141,6 +158,23 @@
 		EE2E83B1123CE6BF006309FC /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = RStation/osx/libvorbis.a; sourceTree = "<group>"; };
 		EE2E83B2123CE6BF006309FC /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = RStation/osx/libvorbisfile.a; sourceTree = "<group>"; };
 		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
+		EEB78D00123D815B00203906 /* class.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
+		EEB78D01123D815B00203906 /* class_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_info.cpp; sourceTree = "<group>"; };
+		EEB78D02123D815B00203906 /* class_registry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_registry.cpp; sourceTree = "<group>"; };
+		EEB78D03123D815B00203906 /* class_rep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_rep.cpp; sourceTree = "<group>"; };
+		EEB78D04123D815B00203906 /* create_class.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = create_class.cpp; sourceTree = "<group>"; };
+		EEB78D05123D815B00203906 /* error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error.cpp; sourceTree = "<group>"; };
+		EEB78D06123D815B00203906 /* exception_handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exception_handler.cpp; sourceTree = "<group>"; };
+		EEB78D07123D815B00203906 /* function.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = function.cpp; sourceTree = "<group>"; };
+		EEB78D08123D815B00203906 /* inheritance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inheritance.cpp; sourceTree = "<group>"; };
+		EEB78D09123D815B00203906 /* link_compatibility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = link_compatibility.cpp; sourceTree = "<group>"; };
+		EEB78D0A123D815B00203906 /* object_rep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = object_rep.cpp; sourceTree = "<group>"; };
+		EEB78D0B123D815B00203906 /* open.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = open.cpp; sourceTree = "<group>"; };
+		EEB78D0C123D815B00203906 /* pcall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pcall.cpp; sourceTree = "<group>"; };
+		EEB78D0D123D815B00203906 /* scope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scope.cpp; sourceTree = "<group>"; };
+		EEB78D0E123D815B00203906 /* stack_content_by_name.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stack_content_by_name.cpp; sourceTree = "<group>"; };
+		EEB78D0F123D815B00203906 /* weak_ref.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = weak_ref.cpp; sourceTree = "<group>"; };
+		EEB78D10123D815B00203906 /* wrapper_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_base.cpp; sourceTree = "<group>"; };
 		EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderLoader.h; path = RStation/ShaderLoader.h; sourceTree = "<group>"; };
 		EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderLoader.cpp; path = RStation/ShaderLoader.cpp; sourceTree = "<group>"; };
 		EEBD75AC1238BE1900174877 /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
@@ -374,6 +408,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EEB78CFF123D815B00203906 /* luabind-0.9 */ = {
+			isa = PBXGroup;
+			children = (
+				EEB78D00123D815B00203906 /* class.cpp */,
+				EEB78D01123D815B00203906 /* class_info.cpp */,
+				EEB78D02123D815B00203906 /* class_registry.cpp */,
+				EEB78D03123D815B00203906 /* class_rep.cpp */,
+				EEB78D04123D815B00203906 /* create_class.cpp */,
+				EEB78D05123D815B00203906 /* error.cpp */,
+				EEB78D06123D815B00203906 /* exception_handler.cpp */,
+				EEB78D07123D815B00203906 /* function.cpp */,
+				EEB78D08123D815B00203906 /* inheritance.cpp */,
+				EEB78D09123D815B00203906 /* link_compatibility.cpp */,
+				EEB78D0A123D815B00203906 /* object_rep.cpp */,
+				EEB78D0B123D815B00203906 /* open.cpp */,
+				EEB78D0C123D815B00203906 /* pcall.cpp */,
+				EEB78D0D123D815B00203906 /* scope.cpp */,
+				EEB78D0E123D815B00203906 /* stack_content_by_name.cpp */,
+				EEB78D0F123D815B00203906 /* weak_ref.cpp */,
+				EEB78D10123D815B00203906 /* wrapper_base.cpp */,
+			);
+			name = "luabind-0.9";
+			path = "luabind-0.9/src";
+			sourceTree = "<group>";
+		};
 		EEBD7C36123A0A5200174877 /* Loaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +448,7 @@
 		EEE2DC4B122A5692002C5898 /* extern */ = {
 			isa = PBXGroup;
 			children = (
+				EEB78CFF123D815B00203906 /* luabind-0.9 */,
 				EEF775ED1229A3A800C6B4E7 /* libpng-1.2.44 */,
 				EEF775E41229A37200C6B4E7 /* zlib-1.2.5 */,
 				EEF77084122659F800C6B4E7 /* lua-5.1.4-2 */,
@@ -834,6 +894,23 @@
 				EEBD779912393F7900174877 /* INILoader.cpp in Sources */,
 				EEBD796112395A2D00174877 /* Sound.cpp in Sources */,
 				EE0364E0123C68B20081A309 /* LuaManager.cpp in Sources */,
+				EEB78D11123D815B00203906 /* class.cpp in Sources */,
+				EEB78D12123D815B00203906 /* class_info.cpp in Sources */,
+				EEB78D13123D815B00203906 /* class_registry.cpp in Sources */,
+				EEB78D14123D815B00203906 /* class_rep.cpp in Sources */,
+				EEB78D15123D815B00203906 /* create_class.cpp in Sources */,
+				EEB78D16123D815B00203906 /* error.cpp in Sources */,
+				EEB78D17123D815B00203906 /* exception_handler.cpp in Sources */,
+				EEB78D18123D815B00203906 /* function.cpp in Sources */,
+				EEB78D19123D815B00203906 /* inheritance.cpp in Sources */,
+				EEB78D1A123D815B00203906 /* link_compatibility.cpp in Sources */,
+				EEB78D1B123D815B00203906 /* object_rep.cpp in Sources */,
+				EEB78D1C123D815B00203906 /* open.cpp in Sources */,
+				EEB78D1D123D815B00203906 /* pcall.cpp in Sources */,
+				EEB78D1E123D815B00203906 /* scope.cpp in Sources */,
+				EEB78D1F123D815B00203906 /* stack_content_by_name.cpp in Sources */,
+				EEB78D20123D815B00203906 /* weak_ref.cpp in Sources */,
+				EEB78D21123D815B00203906 /* wrapper_base.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +967,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = ".git *.nib *.lproj *.framework *.gch *.xcode* (*) CVS .svn";
@@ -904,6 +982,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/extern/libpng-1.2.44",
 					"$(PROJECT_DIR)/extern/glew/include",
+					"$(PROJECT_DIR)/extern/luabind-0.9",
 					"$(PROJECT_DIR)/extern/glfw/include",
 					/opt/local/include,
 				);
@@ -918,6 +997,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = ".git *.nib *.lproj *.framework *.gch *.xcode* (*) CVS .svn";
@@ -928,6 +1008,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/extern/libpng-1.2.44",
 					"$(PROJECT_DIR)/extern/glew/include",
+					"$(PROJECT_DIR)/extern/luabind-0.9",
 					"$(PROJECT_DIR)/extern/glfw/include",
 					/opt/local/include,
 				);
