@@ -4,12 +4,9 @@
 #include "RStation.h"
 #include <map>
 
-class IniParser // : public Parser
+class INILoader
 {
 public:
-	IniParser() { }
-	virtual ~IniParser() { }
-	
 	void Load(std::string path);
 	std::string getKeys();
 	std::string getValue(std::string key, std::string name);

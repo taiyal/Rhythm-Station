@@ -1,10 +1,10 @@
-#include "IniParser.h"
+#include "INILoader.h"
 #include "FileManager.h"
 #include "RSUtil.h"
 
 using namespace std;
 
-void IniParser::Load(string _path)
+void INILoader::Load(string _path)
 {
 	string current_section = "";
 	_path = FileManager::GetFile(_path);
@@ -47,7 +47,7 @@ void IniParser::Load(string _path)
 }
 
 //template <class T>
-string IniParser::getValue(string section, string key)
+string INILoader::getValue(string section, string key)
 {
 	if(!ini_data[section].empty())
 	{
