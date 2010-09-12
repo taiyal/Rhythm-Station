@@ -64,7 +64,7 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 		return;
 	}
 
-	if ( shader.ptr && !reload)
+	if (shader.ptr && !reload)
 	{
 		if ( !reload )
 		{
@@ -77,12 +77,10 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 			Log::DebugPrint("[ShaderLoader::Load] Reloading shader.");
 		}
 	}
-	
-	Log::Print(shader.path);
-	
+
 	_vs = "GameData/Shaders/" + _vs;
 	_fs = "GameData/Shaders/" + _fs;
-	
+
 	// expand the file paths for vs and fs.
 	_vs = FileManager::GetFile(_vs);
 	_fs = FileManager::GetFile(_fs);
@@ -90,11 +88,11 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 	// load up the files
 	_vs = FileManager::GetFileContents(_vs);
 	_fs = FileManager::GetFileContents(_fs);
-	
+
 	// bad paths!
 	if(_vs.size() == 0 || _fs.size() == 0)
 		return;
-	
+
 	// create pointers for our vertex and frag shaders
 	shader.vs = glCreateShader(GL_VERTEX_SHADER);
 	shader.fs = glCreateShader(GL_FRAGMENT_SHADER);	
