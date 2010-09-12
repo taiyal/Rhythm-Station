@@ -43,7 +43,7 @@ std::string getProgramLog(GLuint obj)
 
 ShaderLoader::ShaderLoader()
 {
-	program = NULL;
+	shader.ptr = NULL;
 }
 
 ShaderLoader::~ShaderLoader()
@@ -54,7 +54,7 @@ ShaderLoader::~ShaderLoader()
 
 void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 {
-	if ( program && !reload)
+	if ( shader.ptr && !reload)
 	{
 		if ( !reload )
 		{
@@ -67,6 +67,9 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 			Log::DebugPrint("[ShaderLoader::Load] Reloading shader.");
 		}
 	}
+	
+	shader.path = _vs + _fs;
+	
 	_vs = "GameData/Shaders/" + _vs;
 	_fs = "GameData/Shaders/" + _fs;
 	
@@ -83,71 +86,72 @@ void ShaderLoader::Load(std::string _vs, std::string _fs, bool reload)
 		return;
 	
 	// create pointers for our vertex and frag shaders
-	vs = glCreateShader(GL_VERTEX_SHADER);
-	fs = glCreateShader(GL_FRAGMENT_SHADER);	
+	shader.vs = glCreateShader(GL_VERTEX_SHADER);
+	shader.fs = glCreateShader(GL_FRAGMENT_SHADER);	
 
 	const char *vss = _vs.c_str();
 	const char *fss = _fs.c_str();
 
 	// set the shader sources
-	glShaderSource(vs, 1, &vss, NULL);
-	glShaderSource(fs, 1, &fss, NULL);
+	glShaderSource(shader.vs, 1, &vss, NULL);
+	glShaderSource(shader.fs, 1, &fss, NULL);
 
 	// compile shaders
-	glCompileShader(vs);
-	glCompileShader(fs);
+	glCompileShader(shader.vs);
+	glCompileShader(shader.fs);
 
 	// create program, attach shaders, link.
-	program = glCreateProgram();
+	shader.ptr = glCreateProgram();
 
-	glAttachShader(program, vs);
-	glAttachShader(program, fs);
+	glAttachShader(shader.ptr, shader.vs);
+	glAttachShader(shader.ptr, shader.fs);
 
-	glLinkProgram(program);
+	glLinkProgram(shader.ptr);
 
 	// print out shader logs.
-	std::string log = getShaderLog(vs);
+	std::string log = getShaderLog(shader.vs);
 	if ( log.size() > 0 )
 		Log::Print("Vertex shader log: " + log);
-	log = getShaderLog(fs);
+	log = getShaderLog(shader.fs);
 	if ( log.size() > 0 )
 		Log::Print("Fragment shader log: " + log);
-	log = getProgramLog(program);
+	log = getProgramLog(shader.ptr);
 	if ( log.size() > 0 )
 		Log::Print("Shader program log: " + log);
 
-	glUseProgram(program);
+	glUseProgram(shader.ptr);
+	ShaderManager::addShader(shader);
 }
 
 void ShaderLoader::Load(GLuint _program)
 {
-	if ( program )
+	if ( shader.ptr == _program )
 		return;
-	program = _program;
-	glUseProgram(program);
+	shader.ptr = _program;
+	glUseProgram(shader.ptr);
 }
 
 void ShaderLoader::Unload()
 {
 	// detach shaders from the program so they can be deleted
-	glDetachShader(program, vs);
-	glDetachShader(program, fs);
+	glDetachShader(shader.ptr, shader.vs);
+	glDetachShader(shader.ptr, shader.fs);
 
 	// delete shaders
-	glDeleteShader(fs);
-	glDeleteShader(vs);
+	glDeleteShader(shader.fs);
+	glDeleteShader(shader.vs);
 
 	// finally, delete the program.
-	glDeleteProgram(program);
+	glDeleteProgram(shader.ptr);
 
 	// ready to reload
-	program = NULL;
+	shader.ptr = NULL;
 }
 
 void ShaderLoader::Bind()
 {
-	if ( program )
-		glUseProgram(program);
+	if ( shader.ptr )
+		glUseProgram(shader.ptr);
 }
 
 void ShaderLoader::Unbind()
@@ -157,5 +161,5 @@ void ShaderLoader::Unbind()
 
 GLuint ShaderLoader::getProgram()
 {
-	return program;
+	return shader.ptr;
 }

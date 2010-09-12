@@ -8,8 +8,8 @@ class ShaderLoader;
 
 struct Shader
 {
-	std::string path;
-	GLuint ptr;
+	GLuint ptr, vs, fs;
+	std::string path, vertSource, fragSource;
 
 	ShaderLoader *loader;
 };

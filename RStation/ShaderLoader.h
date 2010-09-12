@@ -3,6 +3,7 @@
 
 #include "RStation.h"
 #include <GL/glfw.h>
+#include "ShaderManager.h"
 
 /*
 struct Uniform
@@ -46,11 +47,7 @@ public:
 private:
 //	std::vector<Uniform> uniforms;
 
-	std::string vertSource;
-	std::string fragSource;
-
-	GLuint vs, fs;
-	GLuint program;
+	Shader shader;
 };
 
 #endif
