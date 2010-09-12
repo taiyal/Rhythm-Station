@@ -3,17 +3,29 @@
 #include "RSUtil.h"
 #include <sstream>
 
+using namespace std;
+
 void Util::UpdateWindowTitle(float delta)
 {
 	double fps = 1.f / delta;
 
-	std::ostringstream str;
+	ostringstream str;
 	str << "RStation - ";
 	str << "FPS: ";
 	str << int(fps * 10) * 0.1f;
 	str << ", Delta: ";
 	str << delta;
 
-	std::string sfps = str.str(); // str.c_str doesn't work?
+	string sfps = str.str(); // str.c_str doesn't work?
 	glfwSetWindowTitle(sfps.c_str());
+}
+
+vector<string> Util::Split(string &str, char delim)
+{
+	vector<string> elems;
+	stringstream ss(str);
+	string item;
+	while(getline(ss, item, delim))
+		elems.push_back(item);
+	return elems;
 }

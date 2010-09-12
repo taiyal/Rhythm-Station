@@ -1,17 +1,8 @@
 #include "IniParser.h"
 #include "FileManager.h"
+#include "RSUtil.h"
 
 using namespace std;
-
-vector<string> split(string &str, char delim)
-{
-	vector<string> elems;
-	stringstream ss(str);
-	string item;
-	while(getline(ss, item, delim))
-		elems.push_back(item);
-	return elems;
-}
 
 void IniParser::Load(string _path)
 {
@@ -19,13 +10,27 @@ void IniParser::Load(string _path)
 	_path = FileManager::GetFile(_path);
 	string file_contents = FileManager::GetFileContents(_path);
 
-	vector<string> lines = split(file_contents, '\n');
-	for(unsigned i = 0; i<lines.size(); i++)
+	vector<string> lines = Util::Split(file_contents, '\n');
+	for (unsigned i = 0; i<lines.size(); i++)
 	{
 		string line = lines[i];
-		if(line[0] == '[' && line[line.size()-1] == ']')
+		switch (line[0])
+		{
+		case '#':	// # comment
+		case ';':	// ; comment
+			continue;
+		case '-':	// -- comment
+			if (line[1] == '-')
+				continue;
+		case '/':	// // comment
+			if (line[1] == '/')
+				continue;
+		default:
+			break;
+		}
+		if (line[0] == '[' && line[line.size()-1] == ']')
 			current_section = line.substr(1,line.size()-2);
-		if(!current_section.empty())
+		if (!current_section.empty())
 		{
 			size_t pos;
 			pos = line.find("=");
