@@ -14,8 +14,8 @@ struct SoundData
 	void Register();
 	
 	// buffer and source data, error handle (just in case)
-	ALuint buffer[1];
-	ALuint source[1];
+	ALuint buffer;
+	ALuint source;
 	ALenum error;
 	
 	// audio file path

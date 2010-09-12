@@ -11,6 +11,8 @@
 		2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4F51230545F00913E60 /* TextureManager.cpp */; };
 		EE0364E0123C68B20081A309 /* LuaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0364DF123C68B20081A309 /* LuaManager.cpp */; };
 		EE1313BE122CFFF000511DD5 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE1313BD122CFFF000511DD5 /* Sprite.cpp */; };
+		EE2E83B3123CE6BF006309FC /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B1123CE6BF006309FC /* libvorbis.a */; };
+		EE2E83B4123CE6BF006309FC /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B2123CE6BF006309FC /* libvorbisfile.a */; };
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
 		EEBD1F67122BBEFF003DB675 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */; };
 		EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD75AD1238BE1900174877 /* ShaderManager.cpp */; };
@@ -136,6 +138,8 @@
 		EE0364DF123C68B20081A309 /* LuaManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaManager.cpp; sourceTree = "<group>"; };
 		EE1313BC122CFFF000511DD5 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		EE1313BD122CFFF000511DD5 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		EE2E83B1123CE6BF006309FC /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = RStation/osx/libvorbis.a; sourceTree = "<group>"; };
+		EE2E83B2123CE6BF006309FC /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = RStation/osx/libvorbisfile.a; sourceTree = "<group>"; };
 		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
 		EEBD1F65122BBEFF003DB675 /* ShaderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderLoader.h; path = RStation/ShaderLoader.h; sourceTree = "<group>"; };
 		EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderLoader.cpp; path = RStation/ShaderLoader.cpp; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 				EEF7728612282C8800C6B4E7 /* CoreFoundation.framework in Frameworks */,
 				EEF7728812282C8800C6B4E7 /* OpenAL.framework in Frameworks */,
 				EEF7728A12282C8800C6B4E7 /* OpenGL.framework in Frameworks */,
+				EE2E83B3123CE6BF006309FC /* libvorbis.a in Frameworks */,
+				EE2E83B4123CE6BF006309FC /* libvorbisfile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +364,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE2E83B1123CE6BF006309FC /* libvorbis.a */,
+				EE2E83B2123CE6BF006309FC /* libvorbisfile.a */,
 				EEF7728312282C8800C6B4E7 /* Cocoa.framework */,
 				EEF7728512282C8800C6B4E7 /* CoreFoundation.framework */,
 				EEF7728712282C8800C6B4E7 /* OpenAL.framework */,
@@ -850,6 +858,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/glfw/lib/cocoa\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = RStation;
 				SKIP_INSTALL = NO;
@@ -871,6 +880,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/glfw/lib/cocoa\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = RStation;
 				SKIP_INSTALL = NO;

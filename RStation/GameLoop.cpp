@@ -7,6 +7,7 @@
 #include "RSUtil.h"
 #include "Screen.h"
 #include "Sprite.h"
+#include "Sound.h"
 
 bool bRunning = true;
 
@@ -43,6 +44,11 @@ namespace Game
 			spr_mouse->Rotate(vec3(0,0,-27));
 			spr_mouse->Scale(vec3(0.35,0.5,1));
 			spr_mouse->Register();
+			
+			Sound* sound = new Sound();
+			sound->Load("Themes/shield-9.ogg");
+			sound->Loop(true);
+			sound->Register();
 		}
 		
 		Log::Print("Loading took: " + timer.strAgo() + " seconds.");
