@@ -27,25 +27,27 @@ void IniParser::Load(string _path)
 			current_section = line.substr(1,line.size()-2);
 		if(!current_section.empty())
 		{
-			// TODO: string:find and substr instead.
-			vector<string> vLine = split(lines[i], '=');
+			size_t pos;
+			pos = line.find("=");
+			if(pos == string::npos)
+				continue;
+			string key = line.substr(0,pos);
+			string value = line.substr(pos+1,line.size()-1);
 			
-			// XXX: fixme
-			if(vLine.size() > 2)
-				Log::Print("Too many =, data after the second will not be read.");
+			Log::Print("Key: " + key + ", Value: " + value);
 			
-			if(vLine.size() >= 2)
-				ini_data[current_section].insert(pair<string,string>(vLine[0], vLine[1]));
+			ini_data[current_section].insert(pair<string,string>(key, value));
 		}
 	}
 }
 
+//template <class T>
 string IniParser::getValue(string section, string key)
 {
 	if(!ini_data[section].empty())
 	{
-		string data (ini_data[section].find(key)->second);
-		return data;
+		if(ini_data[section].find(key) != ini_data[section].end())
+			return ini_data[section].find(key)->second;
 	}
 	return string();
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B75C4F11230542800913E60 /* RSUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4EF1230542800913E60 /* RSUtil.cpp */; };
 		2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4F51230545F00913E60 /* TextureManager.cpp */; };
+		EE0364E0123C68B20081A309 /* LuaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0364DF123C68B20081A309 /* LuaManager.cpp */; };
 		EE1313BE122CFFF000511DD5 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE1313BD122CFFF000511DD5 /* Sprite.cpp */; };
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
 		EEBD1F67122BBEFF003DB675 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1F66122BBEFF003DB675 /* ShaderLoader.cpp */; };
@@ -131,6 +132,8 @@
 		2B75C4F61230545F00913E60 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* RStation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RStation-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* RStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE0364DE123C68B20081A309 /* LuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaManager.h; sourceTree = "<group>"; };
+		EE0364DF123C68B20081A309 /* LuaManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaManager.cpp; sourceTree = "<group>"; };
 		EE1313BC122CFFF000511DD5 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		EE1313BD122CFFF000511DD5 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
@@ -481,10 +484,10 @@
 		EEF40DEB121FC636009F8F49 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				EE1313BC122CFFF000511DD5 /* Sprite.h */,
-				EE1313BD122CFFF000511DD5 /* Sprite.cpp */,
 				EEBD795F12395A2D00174877 /* Sound.h */,
 				EEBD796012395A2D00174877 /* Sound.cpp */,
+				EE1313BC122CFFF000511DD5 /* Sprite.h */,
+				EE1313BD122CFFF000511DD5 /* Sprite.cpp */,
 			);
 			name = Actors;
 			path = RStation;
@@ -501,6 +504,8 @@
 				EEF40EDE121FD490009F8F49 /* FileManager.h */,
 				EEF40EF9121FECFD009F8F49 /* InputManager.h */,
 				EEF40EFA121FECFD009F8F49 /* InputManager.cpp */,
+				EE0364DE123C68B20081A309 /* LuaManager.h */,
+				EE0364DF123C68B20081A309 /* LuaManager.cpp */,
 				EEF40FB2122144B9009F8F49 /* MessageManager.cpp */,
 				EEF40FB3122144B9009F8F49 /* MessageManager.h */,
 				EEF40B4D121D257D009F8F49 /* SceneManager.cpp */,
@@ -517,10 +522,10 @@
 		EEF40EF5121FECDE009F8F49 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				EEF40EF2121FECD8009F8F49 /* MouseHandler.h */,
-				EEF40EF3121FECD8009F8F49 /* MouseHandler.cpp */,
 				EEF40EF6121FECF2009F8F49 /* KeyboardHandler.h */,
 				EEF40EF7121FECF2009F8F49 /* KeyboardHandler.cpp */,
+				EEF40EF2121FECD8009F8F49 /* MouseHandler.h */,
+				EEF40EF3121FECD8009F8F49 /* MouseHandler.cpp */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -829,6 +834,7 @@
 				EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */,
 				EEBD779912393F7900174877 /* INIParser.cpp in Sources */,
 				EEBD796112395A2D00174877 /* Sound.cpp in Sources */,
+				EE0364E0123C68B20081A309 /* LuaManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
