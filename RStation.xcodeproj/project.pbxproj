@@ -11,8 +11,6 @@
 		2B75C4F71230545F00913E60 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B75C4F51230545F00913E60 /* TextureManager.cpp */; };
 		EE0364E0123C68B20081A309 /* LuaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0364DF123C68B20081A309 /* LuaManager.cpp */; };
 		EE1313BE122CFFF000511DD5 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE1313BD122CFFF000511DD5 /* Sprite.cpp */; };
-		EE2E83B3123CE6BF006309FC /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B1123CE6BF006309FC /* libvorbis.a */; };
-		EE2E83B4123CE6BF006309FC /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2E83B2123CE6BF006309FC /* libvorbisfile.a */; };
 		EE992BB9122B5F1F00884C21 /* bio.icns in Resources */ = {isa = PBXBuildFile; fileRef = EE992BB8122B5F1F00884C21 /* bio.icns */; };
 		EEB78D11123D815B00203906 /* class.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D00123D815B00203906 /* class.cpp */; };
 		EEB78D12123D815B00203906 /* class_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEB78D01123D815B00203906 /* class_info.cpp */; };
@@ -35,6 +33,9 @@
 		EEBD75AE1238BE1900174877 /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD75AD1238BE1900174877 /* ShaderManager.cpp */; };
 		EEBD779912393F7900174877 /* INILoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD779812393F7900174877 /* INILoader.cpp */; };
 		EEBD796112395A2D00174877 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBD796012395A2D00174877 /* Sound.cpp */; };
+		EEE4225E123E9C3100E471EB /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE4225D123E9C3100E471EB /* libogg.a */; };
+		EEE42285123E9E7100E471EB /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE42283123E9E7100E471EB /* libvorbis.a */; };
+		EEE42286123E9E7100E471EB /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE42284123E9E7100E471EB /* libvorbisfile.a */; };
 		EEF40B4F121D257D009F8F49 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B49121D257D009F8F49 /* GameLoop.cpp */; };
 		EEF40B50121D257D009F8F49 /* RStation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4B121D257D009F8F49 /* RStation.cpp */; };
 		EEF40B51121D257D009F8F49 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEF40B4D121D257D009F8F49 /* SceneManager.cpp */; };
@@ -155,8 +156,6 @@
 		EE0364DF123C68B20081A309 /* LuaManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaManager.cpp; sourceTree = "<group>"; };
 		EE1313BC122CFFF000511DD5 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		EE1313BD122CFFF000511DD5 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
-		EE2E83B1123CE6BF006309FC /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = RStation/osx/libvorbis.a; sourceTree = "<group>"; };
-		EE2E83B2123CE6BF006309FC /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = RStation/osx/libvorbisfile.a; sourceTree = "<group>"; };
 		EE992BB8122B5F1F00884C21 /* bio.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bio.icns; sourceTree = "<group>"; };
 		EEB78D00123D815B00203906 /* class.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
 		EEB78D01123D815B00203906 /* class_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_info.cpp; sourceTree = "<group>"; };
@@ -183,6 +182,9 @@
 		EEBD779812393F7900174877 /* INILoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INILoader.cpp; sourceTree = "<group>"; };
 		EEBD795F12395A2D00174877 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		EEBD796012395A2D00174877 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
+		EEE4225D123E9C3100E471EB /* libogg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libogg.a; path = "../rs-official/xcode/Libraries/libogg.a"; sourceTree = SOURCE_ROOT; };
+		EEE42283123E9E7100E471EB /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = RStation/osx/libvorbis.a; sourceTree = "<group>"; };
+		EEE42284123E9E7100E471EB /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = RStation/osx/libvorbisfile.a; sourceTree = "<group>"; };
 		EEF40B49121D257D009F8F49 /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
 		EEF40B4A121D257D009F8F49 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		EEF40B4B121D257D009F8F49 /* RStation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RStation.cpp; sourceTree = "<group>"; };
@@ -357,8 +359,9 @@
 				EEF7728612282C8800C6B4E7 /* CoreFoundation.framework in Frameworks */,
 				EEF7728812282C8800C6B4E7 /* OpenAL.framework in Frameworks */,
 				EEF7728A12282C8800C6B4E7 /* OpenGL.framework in Frameworks */,
-				EE2E83B3123CE6BF006309FC /* libvorbis.a in Frameworks */,
-				EE2E83B4123CE6BF006309FC /* libvorbisfile.a in Frameworks */,
+				EEE4225E123E9C3100E471EB /* libogg.a in Frameworks */,
+				EEE42285123E9E7100E471EB /* libvorbis.a in Frameworks */,
+				EEE42286123E9E7100E471EB /* libvorbisfile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,8 +401,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE2E83B1123CE6BF006309FC /* libvorbis.a */,
-				EE2E83B2123CE6BF006309FC /* libvorbisfile.a */,
+				EEE42283123E9E7100E471EB /* libvorbis.a */,
+				EEE42284123E9E7100E471EB /* libvorbisfile.a */,
+				EEE4225D123E9C3100E471EB /* libogg.a */,
 				EEF7728312282C8800C6B4E7 /* Cocoa.framework */,
 				EEF7728512282C8800C6B4E7 /* CoreFoundation.framework */,
 				EEF7728712282C8800C6B4E7 /* OpenAL.framework */,
@@ -527,12 +531,12 @@
 		EEF40DEB121FC636009F8F49 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				EEF40DC9121FC5AE009F8F49 /* Actor.h */,
 				EEF40DCA121FC5AE009F8F49 /* Actor.cpp */,
-				EEBD795F12395A2D00174877 /* Sound.h */,
+				EEF40DC9121FC5AE009F8F49 /* Actor.h */,
 				EEBD796012395A2D00174877 /* Sound.cpp */,
-				EE1313BC122CFFF000511DD5 /* Sprite.h */,
+				EEBD795F12395A2D00174877 /* Sound.h */,
 				EE1313BD122CFFF000511DD5 /* Sprite.cpp */,
+				EE1313BC122CFFF000511DD5 /* Sprite.h */,
 			);
 			name = Actors;
 			path = RStation;
@@ -566,10 +570,10 @@
 		EEF40EF5121FECDE009F8F49 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				EEF40EF6121FECF2009F8F49 /* KeyboardHandler.h */,
 				EEF40EF7121FECF2009F8F49 /* KeyboardHandler.cpp */,
-				EEF40EF2121FECD8009F8F49 /* MouseHandler.h */,
+				EEF40EF6121FECF2009F8F49 /* KeyboardHandler.h */,
 				EEF40EF3121FECD8009F8F49 /* MouseHandler.cpp */,
+				EEF40EF2121FECD8009F8F49 /* MouseHandler.h */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -927,6 +931,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/glfw/lib/cocoa\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../rs-official/xcode/Libraries\"",
+					"\"$(SRCROOT)/RStation/osx\"",
 				);
 				PRODUCT_NAME = RStation;
 				SKIP_INSTALL = NO;
@@ -949,6 +955,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/glfw/lib/cocoa\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../rs-official/xcode/Libraries\"",
+					"\"$(SRCROOT)/RStation/osx\"",
 				);
 				PRODUCT_NAME = RStation;
 				SKIP_INSTALL = NO;
@@ -1007,6 +1015,7 @@
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 				SYMROOT = "$(PROJECT_DIR)";
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
