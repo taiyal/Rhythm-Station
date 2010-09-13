@@ -21,20 +21,16 @@ namespace Game
 	}
 	void Run()
 	{
-		// so we can work out how long loading takes.
 		Timer timer;
-
-		Scene::PushScreen(); // push initial screen
-		{
-			Sprite* spr = new Sprite();
-			spr->Load("Themes/rstation-logo.png");
-			spr->Rotate(vec3(0,0,0));
-			spr->Register();
-		}
 
 		Scene::PushScreen(); // push overlay
 		{
-			Sprite* spr_mouse = new Sprite();
+			Sprite *spr = new Sprite();
+			spr->Load("Themes/rstation-logo.png");
+			spr->Rotate(vec3(0,0,0));
+			spr->Register();
+
+			Sprite *spr_mouse = new Sprite();
 			spr_mouse->Load("Themes/_arrow.png");
 			spr_mouse->Hook(RS_ATTACH_CURSOR);
 			int w, h;
@@ -45,7 +41,7 @@ namespace Game
 			spr_mouse->Scale(vec3(0.35,0.5,1));
 			spr_mouse->Register();
 
-			Sound* sound = new Sound();
+			Sound *sound = new Sound();
 			sound->Load("Themes/shield-9.ogg");
 			sound->Loop(true);
 			sound->Register();
@@ -75,7 +71,6 @@ namespace Game
 			Scene::Update(delta);
 			Scene::Draw();
 		}
-
 		Scene::Clear();
 	}
 }
