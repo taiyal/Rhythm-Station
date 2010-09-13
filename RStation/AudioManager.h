@@ -1,6 +1,8 @@
 #ifndef _AUDIO_H_
 #define _AUDIO_H_
 
+#include <string>
+
 #ifdef __APPLE__
 #include <OpenAL/al.h>
 #elif __WINDOWS__

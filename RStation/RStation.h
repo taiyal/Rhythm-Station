@@ -10,6 +10,7 @@
 #pragma comment(lib,"libpng.lib")
 #endif
 
+#include <cstdlib>
 #include <vector>
 #include "Log.h"
 #include "Type.h"
