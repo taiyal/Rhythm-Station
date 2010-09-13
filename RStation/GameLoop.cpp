@@ -23,7 +23,7 @@ namespace Game
 	{
 		// so we can work out how long loading takes.
 		Timer timer;
-		
+
 		Scene::PushScreen(); // push initial screen
 		{
 			Sprite* spr = new Sprite();
@@ -31,7 +31,7 @@ namespace Game
 			spr->Rotate(vec3(0,0,0));
 			spr->Register();
 		}
-		
+
 		Scene::PushScreen(); // push overlay
 		{
 			Sprite* spr_mouse = new Sprite();
@@ -44,13 +44,13 @@ namespace Game
 			spr_mouse->Rotate(vec3(0,0,-27));
 			spr_mouse->Scale(vec3(0.35,0.5,1));
 			spr_mouse->Register();
-			
+
 			Sound* sound = new Sound();
 			sound->Load("Themes/shield-9.ogg");
 			sound->Loop(true);
 			sound->Register();
 		}
-		
+
 		Log::Print("Loading took: " + timer.strAgo() + " seconds.");
 
 		// Init is done, flush the log.
