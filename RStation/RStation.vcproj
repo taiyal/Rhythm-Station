@@ -211,6 +211,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\INILoader.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\INILoader.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Log.cpp"
 				>
 			</File>
@@ -256,6 +264,14 @@
 			</File>
 			<File
 				RelativePath=".\Screen.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sound.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sound.h"
 				>
 			</File>
 			<File
@@ -343,6 +359,14 @@
 			Name="Managers"
 			>
 			<File
+				RelativePath=".\AudioManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\AudioManager.h"
+				>
+			</File>
+			<File
 				RelativePath=".\FileManager.cpp"
 				>
 			</File>
@@ -356,6 +380,14 @@
 			</File>
 			<File
 				RelativePath=".\InputManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\LuaManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LuaManager.h"
 				>
 			</File>
 			<File
