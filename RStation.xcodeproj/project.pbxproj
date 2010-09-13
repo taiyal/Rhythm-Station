@@ -558,8 +558,8 @@
 				EEF40FB3122144B9009F8F49 /* MessageManager.h */,
 				EEF40B4D121D257D009F8F49 /* SceneManager.cpp */,
 				EEF40B4E121D257D009F8F49 /* SceneManager.h */,
-				EEBD75AC1238BE1900174877 /* ShaderManager.h */,
 				EEBD75AD1238BE1900174877 /* ShaderManager.cpp */,
+				EEBD75AC1238BE1900174877 /* ShaderManager.h */,
 				2B75C4F51230545F00913E60 /* TextureManager.cpp */,
 				2B75C4F61230545F00913E60 /* TextureManager.h */,
 			);

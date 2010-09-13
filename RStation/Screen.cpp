@@ -2,11 +2,7 @@
 #include "Primitives.h"
 #include "GameLoop.h"
 
-Screen::Screen()
-{
-//	alphaLoc = glGetUniformLocation(shader->getProgram(),"overlay_alpha");
-//	glUniform1f(alphaLoc, alpha);
-}
+Screen::Screen() { }
 
 Screen::~Screen()
 {

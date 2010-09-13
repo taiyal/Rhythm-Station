@@ -92,7 +92,7 @@ int sine_wave()
 	int samples = 16;
 	int frequency = 200;
 	freq = samples * frequency;
-	size = 32000; // 32k buffer
+	size = 16384; // 16k buffer
 	
 	// build the sine wave
 	sineWave = new unsigned char[size];
@@ -110,7 +110,6 @@ int sine_wave()
 		return -2;
 
 	alSourcei(sound->source, AL_LOOPING, (ALboolean)true);
-	alSourcef(sound->source, AL_PITCH, 1.0f);
 	alSourcei(sound->source, AL_BUFFER, sound->buffer);
 	alSourcef(sound->source, AL_GAIN, 0.5f); // volume
 

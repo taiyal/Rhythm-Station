@@ -28,6 +28,7 @@ namespace Game
 			Sprite *spr = new Sprite();
 			spr->Load("Themes/rstation-logo.png");
 			spr->Rotate(vec3(0,0,0));
+			spr->Glow(rgba(0.2,0.2,0.2,0));
 			spr->Register();
 
 			Sprite *spr_mouse = new Sprite();
@@ -48,7 +49,6 @@ namespace Game
 		}
 
 		Log::Print("Loading took: " + timer.strAgo() + " seconds.");
-
 		// Init is done, flush the log.
 		Log::Write();
 

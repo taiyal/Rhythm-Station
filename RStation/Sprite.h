@@ -17,8 +17,9 @@ public:
 	void SetFrames(vec2 frames);
 
 	void Color(rgba _col);
-	void ColorAdd(rgba _col);
+	void Glow(rgba _col);
 	rgba getColor();
+	rgba getGlow();
 
 	int getWidth();
 	int getHeight();
@@ -29,12 +30,12 @@ public:
 	void Draw();
 
 protected:
-	rgba ob_color;
+	rgba ob_color, ob_glow;
 
 	ImageLoader* ob_texture;
 	ShaderLoader* ob_shader;
 	
-	GLuint ob_buffer;
+	GLuint ob_buffer, ob_pColor, ob_pGlow;
 };
 
 #endif
