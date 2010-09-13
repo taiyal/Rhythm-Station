@@ -29,12 +29,16 @@ Sound::Sound()
 	alGenBuffers(1, &sd_sound->buffer);
 	alGenSources(1, &sd_sound->source);
 
+	ALenum err = alGetError();
+	if (err)
+		Log::Print("[Sound::Sound] Error generating buffers.");
 	sd_waiting = false;
 }
 
 Sound::~Sound()
 {
 	this->deleteBuffers();
+	delete sd_sound;
 }
 
 void Sound::deleteBuffers()
