@@ -3,4 +3,6 @@
 
 #include "RStation.h"
 
+void lua_testLoad();
+
 #endif

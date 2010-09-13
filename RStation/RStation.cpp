@@ -8,6 +8,7 @@
 #include "AudioManager.h"
 #include "INILoader.h"
 #include "MathUtils.h"
+#include "LuaManager.h"
 
 INILoader* ini = new INILoader();
 
@@ -100,6 +101,8 @@ int main(int argc, char** argv)
 		Log::Print("OpenGL 2.0 is not supported. You may need to update your drivers.");
 		return 1;
 	}
+
+	lua_testLoad();
 
 	// Set up our defaults and pass control.
 	SetInitialStates();
