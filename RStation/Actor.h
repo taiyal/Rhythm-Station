@@ -24,16 +24,18 @@ public:
 	virtual void Offset(vec3 _offset) { ob_offset = _offset; }
 	virtual void Rotate(vec3 _rot) { ob_rot = _rot; }
 	virtual void Scale(vec3 _scale) { ob_scale = _scale; }
+	void Visible(bool _visible) { ob_visible = _visible; }
 
 	virtual vec3 getPosition() { return ob_pos; }
 	virtual vec3 getOffset() { return ob_offset; }
 	virtual vec3 getRotate() { return ob_rot; }
 	virtual vec3 getScale() { return ob_scale; }
+	bool getVisible() { return ob_visible; }
 
 protected:
 	vec3 ob_pos, ob_rot, ob_scale, ob_offset;
 
-	bool isHooked;
+	bool isHooked, ob_visible;
 
 	Actor *parent;
 	std::vector<Actor*> vpChildren;

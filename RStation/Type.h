@@ -90,7 +90,8 @@ public:
 	rgba( float _rgb ) { r = g = b = _rgb; a = 1.0f; }
 	rgba( float _rgb, float _a ) { r = g = b = _rgb; a = _a; }
 	rgba( const float * f )				{ r=f[0]; g=f[1]; b=f[2]; a=f[3]; }
-	rgba( float r1, float g1, float b1, float a1 )	{ r=r1; g=g1; b=b1; a=a1; }
+	rgba( float r1, float g1, float b1 ) { r=r1; g=g1; b=b1; a=1.0f; }
+	rgba( float r1, float g1, float b1, float a1 ) { r=r1; g=g1; b=b1; a=a1; }
 	
 	// casting
 	operator float* ()					{ return &r; };
