@@ -67,39 +67,41 @@ vec4 toRGB( vec4 color )
 	color.r /= 60.0;
 	float i = floor(color.r);
 
-	tmp.x = color.r - i;
-	tmp.y = color.b * (1.0 - color.g);
-	tmp.z = color.b * (1.0 - color.g * tmp.x);
-	tmp.w = color.b * (1.0 - color.g * ( 1.0 - tmp.x));
+	tmp.r = color.r - i;
+	tmp.g = color.b * (1.0 - color.g);
+	tmp.b = color.b * (1.0 - color.g * tmp.r);
+	tmp.a = color.b * (1.0 - color.g * (1.0 - tmp.r));
 
 	// else if is implicit since the previous would return if true.
 	if (i == 0.0)
-		return vec4(color.b, tmp.w, tmp.y, color.a);
+		return vec4(color.b, tmp.a, tmp.g, color.a);
 	if (i == 1.0)
-		return vec4(tmp.z, color.b, tmp.y, color.a);
+		return vec4(tmp.b, color.b, tmp.g, color.a);
 	if (i == 2.0)
-		return vec4(tmp.y, color.b, tmp.w, color.a);
+		return vec4(tmp.g, color.b, tmp.a, color.a);
 	if (i == 3.0)
-		return vec4(tmp.y, tmp.z, color.b, color.a);
+		return vec4(tmp.g, tmp.b, color.b, color.a);
 	if (i == 4.0)
-		return vec4(tmp.w, tmp.y, color.b, color.a);
-	return vec4(color.b, tmp.y, tmp.z, color.a);
+		return vec4(tmp.a, tmp.g, color.b, color.a);
+	return vec4(color.b, tmp.g, tmp.b, color.a);
 }
 
 void main()
 {
 	vec4 texture = texture2D(tex, gl_TexCoord[0].st);
+	texture *= mult_color; // vec4(1.0);
+	texture += add_color; // vec4(0.2);
+
 	/*
 	 * This seems to mess with the brightness for some reason.
 	 * Additionally, it seems to make add_color not work on black.
 	 * I'm not sure what's going on here.
+	 * Workaround: multiply/add stuff before color shifting.
 	 */
 	texture = toHSV(texture);
-	texture.x += hue_shift;
-	texture.y += sat_shift;
+	texture.r += hue_shift;
+	texture.g += sat_shift;
 	texture = toRGB(texture);
-	texture *= mult_color; // vec4(1.0);
-	texture += add_color; // vec4(0.2);
 
 	gl_FragColor = texture;
 }
