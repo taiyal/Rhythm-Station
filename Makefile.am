@@ -1,7 +1,7 @@
 # Binaries
 noinst_PROGRAMS = rstation
 
-rstation_LDADD = $(DEPENDENCIES_LIBS)
+rstation_LDADD = $(DEPENDENCIES_LIBS) -lz
 rstation_SOURCES= \
 RStation/Actor.cpp \
 RStation/Actor.h \

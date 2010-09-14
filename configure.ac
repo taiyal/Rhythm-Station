@@ -12,8 +12,12 @@ AC_CONFIG_FILES([
 	Makefile
 ])
 
-PKG_CHECK_MODULES([DEPENDENCIES],[gl glew libglfw libpng14 zlib openal freealut vorbisfile lua],[],[
-	AC_MSG_ERROR([All dependencies were not fulfilled!])
+PKG_CHECK_MODULES([DEPENDENCIES],[gl glew libglfw libpng14 openal freealut vorbisfile lua],[],[
+	AC_MSG_ERROR([All dependencies were not fulfilled: $DEPENDENCIES_PKG_ERRORS])
+])
+
+AC_CHECK_HEADER([zlib.h],[],[
+	AC_MSG_ERROR([All dependencies were not fulfilled: zlib was not found.])	
 ])
 
 AC_OUTPUT
