@@ -26,7 +26,7 @@ namespace Game
 		{
 			Sprite *spr = new Sprite();
 			spr->Load("Themes/rstation-logo.png");
-			spr->Glow(rgba(0.125f, 0.125f, 0.125f, 0.0f));
+			spr->Glow(rgba(0.25f, 0.25f, 0.25f, 0.0f));
 			spr->Register();
 
 			Sprite *spr_mouse = new Sprite();
