@@ -45,7 +45,7 @@ The code is a bit inconsistent right now, I apologize.
 
 [Contact]
 Feel free to drop by #rhythm-station on irc.freenode.net! If you would like to
-contact me directly you can do it there, though github, though email at
+contact me directly you can do it there, though github, or through email at
 shakesoda+rstation at gmail dot com.
 
 [Compiling on Linux/gcc]
