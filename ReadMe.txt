@@ -49,7 +49,12 @@ contact me directly you can do it there, though github, or through email at
 shakesoda+rstation at gmail dot com.
 
 [Compiling on Linux/gcc]
-Make sure you've installed:
-- gl, glew, libglfw
-- libpng14, zlib
-- openal, freealut, vorbisfile
+At the moment linux compiling is pretty straight forward:
+  1. Make sure that you have following installed:
+    - gl, glew, libglfw
+    - libpng14, zlib, lua
+    - openal, freealut, vorbisfile
+  2. After cloning, run "autoreconf --install"
+  3. Run "./configure"
+  4. If everything went well, you can now run "make"
+  5. After compiling, "./rstation"
