@@ -18,8 +18,12 @@ public:
 
 	void Color(rgba _col);
 	void Glow(rgba _col);
+	void Hue(float _hue) { ob_hueShift = _hue; }
+	void Saturation(float _sat) { ob_satShift = _sat; }
 	rgba getColor();
 	rgba getGlow();
+	float getHue() { return ob_hueShift; }
+	float getSaturation() { return ob_satShift; }
 
 	int getWidth();
 	int getHeight();

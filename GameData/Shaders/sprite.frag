@@ -90,7 +90,7 @@ void main()
 {
 	vec4 texture = texture2D(tex, gl_TexCoord[0].st);
 	texture *= mult_color; // vec4(1.0);
-//	texture += add_color; // vec4(0.2);
+	texture += add_color; // vec4(0.2);
 
 	/*
 	 * This seems to mess with the brightness for some reason.
