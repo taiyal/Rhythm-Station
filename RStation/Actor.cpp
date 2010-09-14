@@ -3,12 +3,12 @@
 #include "SceneManager.h"
 
 Actor::Actor() :
-	ob_scale(vec3(1.0f)),
 	ob_pos(vec3(0.0f)),
-	ob_offset(vec3(0.0f)),
 	ob_rot(vec3(0.0f)),
-	ob_visible(true),
-	isHooked(false)
+	ob_scale(vec3(1.0f)),
+	ob_offset(vec3(0.0f)),
+	isHooked(false),
+	ob_visible(true)
 { /* only used to initialize variables */ }
 
 void Actor::AddChild(Actor *child)
