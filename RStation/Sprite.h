@@ -30,12 +30,13 @@ public:
 	void Draw();
 
 protected:
+	float ob_hueShift, ob_satShift;
 	rgba ob_color, ob_glow;
 
 	ImageLoader* ob_texture;
 	ShaderLoader* ob_shader;
 	
-	GLuint ob_buffer, ob_pColor, ob_pGlow;
+	GLuint ob_buffer, ob_pColor, ob_pGlow, ob_pHueShift, ob_pSatShift;
 };
 
 #endif

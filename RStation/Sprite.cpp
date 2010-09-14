@@ -2,7 +2,11 @@
 #include "PNGLoader.h"
 #include "Primitives.h"
 
-Sprite::Sprite() : ob_color(rgba(1.f)), ob_glow(rgba(0.f, 0.f))
+Sprite::Sprite() :
+	ob_color(rgba(1.f)),
+	ob_glow(rgba(0.f, 0.f)),
+	ob_satShift(0.0f),
+	ob_hueShift(0.0f)
 {
 	ob_texture = new ImageLoader(); // make sure this exists!
 	ob_shader = new ShaderLoader();
@@ -33,8 +37,10 @@ void Sprite::Load(std::string _path)
 	ob_texture = new PNGLoader();
 	ob_texture->Load(_path);
 	ob_shader->Load("sprite.vert","sprite.frag");
-	ob_pColor = glGetUniformLocation(ob_shader->getProgram(), "color");
-	ob_pGlow = glGetUniformLocation(ob_shader->getProgram(), "glow");
+	ob_pColor = glGetUniformLocation(ob_shader->getProgram(), "mult_color");
+	ob_pGlow = glGetUniformLocation(ob_shader->getProgram(), "add_color");
+	ob_pHueShift = glGetUniformLocation(ob_shader->getProgram(), "hue_shift");
+	ob_pSatShift = glGetUniformLocation(ob_shader->getProgram(), "sat_shift");
 }
 
 void Sprite::SetFrames(vec2 frames)
@@ -52,7 +58,10 @@ void Sprite::Draw()
 	ob_shader->Bind();
 	glUniform4f(ob_pGlow, ob_glow.r, ob_glow.g, ob_glow.b, ob_glow.a);
 	glUniform4f(ob_pColor, ob_color.r, ob_color.g, ob_color.b, ob_color.a);
-
+	
+	glUniform1f(ob_pHueShift, ob_hueShift);
+	glUniform1f(ob_pSatShift, ob_satShift);
+	
 	Primitive::Quad(vec2(ob_texture->getWidth(), ob_texture->getHeight()));
 	ob_shader->Unbind();
 	ob_texture->Unbind();
