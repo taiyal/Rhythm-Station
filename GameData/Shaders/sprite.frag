@@ -1,7 +1,3 @@
-/*
- * Converted from http://www.cs.rit.edu/~ncs/color/t_convert.html
-*/
-
 uniform sampler2D tex;
 
 uniform float hue_shift;
@@ -9,6 +5,11 @@ uniform float sat_shift;
 
 uniform vec4 add_color;
 uniform vec4 mult_color;
+
+/*
+ * HSV <-> RGB
+ * Converted from http://www.cs.rit.edu/~ncs/color/t_convert.html
+*/
 
 vec4 toHSV( vec4 color )
 {
