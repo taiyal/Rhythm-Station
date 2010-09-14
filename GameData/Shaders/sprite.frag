@@ -17,7 +17,7 @@ vec4 toHSV( vec4 color )
 	float fMin, fMax, delta;
 
 	// compute V
-	fMin = min(max(color.r, color.g), color.b);
+	fMin = min(min(color.r, color.g), color.b);
 	fMax = max(max(color.r, color.g), color.b);
 	v = fMax;
 
@@ -61,27 +61,27 @@ vec4 toRGB( vec4 color )
 		color.r -= 360.0;
 
 	// no saturation, skip the rest.
-	if (color.g == 0.0)
+	if (clamp(color.g,0.0,1.0) == 0.0)
 		return vec4(vec3(color.b),color.a);
 
 	color.r /= 60.0;
-	float i = floor(color.r);
+	int i = int(floor(color.r));
 
-	tmp.r = color.r - i;
+	tmp.r = color.r - floor(color.r);
 	tmp.g = color.b * (1.0 - color.g);
 	tmp.b = color.b * (1.0 - color.g * tmp.r);
 	tmp.a = color.b * (1.0 - color.g * (1.0 - tmp.r));
 
 	// else if is implicit since the previous would return if true.
-	if (i == 0.0)
+	if (i == 0)
 		return vec4(color.b, tmp.a, tmp.g, color.a);
-	if (i == 1.0)
+	if (i == 1)
 		return vec4(tmp.b, color.b, tmp.g, color.a);
-	if (i == 2.0)
+	if (i == 2)
 		return vec4(tmp.g, color.b, tmp.a, color.a);
-	if (i == 3.0)
+	if (i == 3)
 		return vec4(tmp.g, tmp.b, color.b, color.a);
-	if (i == 4.0)
+	if (i == 4)
 		return vec4(tmp.a, tmp.g, color.b, color.a);
 	return vec4(color.b, tmp.g, tmp.b, color.a);
 }
@@ -90,7 +90,7 @@ void main()
 {
 	vec4 texture = texture2D(tex, gl_TexCoord[0].st);
 	texture *= mult_color; // vec4(1.0);
-	texture += add_color; // vec4(0.2);
+//	texture += add_color; // vec4(0.2);
 
 	/*
 	 * This seems to mess with the brightness for some reason.
