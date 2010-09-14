@@ -166,8 +166,3 @@ void ShaderLoader::Unbind()
 {
 	glUseProgram(0);
 }
-
-GLuint ShaderLoader::getProgram()
-{
-	return shader.ptr;
-}

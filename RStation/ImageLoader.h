@@ -12,7 +12,7 @@
 class ImageLoader
 {
 public:
-	ImageLoader();
+	ImageLoader() { }
 	virtual ~ImageLoader();
 
 	virtual void Load(std::string _path) { }
@@ -21,11 +21,12 @@ public:
 	void Bind();
 	void Unbind();
 
-	GLuint getTexture();
-	unsigned getWidth();
-	unsigned getHeight();
+	GLuint getTexture() { return im_texture.ptr; }
+	unsigned getWidth() { return im_texture.width; }
+	unsigned getHeight() { return im_texture.height; }
 
-	void setTexture(Texture tex); // texture pointer
+	// texture pointer
+	void setTexture(Texture _tex) { im_texture = _tex; }
 
 private:
 	Texture im_texture;

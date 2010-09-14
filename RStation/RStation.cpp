@@ -31,6 +31,9 @@ void GLFWCALL ResizeViewport(int w, int h)
 
 	// the frame buffer is usually full of junk after resize. clear it.
 	glClear(GL_COLOR_BUFFER_BIT);
+	
+	// (re)register mouse callback.
+	RegisterMouseCallbacks();
 }
 
 void SetInitialStates()
@@ -63,7 +66,6 @@ void InitWindow(int _width, int _height)
 
 	glfwSetWindowSizeCallback(ResizeViewport);
 	RegisterKeyboardCallbacks();
-	RegisterMouseCallbacks();
 }
 
 // TODO: handle command line args for windows and unix

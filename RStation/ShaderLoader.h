@@ -35,7 +35,7 @@ public:
 	void Unbind();
 
 	// if we would like to store this elsewhere.
-	GLuint getProgram();
+	GLuint getProgram() { return shader.ptr; }
 
 //	void AddUniform(std::string name, float value);
 //	void AddUniform(std::string name, vec2 value);
