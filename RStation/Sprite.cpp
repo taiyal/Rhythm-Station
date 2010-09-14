@@ -1,12 +1,13 @@
+#include <GL/glew.h>
 #include "Sprite.h"
 #include "PNGLoader.h"
 #include "Primitives.h"
 
 Sprite::Sprite() :
-	ob_color(rgba(1.f)),
-	ob_glow(rgba(0.f, 0.f)),
+	ob_hueShift(0.0f),
 	ob_satShift(0.0f),
-	ob_hueShift(0.0f)
+	ob_color(rgba(1.f)),
+	ob_glow(rgba(0.f, 0.f))
 {
 	ob_texture = new ImageLoader(); // make sure this exists!
 	ob_shader = new ShaderLoader();

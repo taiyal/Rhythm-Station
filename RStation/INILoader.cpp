@@ -28,11 +28,19 @@ void INILoader::Load(string _path)
 		// multi-character comments
 		// // comment
 		size_t pos = line.find("//");
+<<<<<<< HEAD
 		if (pos == string::npos)
 			line = line.substr(0,pos);
 		// -- comment
 		pos = line.find("--");
 		if (pos == string::npos)
+=======
+		if ((pos = string::npos))
+			line = line.substr(0,pos);
+		// -- comment
+		pos = line.find("--");
+		if ((pos = string::npos))
+>>>>>>> 941e6be2d1fd37862d9863fff821b90cf2e6c2df
 			line = line.substr(0,pos);
 
 		// sections

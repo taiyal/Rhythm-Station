@@ -12,7 +12,7 @@ AC_CONFIG_FILES([
 	Makefile
 ])
 
-PKG_CHECK_MODULES([DEPENDENCIES],[gl glew libglfw libpng14 zlib openal freealut vorbisfile],[],[
+PKG_CHECK_MODULES([DEPENDENCIES],[gl glew libglfw libpng14 zlib openal freealut vorbisfile lua],[],[
 	AC_MSG_ERROR([All dependencies were not fulfilled!])
 ])
 
