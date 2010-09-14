@@ -89,19 +89,21 @@ vec4 toRGB( vec4 color )
 void main()
 {
 	vec4 texture = texture2D(tex, gl_TexCoord[0].st);
-	texture *= mult_color; // vec4(1.0);
-	texture += add_color; // vec4(0.2);
+	texture *= mult_color;
+	texture += add_color;
 
-	/*
-	 * This seems to mess with the brightness for some reason.
-	 * Additionally, it seems to make add_color not work on black.
-	 * I'm not sure what's going on here.
-	 * Workaround: multiply/add stuff before color shifting.
-	 */
-	texture = toHSV(texture);
-	texture.r += hue_shift;
-	texture.g += sat_shift;
-	texture = toRGB(texture);
+	// Only do this if needed.
+	if (hue_shift != 0.0 || sat_shift != 0.0)
+	{
+		/*
+		 * For some reason this makes add/mult color behave oddly.
+		 * Workaround: multiply/add stuff before color shifting.
+		 */
+		texture = toHSV(texture);
+		texture.r += hue_shift;
+		texture.g += sat_shift;
+		texture = toRGB(texture);
+	}
 
 	gl_FragColor = texture;
 }
