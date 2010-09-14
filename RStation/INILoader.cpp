@@ -14,25 +14,33 @@ void INILoader::Load(string _path)
 	for (unsigned i = 0; i<lines.size(); i++)
 	{
 		string line = lines[i];
+		
+		// first-character comments
 		switch (line[0])
 		{
-		case '#':	// # comment
-		case ';':	// ; comment
+		case '#':
+		case ';':
 			continue;
-		case '-':	// -- comment
-			if (line[1] == '-')
-				continue;
-		case '/':	// // comment
-			if (line[1] == '/')
-				continue;
 		default:
 			break;
 		}
+		
+		// multi-character comments
+		// // comment
+		size_t pos = line.find("//");
+		if (pos = string::npos)
+			line = line.substr(0,pos);
+		// -- comment
+		pos = line.find("--");
+		if (pos = string::npos)
+			line = line.substr(0,pos);
+
+		// sections
 		if (line[0] == '[' && line[line.size()-1] == ']')
 			current_section = line.substr(1,line.size()-2);
 		if (!current_section.empty())
 		{
-			size_t pos;
+			// split key=value pairs and put them in our map
 			pos = line.find("=");
 			if(pos == string::npos)
 				continue;
