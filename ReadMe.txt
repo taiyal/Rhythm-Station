@@ -22,6 +22,10 @@ if(foo)
 void foo(_bar) : baz()
 {
 	baz = _bar;
+	
+	// * on the right
+	int *var = new int[1];
+	delete var;
 }
 
 class Test : public Stuff
@@ -37,13 +41,15 @@ Actors. However one would assume that deltaTime is always a float, so no "f"
 prefix is needed. For multi-word variables use underscores for space, for'
 vars passed in as arguments prefix names with underscores, and CamelCase funcs.
 
+The code is a bit inconsistent right now, I apologize.
+
 [Contact]
-I can usually be found in #shakesoda on irc.freenode.net, or you can email me
-at shakesoda+rstation at gmail dot com. #shakesoda is, at this point, the
-official channel for Rhythm-Station.
+Feel free to drop by #rhythm-station on irc.freenode.net! If you would like to
+contact me directly you can do it there, though github, though email at
+shakesoda+rstation at gmail dot com.
 
 [Compiling on Linux/gcc]
-Make sure you've installed GLEW, GLFW, libpng, zlib, openal (and alut)
-
-Then just run make in the root directory. Note: the Makefile is very basic
-and was hacked together in about 2 minutes.
+Make sure you've installed:
+- gl, glew, libglfw
+- libpng14, zlib
+- openal, freealut, vorbisfile
